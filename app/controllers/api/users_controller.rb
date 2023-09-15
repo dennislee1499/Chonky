@@ -11,9 +11,9 @@ class Api::UsersController < ApplicationController
 
         if @user.save
             login(@user)
-            render :show
+            render 'api/users/show'
         else
-            render json: @user.errors.full_messages, status: 422
+            render json: { errors: @user.errors.full_messages}, status: 422
         end
 
     rescue ActiveRecord::RecordNotUnique => e 
