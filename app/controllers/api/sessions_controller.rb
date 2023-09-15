@@ -1,12 +1,21 @@
 class Api::SessionsController < ApplicationController
-    skip_before_action :verify_authenticity_token
+    # skip_before_action :verify_authenticity_token
 
-    before_action :require_logged_in, only: [:create]
-    before_action :require_logged_in, only: [:destroy]
+    before_action :require_logged_in, only: [:create, :destroy]
     
-     def show
+    #  def show
+    #     @user = current_user
+    #     if @user
+    #         render 'api/users/show'
+    #     else
+    #         render json: { user: nil }
+    #     end
+    # end
+
+    def show
         @user = current_user
         if @user
+            response.set_header('X-CSRF-Token', form_authenticity_token)
             render 'api/users/show'
         else
             render json: { user: nil }

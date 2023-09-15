@@ -1,4 +1,4 @@
-
+import { csrfFetch } from "./csrf";
 
 // ACTION TYPES
 const RECEIVE_USER = "users/RECEIVE_USER";
@@ -21,7 +21,6 @@ const userReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_USER:
-      debugger;
       nextState[action.payload.id] = action.payload;
       return nextState;
     case REMOVE_USER:
@@ -41,7 +40,6 @@ const userReducer = (state = {}, action) => {
         });
         let data = await res.json();
         sessionStorage.setItem('currentUser', JSON.stringify(data.user));
-        debugger
         dispatch(receiveUser(data.user))
     };
 
@@ -53,14 +51,38 @@ const userReducer = (state = {}, action) => {
         dispatch(removeUser(userId));
     }
 
-    export const createUser = user => async dispatch => {
-        let res = await csrfFetch('/api/users', {
-            method: 'POST',
-            body: JSON.stringify(user)
+    // export const createUser = user => async dispatch => {
+    //     let res = await csrfFetch('/api/users', {
+    //         method: 'POST',
+    //         body: JSON.stringify(user)
+    //     });
+    //     let data = await res.json();
+    //     sessionStorage.setItem('currentUser', JSON.stringify(data.user));
+    //     dispatch(receiveUser(data.user));
+    // }
+
+    export const createUser = (user) => async (dispatch) => {
+      try {
+        let res = await csrfFetch("/api/users", {
+          method: "POST",
+          body: JSON.stringify(user),
         });
-        let data = await res.json();
-        sessionStorage.setItem('currentUser', JSON.stringify(data.user));
-        dispatch(receiveUser(data.user));
-    }
+        if (res.ok) {
+          let data = await res.json();
+          sessionStorage.setItem("currentUser", JSON.stringify(data.user));
+          dispatch(receiveUser(data.user));
+          return data; // Ensuring data is returned when the response is okay
+        } else {
+          let errorData = await res.json(); // Get error message from response body if available
+          throw new Error(
+            "Network response was not ok: " +
+              (errorData.message || res.statusText)
+          );
+        }
+      } catch (error) {
+        console.error("Error during user creation:", error);
+        throw error; // This will allow calling code to handle the error as well
+      }
+    };
 
 export default userReducer;

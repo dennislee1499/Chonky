@@ -1,19 +1,22 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { restoreSession } from "./store/csrf";
-import { createUser, loginUser, logoutUser } from "./store/userReducer";
+import { createUser, loginUser, logoutUser, default as userReducer } from "./store/usersReducer";
 import { Provider } from "react-redux";
 import { combineReducers, createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import userReducer from './store/usersReducer';
-
 
 
 window.createUser = createUser;
 window.loginUser = loginUser;
 window.logoutUser = logoutUser;
+window.restoreSession = restoreSession;
+
+
+
 
 let currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
 let initialState = {};
@@ -32,6 +35,7 @@ const rootReducer = combineReducers({
 });
 
 const store = createStore(rootReducer, initialState, applyMiddleware(thunk));
+window.dispatch = store.dispatch;
 
 
 
