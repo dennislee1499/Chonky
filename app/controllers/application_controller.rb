@@ -1,10 +1,10 @@
 class ApplicationController < ActionController::API
 
-    # before_action :snake_case_params, :attach_authenticity_token
     include ActionController::RequestForgeryProtection
 
     protect_from_forgery with: :exception
     rescue_from ActionController::InvalidAuthenticityToken, with: :invalid_authenticity_token
+
     helper_method :current_user, :logged_in?
 
 def current_user 

@@ -1,10 +1,10 @@
 class Api::UsersController < ApplicationController
       
-    skip_before_action :verify_authenticity_token
-
-    wrap_parameters include: User.attribute_names + ['password']
+    # skip_before_action :verify_authenticity_token
 
     before_action :require_logged_out, only: [:create]
+    wrap_parameters include: User.attribute_names + ['password']
+
     
     def create
         @user = User.new(user_params)
