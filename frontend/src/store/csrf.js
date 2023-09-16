@@ -39,9 +39,18 @@ async function csrfFetch(url, options = {}) {
   if (response.status >= 400) {
     const errorData = await response.json();
     console.error("Complete error response:", errorData);
+    // throw new Error(
+    //   `Error from server: ${
+    //     errorData.message || errorData.errors.join(", ") || "Unknown error"
+    //   }`
+    // );
     throw new Error(
       `Error from server: ${
-        errorData.message || errorData.errors.join(", ") || "Unknown error"
+        errorData.message ||
+        (Array.isArray(errorData.errors)
+          ? errorData.errors.join(", ")
+          : errorData.errors) ||
+        "Unknown error"
       }`
     );
   }

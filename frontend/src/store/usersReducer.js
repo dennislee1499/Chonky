@@ -78,6 +78,10 @@ export const signupUser = (user) => async (dispatch) => {
   try {
     const csrfToken = await fetchCsrfToken();
     const { fullName, email, password } = user;
+
+    console.log({ fullName, email, password });
+
+
     const res = await csrfFetch("/api/users", {
       method: "POST",
       headers: {
