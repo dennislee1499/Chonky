@@ -1,88 +1,145 @@
-import { csrfFetch } from "./csrf";
+import csrfFetch from "./csrf.js";
 
-// ACTION TYPES
-const RECEIVE_USER = "users/RECEIVE_USER";
-const REMOVE_USER = "users/REMOVE_USER";
+const SET_CURRENT_USER = "session/setCurrentUser";
+const REMOVE_CURRENT_USER = "session/removeCurrentUser";
 
-// ACTION CREATORS
-export const receiveUser = (user) => ({
-  type: RECEIVE_USER,
+const setCurrentUser = (user) => ({
+  type: SET_CURRENT_USER,
   payload: user,
 });
 
-export const removeUser = (userId) => ({
-  type: REMOVE_USER,
-  userId, 
+const removeCurrentUser = () => ({
+  type: REMOVE_CURRENT_USER,
 });
 
-// REDUCER
-const userReducer = (state = {}, action) => {
-  const nextState = { ...state };
+const storeCSRFToken = (response) => {
+  const csrfToken = response.headers.get("X-CSRF-Token");
+  if (csrfToken) sessionStorage.setItem("X-CSRF-Token", csrfToken);
+};
 
+const storeCurrentUser = (user) => {
+  if (user) sessionStorage.setItem("currentUser", JSON.stringify(user));
+  else sessionStorage.removeItem("currentUser");
+};
+
+
+async function fetchCsrfToken() {
+  try {
+    const response = await fetch("http://localhost:5000/api/csrf", {
+      method: "GET",
+      credentials: "include",
+    });
+    const data = await response.json();
+    return data.csrf_token;
+  } catch (error) {
+    console.error("Error fetching CSRF token:", error);
+  }
+}
+
+
+export const loginUser =
+  ({ email, password }) =>
+  async (dispatch) => {
+    try {
+      const csrfToken = await fetchCsrfToken();
+      const res = await csrfFetch("/api/session", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-Token": csrfToken,
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await res.json();
+      storeCurrentUser(data.user);
+      dispatch(setCurrentUser(data.user));
+      return res;
+    } catch (error) {
+      console.error("Error logging in user:", error.message);
+    }
+  };
+
+
+
+export const restoreSession = () => async (dispatch) => {
+  const res = await csrfFetch("/api/session", {
+    method: "GET",
+  });
+  storeCSRFToken(res);
+  const data = await res.json();
+  storeCurrentUser(data.user);
+  dispatch(setCurrentUser(data.user));
+  return res;
+};
+
+
+
+export const signupUser = (user) => async (dispatch) => {
+  try {
+    const csrfToken = await fetchCsrfToken();
+    const { email, password } = user;
+    const res = await csrfFetch("/api/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token": csrfToken,
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
+    const data = await res.json();
+    storeCurrentUser(data.user);
+    dispatch(setCurrentUser(data.user));
+    return res;
+  } catch (error) {
+    console.error("Error signing up user:", error);
+  }
+};
+
+
+
+
+
+export const logoutUser = () => async (dispatch) => {
+  try {
+    const csrfToken = await fetchCsrfToken();
+    const res = await csrfFetch("/api/session", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token": csrfToken,
+      },
+    });
+    if (res.ok) {
+      storeCurrentUser(null);
+      dispatch(removeCurrentUser());
+    } else {
+      const errorData = await res.json();
+      console.error("Logout error:", errorData);
+    }
+    return res;
+  } catch (error) {
+    console.error("Logout error:", error.message);
+  }
+};
+
+
+
+const initialState = {
+  user: JSON.parse(sessionStorage.getItem("currentUser")),
+};
+
+const usersReducer = (state = initialState, action) => {
   switch (action.type) {
-    case RECEIVE_USER:
-      nextState[action.payload.id] = action.payload;
-      return nextState;
-    case REMOVE_USER:
-      delete nextState[action.userId];
-      return nextState;
+    case SET_CURRENT_USER:
+      return { ...state, user: action.payload };
+    case REMOVE_CURRENT_USER:
+      return { ...state, user: null };
     default:
       return state;
   }
 };
 
-
- // THUNK ACTION CREATORS
-    export const loginUser = user => async dispatch => {
-        let res = await csrfFetch('/api/session', {
-            method: 'POST',
-            body: JSON.stringify(user)
-        });
-        let data = await res.json();
-        sessionStorage.setItem('currentUser', JSON.stringify(data.user));
-        dispatch(receiveUser(data.user))
-    };
-
-    export const logoutUser = userId => async dispatch => {
-        let res = await csrfFetch('/api/session', {
-            method: 'DELETE'
-        });
-        sessionStorage.setItem('currentUser', null)
-        dispatch(removeUser(userId));
-    }
-
-    // export const createUser = user => async dispatch => {
-    //     let res = await csrfFetch('/api/users', {
-    //         method: 'POST',
-    //         body: JSON.stringify(user)
-    //     });
-    //     let data = await res.json();
-    //     sessionStorage.setItem('currentUser', JSON.stringify(data.user));
-    //     dispatch(receiveUser(data.user));
-    // }
-
-    export const createUser = (user) => async (dispatch) => {
-      try {
-        let res = await csrfFetch("/api/users", {
-          method: "POST",
-          body: JSON.stringify(user),
-        });
-        if (res.ok) {
-          let data = await res.json();
-          sessionStorage.setItem("currentUser", JSON.stringify(data.user));
-          dispatch(receiveUser(data.user));
-          return data; // Ensuring data is returned when the response is okay
-        } else {
-          let errorData = await res.json(); // Get error message from response body if available
-          throw new Error(
-            "Network response was not ok: " +
-              (errorData.message || res.statusText)
-          );
-        }
-      } catch (error) {
-        console.error("Error during user creation:", error);
-        throw error; // This will allow calling code to handle the error as well
-      }
-    };
-
-export default userReducer;
+export default usersReducer;

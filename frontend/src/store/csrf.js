@@ -1,39 +1,55 @@
-export const restoreSession = async () => {
-  try {
-    let res = await fetch("/api/session");
-    if (!res.ok) {
-      throw new Error("Network response was not ok " + res.statusText);
+let csrfToken = null;
+
+
+async function fetchCsrfToken() {
+  let csrfToken = sessionStorage.getItem("X-CSRF-Token");
+  if (!csrfToken) {
+    try {
+      const response = await fetch("http://localhost:5000/api/csrf", {
+        method: "GET",
+        credentials: "include",
+      });
+      const data = await response.json();
+      csrfToken = data.csrf_token;
+      sessionStorage.setItem("X-CSRF-Token", csrfToken);
+    } catch (error) {
+      console.error("Error fetching CSRF token:", error);
     }
-    let token = res.headers.get("X-CSRF-Token");
-    sessionStorage.setItem("X-CSRF-Token", token);
-    let data = await res.json();
-    sessionStorage.setItem("currentUser", JSON.stringify(data.user));
-  } catch (error) {
-    console.error("Error during session restoration:", error);
   }
-};
+  return csrfToken;
+}
 
-export const csrfFetch = async (url, options = {}) => {
-  try {
-    options.method ||= "GET";
-    options.headers ||= {};
-    options.credentials = "include";  
 
-    // will need to modify this when using formData to attach resources like photos
-    // can't have a Content-Type header
-    if (options.method.toUpperCase() !== "GET") {
-      options.headers["Content-Type"] = "application/json";
-      options.headers["X-CSRF-Token"] = sessionStorage.getItem("X-CSRF-Token");
-    }
 
-    const res = await fetch(url, options);
-    if (!res.ok) {
-      throw new Error("Network response was not ok " + res.statusText);
-    }
-    return res;
-  } catch (error) {
-    console.error("Error during fetch operation:", error);
-    throw error;
+
+
+async function csrfFetch(url, options = {}) {
+  const csrfToken = await fetchCsrfToken();
+
+  options.method = options.method || "GET";
+  options.credentials = "include";
+  options.headers = {
+    ...options.headers,
+    "Content-Type": "application/json",
+    "X-CSRF-Token": csrfToken,
+  };
+
+  const response = await fetch(url, options);
+
+  if (response.status >= 400) {
+    const errorData = await response.json();
+    console.error("Complete error response:", errorData);
+    throw new Error(
+      `Error from server: ${
+        errorData.message || errorData.errors.join(", ") || "Unknown error"
+      }`
+    );
   }
-};
 
+  return response;
+}
+
+
+
+
+export default csrfFetch;
