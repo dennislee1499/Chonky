@@ -23,9 +23,10 @@ function SignupForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    //   console.log("Full name in handleSubmit:", fullName); //////
     if (password === confirmPassword) {
       const email = oldEmail.toLowerCase();
-      dispatch(signupUser({  fullName, email, password })).catch(
+      dispatch(signupUser({  full_name: fullName, email, password })).catch(
         async (res) => {
           let data;
           try {
@@ -58,6 +59,8 @@ function SignupForm() {
               value={fullName}
               onChange={(e) => {
                 setFullName(e.target.value);
+                // console.log("Full name changed:", e.target.value); //////
+
               }}
               required
             />
