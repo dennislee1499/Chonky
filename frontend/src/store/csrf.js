@@ -36,30 +36,6 @@ async function csrfFetch(url, options = {}) {
 
   const response = await fetch(url, options);
 
-  // if (response.status >= 400) {
-  //     const errorData = await response.json();
-  //     console.error("Complete error response:", errorData);
-
-  //     // throw new Error(
-  //     //   `Error from server: ${
-  //     //     errorData.message || errorData.errors.join(", ") || "Unknown error"
-  //     //   }`
-  //     // );
-
-  //     throw new Error(
-  //       `Error from server: ${
-  //         errorData.message ||
-  //         (Array.isArray(errorData.errors)
-  //           ? errorData.errors.join(", ")
-  //           : errorData.errors) ||
-  //         "Unknown error"
-  //       }`
-  //     );
-  //   }
-
-  //   return response;
-  // }
-
   if (response.status >= 400) {
     let errorData;
     const contentType = response.headers.get("content-type");

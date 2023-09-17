@@ -50,10 +50,6 @@
     cursor: default;
 }
 
-/* TODO: When input field clicked, border should stay orange below does not work */
-/* input:focus {
-    border-color: orange;
-} */
 
 .signup-button {
     background-color: #ef6c00;
