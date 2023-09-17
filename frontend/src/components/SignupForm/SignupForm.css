@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+
+.signup-form h1 {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 34px;
+    font-weight: 300;
+    color: #333;
+}
+
+.signup-form h3 {
+    color: #4caf50;
+    font-weight: 700;
+    margin-bottom: 15px;
+    margin-top: 20px;
+    font-size: 22px;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+.signup-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 400px;
+    margin-top: 20px;
+}
+
+.signup-info input {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    height: 25px;
+    width: 80%;
+    margin: 5px;
+    color: black;
+    padding: 10px;
+    box-shadow: none;
+    border: 1px solid #b9b6b6;
+    border-radius: 2px;
+    transition: all .15s ease-out;
+}
+
+.signup-info input:hover {
+    border-color: orange;
+    cursor: default;
+}
+
+/* TODO: When input field clicked, border should stay orange below does not work */
+/* input:focus {
+    border-color: orange;
+} */
+
+.signup-button {
+    background-color: #ef6c00;
+    color: #fff;
+    border: 1.6px solid #ef6c00;
+    font-weight: 600;
+    cursor: pointer;
+    height: 45px;
+    width: 85%;
+    border-radius: 4px;
+    font-size: 17px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.signup-button:hover {
+    background-color: rgb(155, 89, 9);
+    border-color: rgb(155, 89, 9);
+}
+
+.sign-in-link-from-signup {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    color: #555;
+}
+
+
+.sign-in-link-from-signup a {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 17px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #163977;
+    border: 1px solid #163977;
+    padding: 10px;
+    width: 300px;
+    height: 30px;
+    margin-top: 20px;
+}
+
+.sign-in-link-from-signup a:hover {
+    background-color: rgb(222, 231, 242);
+}
+
+.password-tips {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #555;
+    padding: 10px;
+    margin: auto;
+}
+
+.signup-errors {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    display: block;
+    color: #d0011b;
+    padding: 5px 20px 5px 0;
+}
+
+.signup-page-text {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: none;
+    padding: 175px 0 0 50px;
+    width: 300px;
+}
+
+.signup-page-text li {
+    margin-left: 25px;
+    margin-top: 10px;
+}
