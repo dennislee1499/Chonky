@@ -5,12 +5,14 @@ import LoggingOut from "../SplashPage/LoggingOut";
 import { useSelector } from "react-redux";
 import SearchBox from "./SearchBox";
 
-function UserDropDown() {
+function UserDropDown({ greeting }) {
   const currentUser = useSelector((state) => state.session?.user);
-  const greeting = currentUser ? `Hey, ${currentUser.name}!` : "Sign in";
 
   return (
-    <>
+    <div className="user-dropdown"> {/* Start of user-dropdown div */}
+      <div className="greeting-container">
+        {greeting} 
+      </div>
       {currentUser && (
         <div className="logout-container">
           <LoggingOut />
@@ -26,9 +28,41 @@ function UserDropDown() {
           </Link>
         </div>
       )}
-    </>
+    </div> 
   );
 }
+
+
+
+
+// function UserDropDown({ greeting }) {
+//   const currentUser = useSelector((state) => state.session?.user);
+
+//   return (
+//     <>
+//     <div className="user-dropdown"></div>
+//       <div className="greeting-container">
+//         {greeting} 
+//       </div>
+//       {currentUser && (
+//         <div className="logout-container">
+//           <LoggingOut />
+//         </div>
+//       )}
+//       {!currentUser && (
+//         <div className="auth-links">
+//           <Link id="login" to="/login">
+//             Sign In
+//           </Link>
+//           <Link id="register" to="/register">
+//             Create an Account
+//           </Link>
+//         </div>
+//       )}
+//     </>
+//      </div>
+//   );
+// }
 
 function DropDown() {
   const [isVisible, setIsVisible] = useState(false);
@@ -43,7 +77,7 @@ function DropDown() {
     >
       {greeting}
       <i className="fa-solid fa-user" style={{ color: "#ffffff" }}></i>
-      {isVisible && <UserDropDown />}
+      {isVisible && <UserDropDown greeting={greeting} />}
     </div>
   );
 }

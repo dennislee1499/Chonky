@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&family=Roboto:wght@300;400&display=swap");
 
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
 .nav-bar {
     display: flex;
     justify-content: space-evenly;
@@ -9,6 +14,9 @@
     top: 0;
     position: sticky;
     z-index: 1;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .logo {
@@ -30,6 +38,8 @@
     height: 10vw;
     box-shadow: 0 1px 3px 1px black;
     border-radius: 3px;
+    padding: 10px;
+    height: auto;
 }
 
 .splash-nav-links #login {
@@ -42,6 +52,7 @@
     font-size: 12px;
     border-radius: 20px;
     margin: 10px;
+    margin-top: 0;
 }
 
 .splash-nav-links #create {
@@ -57,9 +68,38 @@
     margin: 10px;
 }
 
-.DropDown:hover {
-    background-color: rgb(33, 69, 168);
-    cursor: pointer;
+.user-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 1px 3px 1px black;
+    border-radius: 3px;
+    z-index: 1000;
+}
+
+.DropDown:hover .user-dropdown {
+    /* background-color: rgb(33, 69, 168);
+    cursor: pointer; */
+    display: block;
+}
+
+.user-dropdown .greeting-container,
+.user-dropdown .auth-links {
+    padding: 10px;
+    font-family: 'Poppins';
+}
+
+.user-dropdown .auth-links a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: rgb(36, 76, 187);
+}
+
+.user-dropdown .auth-links a:hover {
+    background-color: rgb(238, 238, 238);
 }
 
 .DropDown {

@@ -50,7 +50,7 @@ def current_user
     end
 
     def user_params
-      params.require(:user).permit(:full_name, :email, :password)
+      params.require(:user).permit(:fullName, :email, :password)
     end
 
   end

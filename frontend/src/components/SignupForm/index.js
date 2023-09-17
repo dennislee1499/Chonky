@@ -12,7 +12,8 @@ function SignupForm() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [fullName, setFullName] = useState("");
-  const errors = useSelector((state) => state.errors?.errors || []);
+  const defaultErrors = [];
+  const errors = useSelector((state) => state.errors?.errors || defaultErrors);
   const history = useHistory();
   const currentUser = useSelector((state) => state.user.user);
 

@@ -2291,3 +2291,94 @@ Processing by Api::UsersController#create as JSON
 Completed 422 Unprocessable Entity in 267ms (Views: 0.3ms | ActiveRecord: 18.2ms | Allocations: 8431)
 
 
+Started GET "/api/csrf" for ::1 at 2023-09-17 01:06:55 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+
+ArgumentError - Before process_action callback :verify_authenticity_token has not been defined:
+  app/controllers/api/csrf_controller.rb:2:in `<class:CsrfController>'
+  app/controllers/api/csrf_controller.rb:1:in `<main>'
+
+Started GET "/api/csrf" for ::1 at 2023-09-17 01:06:55 -0400
+
+ArgumentError - Before process_action callback :verify_authenticity_token has not been defined:
+  app/controllers/api/csrf_controller.rb:2:in `<class:CsrfController>'
+  app/controllers/api/csrf_controller.rb:1:in `<main>'
+
+Started POST "/api/users" for 127.0.0.1 at 2023-09-17 01:06:55 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"fullName"=>"lewis kim ", "email"=>"lewisk@gmail.com ", "password"=>"[FILTERED]", "user"=>{"email"=>"lewisk@gmail.com ", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:45:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:45:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lewisk@gmail.com "], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+Completed 422 Unprocessable Entity in 245ms (Views: 0.1ms | ActiveRecord: 7.3ms | Allocations: 14758)
+
+
+Started GET "/api/csrf" for ::1 at 2023-09-17 01:11:31 -0400
+
+ArgumentError - Before process_action callback :verify_authenticity_token has not been defined:
+  app/controllers/api/csrf_controller.rb:2:in `<class:CsrfController>'
+  app/controllers/api/csrf_controller.rb:1:in `<main>'
+
+Started GET "/api/csrf" for ::1 at 2023-09-17 01:11:31 -0400
+
+ArgumentError - Before process_action callback :verify_authenticity_token has not been defined:
+  app/controllers/api/csrf_controller.rb:2:in `<class:CsrfController>'
+  app/controllers/api/csrf_controller.rb:1:in `<main>'
+
+Started POST "/api/users" for 127.0.0.1 at 2023-09-17 01:11:31 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"fullName"=>"lewis kim ", "email"=>"lewisk@gmail.com ", "password"=>"[FILTERED]", "user"=>{"email"=>"lewisk@gmail.com ", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:45:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:45:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lewisk@gmail.com "], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+Completed 422 Unprocessable Entity in 238ms (Views: 0.2ms | ActiveRecord: 2.5ms | Allocations: 5424)
+
+
+Started GET "/api/csrf" for ::1 at 2023-09-17 01:17:12 -0400
+
+ArgumentError - Before process_action callback :verify_authenticity_token has not been defined:
+  app/controllers/api/csrf_controller.rb:2:in `<class:CsrfController>'
+  app/controllers/api/csrf_controller.rb:1:in `<main>'
+
+Started GET "/api/csrf" for ::1 at 2023-09-17 01:17:13 -0400
+
+ArgumentError - Before process_action callback :verify_authenticity_token has not been defined:
+  app/controllers/api/csrf_controller.rb:2:in `<class:CsrfController>'
+  app/controllers/api/csrf_controller.rb:1:in `<main>'
+
+Started POST "/api/users" for 127.0.0.1 at 2023-09-17 01:17:13 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"fullName"=>"lewis kim", "email"=>"lewisk@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"lewisk@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:45:in `generate_unique_session_token'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:45:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lewisk@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+Completed 422 Unprocessable Entity in 234ms (Views: 0.1ms | ActiveRecord: 2.6ms | Allocations: 7543)
+
+

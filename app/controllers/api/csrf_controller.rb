@@ -3,6 +3,8 @@ class Api::CsrfController < ApplicationController
 
   def index
     response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+    response.headers['Access-Control-Allow-Credentials'] = 'true'
+
     render json: { csrf_token: form_authenticity_token }
   end
 end
