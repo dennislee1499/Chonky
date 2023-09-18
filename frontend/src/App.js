@@ -4,6 +4,7 @@ import LoginForm from "./components/LoginForm";
 import { Switch, Route } from "react-router-dom"
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer/Footer";
+import SplashPage from "./components/SplashPage";
 
 
 function App() {
@@ -11,6 +12,9 @@ function App() {
     <>
       <NavBar />
       <Switch>
+        <Route exact path="/">
+          <SplashPage /> 
+        </Route>
         <Route exact path="/register">
           <SignupForm />
         </Route>
