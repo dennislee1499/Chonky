@@ -5,20 +5,26 @@ import { Switch, Route } from "react-router-dom"
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer/Footer";
 import SplashPage from "./components/SplashPage";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 
 function App() {
+  let location = useLocation();
   return (
     <>
-      <NavBar />
+      <NavBar
+        hideSearch={
+          location.pathname === "/login" || location.pathname === "/register"
+        }
+      />
       <Switch>
         <Route exact path="/">
-          <SplashPage /> 
+          <SplashPage />
         </Route>
-        <Route exact path="/register">
+        <Route path="/register">
           <SignupForm />
         </Route>
-        <Route exact path="/login">
+        <Route path="/login">
           <LoginForm />
         </Route>
       </Switch>
@@ -26,5 +32,6 @@ function App() {
     </>
   );
 }
+
 
 export default App;
