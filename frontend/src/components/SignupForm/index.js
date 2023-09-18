@@ -16,33 +16,39 @@ function SignupForm() {
   const defaultErrors = [];
   const errors = useSelector((state) => state.errors?.errors || defaultErrors);
   const history = useHistory();
-  const currentUser = useSelector((state) => state.user.user);
+  const currentUser = useSelector((state) => state.user.currentUser);
 
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    //   console.log("Full name in handleSubmit:", fullName); //////
-    if (password === confirmPassword) {
-      const email = oldEmail.toLowerCase();
-      dispatch(signupUser({  full_name: fullName, email, password })).catch(
-        async (res) => {
-          let data;
-          try {
-            data = await res.clone().json();
-          } catch {
-            data = await res.text();
-          }
-          if (data?.errors) {
-            dispatch(storeErrors(data.errors));
-          } else {
-            dispatch(removeErrors()).then(() => history.push("/"));
-          }
-        }
-      );
-    } else {
-      dispatch(storeErrors({ errors: "Passwords must be matching" }));
+
+    function handleSubmit(e) {
+      e.preventDefault();
+
+      if (password === confirmPassword) {
+        const email = oldEmail.toLowerCase();
+        dispatch(signupUser({ full_name: fullName, email, password }))
+          .then(() => {
+            dispatch(removeErrors());
+            history.push("/");
+          })
+          .catch(async (res) => {
+            let data;
+            try {
+              data = await res.clone().json();
+            } catch {
+              data = await res.text();
+            }
+            if (data?.errors) {
+              dispatch(storeErrors(data.errors));
+            } else {
+              dispatch(removeErrors());
+            }
+          });
+      } else {
+        dispatch(storeErrors({ errors: "Passwords must be matching" }));
+      }
     }
-  }
+
+
 
   return (
     <>

@@ -35,6 +35,10 @@ const storeCurrentUser = (user) => {
 
 
 
+export const redirectAfterSuccess = () => ({
+  type: "REDIRECT_AFTER_SUCCESS",
+});
+
 
 export const loginUser =
   ({ email, password }) =>
@@ -49,15 +53,25 @@ export const loginUser =
         },
         body: JSON.stringify({ email, password }),
       });
+
       const data = await res.json();
-      storeCurrentUser(data.user);
-      dispatch(setCurrentUser(data.user));
-      return res;
+      if (res.ok) {
+        storeCurrentUser(data.user);
+        dispatch(setCurrentUser(data.user));
+        dispatch(redirectAfterSuccess());  
+        return { ok: res.ok, errors: data.errors };
+      } else {
+        // Handle error response here
+        dispatch(setError(data.errors || "Unknown error"));
+        return { ok: res.ok, errors: data.errors };
+      }
     } catch (error) {
       console.error("Error logging in user:", error.message);
       dispatch(setError(error.message));
+      return { ok: false, errors: [error.message] };
     }
   };
+
 
 
 
@@ -93,17 +107,23 @@ export const signupUser = (user) => async (dispatch) => {
         password,
       }),
     });
+
     const data = await res.json();
-    storeCurrentUser(data.user);
-    dispatch(setCurrentUser(data.user));
-    return res;
+    if (res.ok) {
+      storeCurrentUser(data.user);
+      dispatch(setCurrentUser(data.user));
+      dispatch(redirectAfterSuccess());  
+      return { ok: res.ok, errors: data.errors };
+    } else {
+      // Handle error response here
+      dispatch(setError(data.errors || "Unknown error"));
+      return { ok: res.ok, errors: data.errors };
+    }
   } catch (error) {
     console.error("Error signing up user:", error);
     dispatch(setError(error.message));
   }
 };
-
-
 
 
 
@@ -120,6 +140,7 @@ export const logoutUser = () => async (dispatch) => {
     if (res.ok) {
       storeCurrentUser(null);
       dispatch(removeCurrentUser());
+      dispatch(redirectAfterSuccess()); // Redirect after logout
     } else {
       const errorData = await res.json();
       console.error("Logout error:", errorData);
@@ -130,6 +151,7 @@ export const logoutUser = () => async (dispatch) => {
     dispatch(setError(error.message));
   }
 };
+
 
 
 

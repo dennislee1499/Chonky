@@ -16,15 +16,25 @@ function LoginForm() {
     return <Redirect to="/" />;
   }
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const lowerEmail = email.toLowerCase();
+  //   try {
+  //     await dispatch(loginUser({ email: lowerEmail, password }));
+  //   } catch (error) {
+  //     console.error("Error logging in:", error.message);
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const lowerEmail = email.toLowerCase();
-    try {
-      await dispatch(loginUser({ email: lowerEmail, password }));
-    } catch (error) {
-      console.error("Error logging in:", error.message);
+    const res = await dispatch(loginUser({ email: lowerEmail, password }));
+    if (!res.ok) {
+      console.error("Error logging in:", res.errors);
     }
   };
+
 
   return (
     <>
