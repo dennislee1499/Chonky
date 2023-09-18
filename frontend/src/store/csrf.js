@@ -16,6 +16,8 @@ export async function fetchCsrfToken() {
       console.error("Error fetching CSRF token:", error);
     }
   }
+  console.log("CSRF Token:", csrfToken);
+
   return csrfToken;
 }
 
