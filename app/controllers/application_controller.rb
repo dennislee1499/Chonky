@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-    # protect_from_forgery with: :null_session
+    protect_from_forgery with: :null_session
     before_action :snake_case_params, :attach_authenticity_token
     include ActionController::RequestForgeryProtection
     rescue_from ActionController::InvalidAuthenticityToken, with: :invalid_authenticity_token

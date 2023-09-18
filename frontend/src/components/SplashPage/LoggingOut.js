@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { logoutUser } from "../../store/usersReducer";
 import { useHistory } from "react-router-dom"
 
+
 function LoggingOut() {
   const dispatch = useDispatch();
   const history = useHistory();

@@ -1,5 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
 
+
+.signup-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f1f2;
+}
+
+.signup-form {
+    background: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
 .signup-form h1 {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-size: 34px;
@@ -14,21 +37,6 @@
     margin-top: 20px;
     font-size: 22px;
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
-}
-
-.signup-page {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-bottom: 50px;
-}
-
-.signup-form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 400px;
-    margin-top: 20px;
 }
 
 .signup-info input {
@@ -49,7 +57,6 @@
     border-color: orange;
     cursor: default;
 }
-
 
 .signup-button {
     background-color: #ef6c00;
@@ -78,7 +85,6 @@
     padding: 10px;
     color: #555;
 }
-
 
 .sign-in-link-from-signup a {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;

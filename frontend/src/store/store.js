@@ -1,17 +1,9 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import usersReducer from "./usersReducer";
-import { loginUser, logoutUser, signupUser } from "./usersReducer";
-
-
-window.loginUser = loginUser;
-window.logoutUser = logoutUser;
-window.signupUser = signupUser;
-
-
 
 const rootReducer = combineReducers({
-  user: usersReducer
+  user: usersReducer,
 });
 
 let enhancer;
@@ -25,13 +17,11 @@ if (process.env.NODE_ENV === "production") {
   enhancer = composeEnhancers(applyMiddleware(thunk, logger));
 }
 
-const configureStore = (preloadedState) => {
-  return createStore(rootReducer, preloadedState, enhancer);
-};
+const store = createStore(rootReducer, undefined, enhancer);
+// console.log(store);
+export default store;
 
-const store = configureStore();
-window.store = store; 
 
-export default configureStore;
+
 
 

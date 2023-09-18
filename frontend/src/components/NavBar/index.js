@@ -5,6 +5,10 @@ import LoggingOut from "../SplashPage/LoggingOut";
 import { useSelector, useDispatch } from "react-redux";
 import SearchBox from "./SearchBox";
 import { logoutUser } from "../../store/usersReducer";
+import "../../logo.css"
+import Logo from "../../logo";
+
+
 
 function UserDropDown({ greeting }) {
   const currentUser = useSelector((state) => state.session?.user);
@@ -14,17 +18,13 @@ function UserDropDown({ greeting }) {
     await dispatch(logoutUser());
   };
 
-
-
   return (
     <div className="user-dropdown">
-      {" "}
-      {/* Start of user-dropdown div */}
       <div className="greeting-container">{greeting}</div>
       {currentUser && (
         <div className="logout-container">
           <LoggingOut />
-          <button onClick={handleLogout}>Logout</button> {/* Logout button */}
+          <button onClick={handleLogout}>Logout</button>
         </div>
       )}
       {!currentUser && (
@@ -40,8 +40,6 @@ function UserDropDown({ greeting }) {
     </div>
   );
 }
-
-
 
 function DropDown() {
   const [isVisible, setIsVisible] = useState(false);
@@ -61,10 +59,13 @@ function DropDown() {
   );
 }
 
+
+
 function NavBar() {
   return (
     <header className="nav-bar">
       <Link to="/">
+        <Logo />
       </Link>
       <SearchBox />
       <DropDown />
@@ -72,4 +73,41 @@ function NavBar() {
   );
 }
 
+
 export default NavBar;
+
+
+
+
+// function NavBar() {
+//   const currentUser = useSelector((state) => state.session?.user);
+
+//   const dispatch = useDispatch();
+
+//     const handleLogout = () => {
+//       dispatch(logoutUser());
+//     };
+
+
+//   return (
+//     <header className="nav-bar">
+//       <Link to="/"></Link>
+//       <SearchBox />
+//       {currentUser ? (
+//         <div className="user-greetings">
+//           {/* User's greeting and logout button here */}
+//           <button onClick={handleLogout}>Logout</button>
+//         </div>
+//       ) : (
+//         <div className="auth-links">
+//           <Link id="login" to="/login">
+//             Sign In
+//           </Link>
+//           <Link id="register" to="/register">
+//             Create an Account
+//           </Link>
+//         </div>
+//       )}
+//     </header>
+//   );
+// }

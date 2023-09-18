@@ -4,6 +4,7 @@ import { storeErrors, removeErrors } from "../../store/errors";
 import { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import "./SignupForm.css"
 
 
 function SignupForm() {
@@ -17,9 +18,6 @@ function SignupForm() {
   const history = useHistory();
   const currentUser = useSelector((state) => state.user.user);
 
-//   if (currentUser) {
-//     return <Redirect to="/" />;
-//   }
 
   function handleSubmit(e) {
     e.preventDefault();

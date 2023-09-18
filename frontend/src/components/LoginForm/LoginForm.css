@@ -1,4 +1,4 @@
-.login-page {
+/* .login-page {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -93,6 +93,145 @@
     margin: 0;
     text-align: center;
     flex-shrink: 0;
+}
+
+.login-new-customer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.login-new-customer a {
+    background-color: white;
+    color: #ef6c00;
+    padding: 10px;
+    border: 1px solid #ef6c00;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+} */
+
+.login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f1f2;
+}
+
+.login-form {
+    background: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.login-form-title {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 34px;
+    font-weight: 300;
+    color: #333;
+}
+
+.login-info input {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    height: 25px;
+    width: 80%;
+    margin: 5px;
+    color: black;
+    padding: 10px;
+    box-shadow: none;
+    border: 1px solid #b9b6b6;
+    border-radius: 2px;
+    transition: all .15s ease-out;
+}
+
+.login-info input:hover {
+    border-color: orange;
+    cursor: default;
+}
+
+#signin-button {
+    background-color: #ef6c00;
+    color: #fff;
+    border: 1.6px solid #ef6c00;
+    font-weight: 600;
+    cursor: pointer;
+    height: 45px;
+    width: 85%;
+    border-radius: 4px;
+    font-size: 17px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#signin-button:hover {
+    background-color: rgb(155, 89, 9);
+    border-color: rgb(155, 89, 9);
+}
+
+.create-account-button {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    color: #555;
+}
+
+.create-account-button a {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 17px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #163977;
+    border: 1px solid #163977;
+    padding: 10px;
+    width: 300px;
+    height: 30px;
+    margin-top: 20px;
+}
+
+.create-account-button a:hover {
+    background-color: rgb(222, 231, 242);
+}
+
+.divider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.divider1,
+.divider2 {
+    flex-grow: 1;
+    border-bottom: 1px solid grey;
+    margin: 0 10px;
+}
+
+.login-new-customer h3 {
+    margin: 0;
+    text-align: center;
+    flex-shrink: 0;
+    font-weight: 700;
+    margin-bottom: 15px;
+    margin-top: 20px;
+    font-size: 22px;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
 
 .login-new-customer {

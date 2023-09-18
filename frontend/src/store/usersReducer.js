@@ -1,7 +1,18 @@
-import csrfFetch from "./csrf.js";
+import { fetchCsrfToken, csrfFetch } from "./csrf.js";
+import { setError } from "./errors.js";
 
 const SET_CURRENT_USER = "session/setCurrentUser";
 const REMOVE_CURRENT_USER = "session/removeCurrentUser";
+const SET_ERROR = "session/setError";
+const CLEAR_ERROR = "session/clearError";
+
+
+
+const clearError = () => ({
+  type: CLEAR_ERROR,
+});
+
+
 
 const setCurrentUser = (user) => ({
   type: SET_CURRENT_USER,
@@ -23,18 +34,6 @@ const storeCurrentUser = (user) => {
 };
 
 
-async function fetchCsrfToken() {
-  try {
-    const response = await fetch("http://localhost:5000/api/csrf", {
-      method: "GET",
-      credentials: "include",
-    });
-    const data = await response.json();
-    return data.csrf_token;
-  } catch (error) {
-    console.error("Error fetching CSRF token:", error);
-  }
-}
 
 
 export const loginUser =
@@ -56,6 +55,7 @@ export const loginUser =
       return res;
     } catch (error) {
       console.error("Error logging in user:", error.message);
+      dispatch(setError(error.message));
     }
   };
 
@@ -99,6 +99,7 @@ export const signupUser = (user) => async (dispatch) => {
     return res;
   } catch (error) {
     console.error("Error signing up user:", error);
+    dispatch(setError(error.message));
   }
 };
 
@@ -126,6 +127,7 @@ export const logoutUser = () => async (dispatch) => {
     return res;
   } catch (error) {
     console.error("Logout error:", error.message);
+    dispatch(setError(error.message));
   }
 };
 
@@ -133,6 +135,7 @@ export const logoutUser = () => async (dispatch) => {
 
 const initialState = {
   user: JSON.parse(sessionStorage.getItem("currentUser") || "null"),
+  error: null, // Add an error field to the initial state
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -141,6 +144,10 @@ const usersReducer = (state = initialState, action) => {
       return { ...state, user: action.payload };
     case REMOVE_CURRENT_USER:
       return { ...state, user: null };
+    case SET_ERROR:
+      return { ...state, error: action.payload };
+    case CLEAR_ERROR:
+      return { ...state, error: null };
     default:
       return state;
   }
