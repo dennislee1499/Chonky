@@ -51,17 +51,16 @@ function LoginForm() {
     <>
       <h1 className="login-form-title">Sign in or register</h1>
       {/* {errors.length ? <p className="invalid-login-error">{errors}</p> : null} */}
-      {errors.length
-        ? errors.map((error, idx) => (
-            <p key={idx} className="invalid-login-error">
-              {error}
-            </p>
-          ))
-        : null}
+
+      {/* {errors.length ? <p className="signup-errors-login">{errors}</p> : null} */}
 
       <div className="login-page">
         <form className="login-form" onSubmit={handleSubmit}>
           <h3 className="login-form-title">Sign In</h3>
+          {errors.length ? (
+            <p className="signup-errors-login">{errors}</p>
+          ) : null}
+
           <ul className="login-info">
             <input
               placeholder="Email Address"
