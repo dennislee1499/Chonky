@@ -31,18 +31,19 @@ class User < ApplicationRecord
 
 
     def reset_session_token!
-        self.session_token = generate_unique_session_token
-        save!
-        session_token
+        new_token = generate_unique_session_token
+        self.update!(session_token: new_token)
+        return new_token
     end
 
 
     private
 
     def generate_unique_session_token
-        while true
-            token = SecureRandom.urlsafe_base64
-            return token unless User.exists?(session_token: token)
+        loop do
+            token = SecureRandom.base64
+            next if User.exists?(session_token: token)
+            return token
         end
     end
 

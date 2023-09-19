@@ -1,6 +1,6 @@
 import { createBrowserHistory } from "history";
 import { createStore, applyMiddleware } from "redux";
-import usersReducer from "./store/usersReducer";
+import usersReducer from "./store/session";
 
 const history = createBrowserHistory();
 

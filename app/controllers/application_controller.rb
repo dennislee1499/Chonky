@@ -1,13 +1,29 @@
-# class ApplicationController < ActionController::API
-class ApplicationController < ActionController::Base
-    protect_from_forgery with: :null_session
-    before_action :snake_case_params, :attach_authenticity_token
+class ApplicationController < ActionController::API
+# class ApplicationController < ActionController::Base
     include ActionController::RequestForgeryProtection
+    protect_from_forgery with: :exception
+
+    rescue_from StandardError, with: :unhandled_error
     rescue_from ActionController::InvalidAuthenticityToken, with: :invalid_authenticity_token
 
+    before_action :snake_case_params, :attach_authenticity_token
     helper_method :current_user, :logged_in?
 
-def current_user 
+    def test
+        if params.has_key?(:login)
+            login(User.first)
+        elsif params.has_key?(:logout)
+            logout
+    end
+
+        if current_user
+            render json: { user: current_user.slice('id', 'full_name', 'session_token') }
+        else
+            render json: ['No current user']
+        end
+    end
+
+    def current_user 
         @current_user ||= User.find_by(session_token: session[:session_token])
     end
 
@@ -33,7 +49,7 @@ def current_user
     end
 
     def logout
-        current_user && current_user.reset_session_token!
+        current_user.reset_session_token!
         session[:session_token] = nil
         @current_user = nil
     end
@@ -49,10 +65,25 @@ def current_user
     def invalid_authenticity_token
         render json: { message: 'Invalid authenticity token' }, status: :unprocessable_entity
     end
+    
 
-    def user_params
-      params.require(:user).permit(:full_name, :email, :password)
+    def unhandled_error(error)
+        if request.accepts.first.html?
+            raise error
+        else
+            @message = "#{error.class} - #{error.message}"
+            @stack = Rails::BacktraceCleaner.new.clean(error.backtrace)
+            render 'api/errors/internal_server_error', status: :internal_server_error
+    
+            logger.error "\n#{@message}:\n\t#{@stack.join("\n\t")}\n"
+        end
     end
+
+
+
+
+
+
 
   end
 

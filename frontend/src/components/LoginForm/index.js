@@ -1,39 +1,39 @@
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "../../store/usersReducer";
 import { useState } from "react";
 import { Redirect } from "react-router-dom";
 import "./LoginForm.css";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { login } from "../../store/session";
 
 function LoginForm() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const currentUser = useSelector((state) => state.session?.user);
+  // const currentUser = useSelector((state) => state.session?.user);
+  const currentUser = useSelector((state) => state.session.user);
   const errors = useSelector((state) => state.errors) || [];
+  const history = useHistory();
 
   if (currentUser) {
     return <Redirect to="/" />;
   }
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const lowerEmail = email.toLowerCase();
-  //   try {
-  //     await dispatch(loginUser({ email: lowerEmail, password }));
-  //   } catch (error) {
-  //     console.error("Error logging in:", error.message);
-  //   }
-  // };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const lowerEmail = email.toLowerCase();
-    const res = await dispatch(loginUser({ email: lowerEmail, password }));
-    if (!res.ok) {
-      console.error("Error logging in:", res.errors);
-    }
-  };
+   const handleSubmit = async (e) => {
+     e.preventDefault();
+     const lowerEmail = email.toLowerCase();
+     try {
+       const res = await dispatch(login({ email: lowerEmail, password }));
+       if (res.ok) {
+         history.push("/"); 
+       } else {
+         console.error("Error logging in:", res.errors);  ///////// 
+       }
+     } catch (error) {
+       console.error("Error logging in:", error.message);  //////
+     }
+   };
 
 
   return (
@@ -63,7 +63,7 @@ function LoginForm() {
           <button
             onClick={() =>
               dispatch(
-                loginUser({ email: "test@email.com", password: "password" })
+                login({ email: "demo@user.io", password: "password" })
               )
             }
             id="signin-button"

@@ -1,29 +1,38 @@
 import "./NavBar.css";
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import LoggingOut from "../SplashPage/LoggingOut";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import SearchBox from "./SearchBox";
-import { logoutUser } from "../../store/usersReducer";
 import "../../logo.css"
 import Logo from "../../logo";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { logout } from "../../store/session";
 
 
 
-function UserDropDown({ greeting }) {
-  const currentUser = useSelector((state) => state.user.currentUser); // Updated this line
+function UserDropDown({ greeting, currentUser }) {
   const dispatch = useDispatch();
+  const history = useHistory();
+
+
 
   const handleLogout = async () => {
-    await dispatch(logoutUser());
+    try {
+      await dispatch(logout());
+      history.push("/");
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
   };
+
+
 
   return (
     <div className="user-dropdown">
       <div className="greeting-container">{greeting}</div>
       {currentUser && (
         <div className="logout-container">
-          <LoggingOut />
+          {/* <LoggingOut /> */}
           <button onClick={handleLogout}>Logout</button>
         </div>
       )}
@@ -43,8 +52,13 @@ function UserDropDown({ greeting }) {
 
 function DropDown() {
   const [isVisible, setIsVisible] = useState(false);
-  const currentUser = useSelector((state) => state.user.currentUser); // Updated this line
-  const greeting = currentUser ? `Hey, ${currentUser.full_name}!` : "Sign in";
+  const currentUser = useSelector((state) => state.session.user);
+  // const greeting = currentUser?.user
+   const greeting = currentUser
+    ? `Hey, ${currentUser.fullName}!`
+    : "Sign in";   /////////////
+
+
 
   return (
     <div
@@ -54,7 +68,10 @@ function DropDown() {
     >
       {greeting}
       <i className="fa-solid fa-user" style={{ color: "#ffffff" }}></i>
-      {isVisible && <UserDropDown greeting={greeting} />}
+      {/* {isVisible && <UserDropDown greeting={greeting} />} */}
+      {isVisible && (
+        <UserDropDown greeting={greeting} currentUser={currentUser} />
+      )}
     </div>
   );
 }

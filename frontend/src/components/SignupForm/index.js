@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
-import { signupUser } from "../../store/usersReducer";
+// import { signupUser } from "../../store/session";
 import { storeErrors, removeErrors } from "../../store/errors";
 import { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import "./SignupForm.css"
+import { signup } from "../../store/session";
 
 
 function SignupForm() {
@@ -16,39 +17,36 @@ function SignupForm() {
   const defaultErrors = [];
   const errors = useSelector((state) => state.errors?.errors || defaultErrors);
   const history = useHistory();
-  const currentUser = useSelector((state) => state.user.currentUser);
+  // const currentUser = useSelector((state) => state.user.currentUser);
+  const currentUser = useSelector((state) => state.session.user);
 
+  function handleSubmit(e) {
+    e.preventDefault();
 
-
-    function handleSubmit(e) {
-      e.preventDefault();
-
-      if (password === confirmPassword) {
-        const email = oldEmail.toLowerCase();
-        dispatch(signupUser({ full_name: fullName, email, password }))
-          .then(() => {
+    if (password === confirmPassword) {
+      const email = oldEmail.toLowerCase();
+      dispatch(signup({ full_name: fullName, email, password }))
+        .then(() => {
+          dispatch(removeErrors());
+          history.push("/");
+        })
+        .catch(async (res) => {
+          let data;
+          try {
+            data = await res.clone().json();
+          } catch {
+            data = await res.text();
+          }
+          if (data?.errors) {
+            dispatch(storeErrors(data.errors));
+          } else {
             dispatch(removeErrors());
-            history.push("/");
-          })
-          .catch(async (res) => {
-            let data;
-            try {
-              data = await res.clone().json();
-            } catch {
-              data = await res.text();
-            }
-            if (data?.errors) {
-              dispatch(storeErrors(data.errors));
-            } else {
-              dispatch(removeErrors());
-            }
-          });
-      } else {
-        dispatch(storeErrors({ errors: "Passwords must be matching" }));
-      }
+          }
+        });
+    } else {
+      dispatch(storeErrors({ errors: "Passwords must be matching" }));
     }
-
-
+  }
 
   return (
     <>
@@ -64,7 +62,6 @@ function SignupForm() {
               onChange={(e) => {
                 setFullName(e.target.value);
                 // console.log("Full name changed:", e.target.value); //////
-
               }}
               required
             />
@@ -105,12 +102,8 @@ function SignupForm() {
 
           <ul className="password-tips" style={{ listStyle: "disc" }}>
             Tips for a strong password:
-            <li>
-              Create a unique password
-            </li>
-            <li>
-              Use both uppercase and lowercase letters 
-            </li>
+            <li>Create a unique password</li>
+            <li>Use both uppercase and lowercase letters</li>
             <li>Incorporate special characters and numbers</li>
           </ul>
 
