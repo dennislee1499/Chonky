@@ -1,0 +1,26 @@
+{
+  "name": "chompy",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dennislee1499/Chonky.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "16.20.0"
+  },
+  "bugs": {
+    "url": "https://github.com/dennislee1499/Chonky/issues"
+  },
+  "homepage": "https://github.com/dennislee1499/Chonky#readme"
+}

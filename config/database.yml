@@ -79,8 +79,11 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
-production:
+# production:
+#   <<: *default
+#   database: Chompy_production
+#   username: Chompy
+#   password: <%= ENV["CHOMPY_DATABASE_PASSWORD"] %>
+  production:
   <<: *default
-  database: Chompy_production
-  username: Chompy
-  password: <%= ENV["CHOMPY_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

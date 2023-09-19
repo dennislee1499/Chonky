@@ -6795,3 +6795,34 @@ Processing by Api::SessionsController#create as JSON
 Completed 401 Unauthorized in 6ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 1448)
 
 
+Started GET "/" for ::1 at 2023-09-19 11:00:22 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/dennislee/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/dennislee/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.6ms | Allocations: 474)
+Completed 200 OK in 135ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 281656)
+
+
+Started GET "/" for ::1 at 2023-09-19 11:00:26 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/dennislee/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/dennislee/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.5ms | Allocations: 278)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 1163)
+
+
+Started GET "/api/session" for ::1 at 2023-09-19 11:03:44 -0400
+Started GET "/favicon.ico" for ::1 at 2023-09-19 11:03:44 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::SessionsController#show as JSON
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.0ms | Allocations: 12)
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.0ms | Allocations: 4381)
+
+
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27:in `current_user'
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 8.6ms | Allocations: 9708)
+
+
