@@ -44,7 +44,7 @@ function SignupForm() {
           }
         });
     } else {
-      dispatch(storeErrors({ errors: "Passwords must be matching" }));
+      dispatch(storeErrors({ errors: "Passwords must be matching" })); //////////
     }
   }
 
@@ -130,5 +130,9 @@ function SignupForm() {
 }
 
 export default SignupForm;
+
+
+
+
 
   

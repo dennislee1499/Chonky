@@ -39,10 +39,18 @@ function LoginForm() {
   return (
     <>
       <h1 className="login-form-title">Sign in or register</h1>
-      {errors.length ? <p className="invalid-login-error">{errors}</p> : null}
+      {/* {errors.length ? <p className="invalid-login-error">{errors}</p> : null} */}
+      {errors.length
+        ? errors.map((error, idx) => (
+            <p key={idx} className="invalid-login-error">
+              {error}
+            </p>
+          ))
+        : null}
+
       <div className="login-page">
         <form className="login-form" onSubmit={handleSubmit}>
-          <h3>Sign In</h3>
+          <h3 className="login-form-title">Sign In</h3>
           <ul className="login-info">
             <input
               placeholder="Email Address"
@@ -62,9 +70,7 @@ function LoginForm() {
           <input id="signin-button" type="submit" value="Sign In" />
           <button
             onClick={() =>
-              dispatch(
-                login({ email: "demo@user.io", password: "password" })
-              )
+              dispatch(login({ email: "demo@user.io", password: "password" }))
             }
             id="signin-button"
           >
