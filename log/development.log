@@ -6622,3 +6622,176 @@ Processing by Api::SessionsController#create as JSON
 Completed 401 Unauthorized in 6ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 1453)
 
 
+Started GET "/api/session" for 127.0.0.1 at 2023-09-19 09:27:20 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27:in `current_user'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 3.6ms | Allocations: 4992)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2023-09-19 09:27:22 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"wddw", "password"=>"[FILTERED]", "session"=>{"email"=>"wddw", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "wddw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24:in `find_by_credentials'
+Completed 401 Unauthorized in 6ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 2406)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-19 09:27:55 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27:in `current_user'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 969)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2023-09-19 09:27:57 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"dwdw", "password"=>"[FILTERED]", "session"=>{"email"=>"dwdw", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "dwdw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24:in `find_by_credentials'
+Completed 401 Unauthorized in 9ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 1465)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-19 09:53:13 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27:in `current_user'
+Completed 200 OK in 49ms (Views: 2.0ms | ActiveRecord: 15.7ms | Allocations: 3941)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2023-09-19 09:53:15 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"dwwdw", "password"=>"[FILTERED]", "session"=>{"email"=>"dwwdw", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27:in `current_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "dwwdw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24:in `find_by_credentials'
+Completed 401 Unauthorized in 7ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 1461)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-19 10:00:51 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27:in `current_user'
+Completed 200 OK in 38ms (Views: 0.2ms | ActiveRecord: 23.4ms | Allocations: 3785)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-19 10:03:04 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (5.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27:in `current_user'
+Completed 200 OK in 15ms (Views: 0.5ms | ActiveRecord: 5.6ms | Allocations: 972)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2023-09-19 10:03:08 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"full_name"=>"wddw", "email"=>"dwd", "password"=>"[FILTERED]", "user"=>{"email"=>"dwd", "full_name"=>"wddw", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27:in `current_user'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:45:in `block in generate_unique_session_token'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:45:in `block in generate_unique_session_token'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "dwd"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+Completed 422 Unprocessable Entity in 355ms (Views: 0.1ms | ActiveRecord: 10.3ms | Allocations: 289605)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2023-09-19 10:03:11 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"full_name"=>"wddw", "email"=>"dwd", "password"=>"[FILTERED]", "user"=>{"email"=>"dwd", "full_name"=>"wddw", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27:in `current_user'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:45:in `block in generate_unique_session_token'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:45:in `block in generate_unique_session_token'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "dwd"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+Completed 422 Unprocessable Entity in 254ms (Views: 0.1ms | ActiveRecord: 1.8ms | Allocations: 5362)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-19 10:06:59 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27:in `current_user'
+Completed 200 OK in 7ms (Views: 0.7ms | ActiveRecord: 0.8ms | Allocations: 933)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2023-09-19 10:07:11 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"cw", "password"=>"[FILTERED]", "session"=>{"email"=>"cw", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24:in `find_by_credentials'
+Completed 401 Unauthorized in 6ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 1453)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-19 10:09:42 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27:in `current_user'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 939)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2023-09-19 10:09:47 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"dwdw", "password"=>"[FILTERED]", "session"=>{"email"=>"dwdw", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27:in `current_user'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "dwdw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24:in `find_by_credentials'
+Completed 401 Unauthorized in 5ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 1445)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2023-09-19 10:10:17 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"dwdwa", "password"=>"[FILTERED]", "session"=>{"email"=>"dwdwa", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27:in `current_user'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "dwdwa"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24:in `find_by_credentials'
+Completed 401 Unauthorized in 4ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 1433)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2023-09-19 10:19:49 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"wdd", "password"=>"[FILTERED]", "session"=>{"email"=>"wdd", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "wdd"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24:in `find_by_credentials'
+Completed 401 Unauthorized in 45ms (Views: 0.3ms | ActiveRecord: 12.0ms | Allocations: 4459)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-19 10:23:42 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27:in `current_user'
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 0.8ms | Allocations: 939)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2023-09-19 10:23:54 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"rsfe@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"rsfe@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27:in `current_user'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "rsfe@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24:in `find_by_credentials'
+Completed 401 Unauthorized in 6ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 1448)
+
+

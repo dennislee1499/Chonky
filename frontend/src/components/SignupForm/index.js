@@ -81,6 +81,50 @@ function SignupForm() {
 
 
 
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+
+  //   let newErrors = [];
+
+  //   if (!fullName.trim()) {
+  //     newErrors.push("Full name cannot be empty");
+  //   }
+
+  //   if (!oldEmail.trim()) {
+  //     newErrors.push("Email cannot be empty");
+  //   }
+
+  //   if (password !== confirmPassword) {
+  //     newErrors.push(
+  //       "Confirm Password field must be the same as the Password field"
+  //     );
+  //   }
+
+  //   if (newErrors.length) {
+  //     setErrors(newErrors);
+  //     return;
+  //   }
+
+  //   const lowerEmail = oldEmail.toLowerCase();
+  //   return dispatch(
+  //     signup({ email: lowerEmail, full_name: fullName, password })
+  //   ).catch(async (res) => {
+  //     let data;
+  //     try {
+  //       data = await res.clone().json();
+  //     } catch {
+  //       data = await res.text();
+  //     }
+  //     if (data?.errors) setErrors(data.errors);
+  //     else if (data) setErrors([data]);
+  //     else setErrors([res.statusText]);
+  //   });
+  // };
+
+
+
+
   return (
     <>
       <div className="signup-page">

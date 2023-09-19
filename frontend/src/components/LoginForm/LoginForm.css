@@ -156,7 +156,7 @@
 }
 
 .login-info input:hover {
-    border-color: orange;
+    border-color: blue;
     cursor: default;
 }
 
@@ -263,5 +263,6 @@
     font-size: 12px;
     display: block;
     color: #d0011b;
-    padding: 5px 20px 5px 0;
+    padding: 5px 20px;
+    background-color: pink;
 }
