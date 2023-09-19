@@ -12,7 +12,8 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   // const currentUser = useSelector((state) => state.session?.user);
   const currentUser = useSelector((state) => state.session.user);
-  const errors = useSelector((state) => state.errors) || [];
+  // const errors = useSelector((state) => state.errors) || []; /////
+  const [errors, setErrors] = useState([])
   const history = useHistory();
 
   if (currentUser) {
@@ -20,20 +21,30 @@ function LoginForm() {
   }
 
 
-   const handleSubmit = async (e) => {
-     e.preventDefault();
-     const lowerEmail = email.toLowerCase();
-     try {
-       const res = await dispatch(login({ email: lowerEmail, password }));
-       if (res.ok) {
-         history.push("/"); 
-       } else {
-         console.error("Error logging in:", res.errors);  ///////// 
-       }
-     } catch (error) {
-       console.error("Error logging in:", error.message);  //////
-     }
-   };
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setErrors([]);
+    const lowerEmail = email.toLowerCase();
+    return dispatch(login({ email: lowerEmail, password })).catch(
+      async (res) => {
+        let data;
+        try {
+          // .clone() essentially allows you to read the response body twice
+          data = await res.clone().json();
+        } catch {
+          data = await res.text(); // Will hit this case if, e.g., server is down
+        }
+        if (data?.errors) setErrors(data.errors);
+        else if (data) setErrors([data]);
+        else setErrors([res.statusText]);
+      }
+    );
+  };
+
+
+
 
 
   return (
