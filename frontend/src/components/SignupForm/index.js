@@ -14,69 +14,69 @@ function SignupForm() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [fullName, setFullName] = useState("");
-  // const defaultErrors = []; //////////
-  // const errors = useSelector((state) => state.errors?.errors || defaultErrors); //////////
-  const [errors, setErrors] = useState([]);
-  // const history = useHistory();
+  const defaultErrors = []; //////////
+  const errors = useSelector((state) => state.errors?.errors || defaultErrors); //////////
+  // const [errors, setErrors] = useState([]);
+  const history = useHistory();
   // const currentUser = useSelector((state) => state.user.currentUser);
   const currentUser = useSelector((state) => state.session.user);
 
 
 
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-
-  //   if (password === confirmPassword) {
-  //     const email = oldEmail.toLowerCase();
-  //     dispatch(signup({ full_name: fullName, email, password }))
-  //       .then(() => {
-  //         dispatch(removeErrors());
-  //         history.push("/");
-  //       })
-  //       .catch(async (res) => {
-  //         let data;
-  //         try {
-  //           data = await res.clone().json();
-  //         } catch {
-  //           data = await res.text();
-  //         }
-  //         if (data?.errors) {
-  //           dispatch(storeErrors(data.errors));
-  //         } else {
-  //           dispatch(removeErrors());
-  //         }
-  //       });
-  //   } else {
-  //     dispatch(storeErrors({ errors: "Passwords must be matching" })); //////////
-  //   }
-  // }
-
-
-
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
+
     if (password === confirmPassword) {
-      setErrors([]);
-      const lowerEmail = oldEmail.toLowerCase();
-      return dispatch(
-        signup({ email: lowerEmail, fullName, password })
-      ).catch(async (res) => {
-        let data;
-        try {
-          // .clone() essentially allows you to read the response body twice
-          data = await res.clone().json();
-        } catch {
-          data = await res.text(); // Will hit this case if, e.g., server is down
-        }
-        if (data?.errors) setErrors(data.errors);
-        else if (data) setErrors([data]);
-        else setErrors([res.statusText]);
-      });
+      const email = oldEmail.toLowerCase();
+      dispatch(signup({ full_name: fullName, email, password }))
+        .then(() => {
+          dispatch(removeErrors());
+          history.push("/");
+        })
+        .catch(async (res) => {
+          let data;
+          try {
+            data = await res.clone().json();
+          } catch {
+            data = await res.text();
+          }
+          if (data?.errors) {
+            dispatch(storeErrors(data.errors));
+          } else {
+            dispatch(removeErrors());
+          }
+        });
+    } else {
+      dispatch(storeErrors({ errors: "Passwords must be matching" })); //////////
     }
-    return setErrors([
-      "Confirm Password field must be the same as the Password field",
-    ]);
-  };
+  }
+
+
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (password === confirmPassword) {
+  //     setErrors([]);
+  //     const lowerEmail = oldEmail.toLowerCase();
+  //     return dispatch(
+  //       signup({ email: lowerEmail, fullName, password })
+  //     ).catch(async (res) => {
+  //       let data;
+  //       try {
+  //         // .clone() essentially allows you to read the response body twice
+  //         data = await res.clone().json();
+  //       } catch {
+  //         data = await res.text(); // Will hit this case if, e.g., server is down
+  //       }
+  //       if (data?.errors) setErrors(data.errors);
+  //       else if (data) setErrors([data]);
+  //       else setErrors([res.statusText]);
+  //     });
+  //   }
+  //   return setErrors([
+  //     "Confirm Password field must be the same as the Password field",
+  //   ]);
+  // };
 
 
 

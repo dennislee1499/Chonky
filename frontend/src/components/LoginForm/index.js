@@ -59,6 +59,7 @@ function LoginForm() {
 
           <ul className="login-info">
             <input
+              className={errors.length ? "error" : ""} 
               placeholder="Email Address"
               type="text"
               value={email}
@@ -66,6 +67,7 @@ function LoginForm() {
               required
             />
             <input
+              className={errors.length ? "error" : ""}
               placeholder="Password"
               type="password"
               value={password}
