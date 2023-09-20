@@ -3,18 +3,14 @@ import { useState } from "react";
 import { Redirect } from "react-router-dom";
 import "./LoginForm.css";
 import { Link } from "react-router-dom";
-// import { useHistory } from "react-router-dom";
 import { login } from "../../store/session";
 
 function LoginForm() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const currentUser = useSelector((state) => state.session?.user);
   const currentUser = useSelector((state) => state.session.user);
-  // const errors = useSelector((state) => state.errors) || []; /////
   const [errors, setErrors] = useState([])
-  // const history = useHistory();
 
   if (currentUser) {
     return <Redirect to="/" />;

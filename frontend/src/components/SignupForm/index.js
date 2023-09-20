@@ -16,6 +16,7 @@ function SignupForm() {
   const [hasSignedUp, setHasSignedUp] = useState(false);
 
 
+
   const [fullNameErrors, setFullNameErrors] = useState([]);
   const [emailErrors, setEmailErrors] = useState([]);
   const [passwordErrors, setPasswordErrors] = useState([]);

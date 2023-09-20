@@ -3,8 +3,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import SearchBox from "./SearchBox";
-import "../../logo.css"
-import Logo from "../../logo";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { logout } from "../../store/session";
 import logoImage from "./logoImage.png";
@@ -33,8 +31,10 @@ function UserDropDown({ greeting, currentUser }) {
       <div className="greeting-container">{greeting}</div>
       {currentUser && (
         <div className="logout-container">
-          {/* <LoggingOut /> */}
-          <button onClick={handleLogout}>Logout</button>
+          <button id="logout-drop-button" onClick={handleLogout}>
+            Sign Out
+          </button>
+          <span style={{ marginLeft: "10px" }}>Not {currentUser.fullName}?</span>
         </div>
       )}
       {!currentUser && (
