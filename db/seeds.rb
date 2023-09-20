@@ -13,6 +13,7 @@ ApplicationRecord.transaction do
   puts "Destroying tables..."
   # Unnecessary if using `rails db:seed:replant`
   User.destroy_all
+  Product.destroy_all
 
   puts "Resetting primary keys..."
   # For easy testing, so that after seeding, the first `User` has `id` of 1
@@ -34,6 +35,23 @@ ApplicationRecord.transaction do
       password: 'password'
     }) 
   end
+
+  puts "Creating products..."
+
+  product1 = Product.create!(
+    name: "Pedigree Complete Nutrition Grilled Steak & Vegetable Flavor Dog Kibble Adult Dry Dog Food",
+    category: "Dog Food",
+    price: 29.98,
+    rating: 4.2,
+    details: "Complete and balanced nutrition has antioxidants, vitamins and minerals to help maintain a healthy lifestyle.
+Optimal levels of omega-6 fatty acid nourish the skin and help keep his coat shiny and healthy.
+Whole grains and a special fiber blend support healthy digestion with a delicious grilled steak flavor.
+Unique, crunchy texture helps to clean the teeth with every bite to support good oral health between brushings.
+",
+    flavor_options: ["Grilled Steak", "Roast Chicken"],
+    size_options: ["3.5-lb bag", "18-lb bag", "30-lb bag"]
+  )
+
 
   puts "Done!"
 end

@@ -84,33 +84,6 @@ export const signup = (user) => async (dispatch) => {
 
 
 
-// export const logoutUser = () => async (dispatch) => {
-//   try {
-//     const csrfToken = await fetchCsrfToken();
-//     const res = await csrfFetch("/api/session", {
-//       method: "DELETE",
-//       headers: {
-//         "Content-Type": "application/json",
-//         "X-CSRF-Token": csrfToken,
-//       },
-//     });
-//     if (res.ok) {
-//       storeCurrentUser(null);
-//       dispatch(removeCurrentUser());
-//       dispatch(redirectAfterSuccess()); 
-//     } else {
-//       const errorData = await res.json();
-//       console.error("Logout error:", errorData);
-//     }
-//     return res;
-//   } catch (error) {
-//     console.error("Logout error:", error.message);
-//     dispatch(setError(error.message));
-//   }
-// };
-
-
-
 export const logout = () => async (dispatch) => {
   const response = await csrfFetch("/api/session", {
     method: "DELETE",
@@ -130,8 +103,6 @@ const initialState = {
   user: JSON.parse(sessionStorage.getItem("currentUser")),
 };
 
-// console.log("Initial State:", initialState); // This will log the initial state when the app loads ////////////
-
 
 const sessionReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -139,10 +110,6 @@ const sessionReducer = (state = initialState, action) => {
       return { ...state, user: action.payload };
     case REMOVE_CURRENT_USER:
       return { ...state, user: null };
-    // case SET_ERROR:
-    //   return { ...state, error: action.payload };
-    // case CLEAR_ERROR:
-    //   return { ...state, error: null };
     default:
       return state;
   }

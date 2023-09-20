@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer/Footer";
 import SplashPage from "./components/SplashPage";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import ProductsIndex from "./components/ProductsIndex";
 
 
 function App() {
@@ -26,6 +27,9 @@ function App() {
         </Route>
         <Route path="/login">
           <LoginForm />
+        </Route>
+        <Route exact path="/products">
+          <ProductsIndex />
         </Route>
       </Switch>
       <Footer />

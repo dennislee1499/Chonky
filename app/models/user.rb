@@ -9,6 +9,7 @@
 #  demo_user       :boolean          default(FALSE)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  full_name       :string
 #
 class User < ApplicationRecord
     has_secure_password
