@@ -115,12 +115,23 @@
     margin: auto;
 }
 
+
 .signup-errors {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-size: 12px;
     display: block;
     color: #d0011b;
-    padding: 5px 20px 5px 0;
+    padding: 5px 20px;
+}
+
+
+
+.signup-info input.errors {
+    border-color: red;
+}
+
+.signup-info input.error {
+    border-color: red;
 }
 
 .signup-page-text {

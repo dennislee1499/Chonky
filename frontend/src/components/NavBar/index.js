@@ -80,9 +80,9 @@ function DropDown() {
 function NavBar({ hideSearch }) {
   return (
     <header className="nav-bar">
-      <Link to="/">
-        <Logo />
-      </Link>
+        <Link to="/">
+          <Logo />
+        </Link>
       {!hideSearch && <SearchBox />}
       <DropDown />
     </header>

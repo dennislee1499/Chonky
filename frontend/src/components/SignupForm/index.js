@@ -1,11 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-// import { signupUser } from "../../store/session";
-import { storeErrors, removeErrors } from "../../store/errors";
+import { removeErrors } from "../../store/errors";
 import { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
-import { useHistory } from "react-router-dom";
 import "./SignupForm.css"
 import { signup } from "../../store/session";
+
 
 
 function SignupForm() {
@@ -14,115 +13,109 @@ function SignupForm() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [fullName, setFullName] = useState("");
-  const defaultErrors = []; //////////
-  const errors = useSelector((state) => state.errors?.errors || defaultErrors); //////////
-  // const [errors, setErrors] = useState([]);
-  const history = useHistory();
-  // const currentUser = useSelector((state) => state.user.currentUser);
-  const currentUser = useSelector((state) => state.session.user);
+  const [hasSignedUp, setHasSignedUp] = useState(false);
 
 
+  const [fullNameErrors, setFullNameErrors] = useState([]);
+  const [emailErrors, setEmailErrors] = useState([]);
+  const [passwordErrors, setPasswordErrors] = useState([]);
+  const [confirmPasswordErrors, setConfirmPasswordErrors] = useState([]);
 
-  function handleSubmit(e) {
+
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (password === confirmPassword) {
-      const email = oldEmail.toLowerCase();
-      dispatch(signup({ full_name: fullName, email, password }))
-        .then(() => {
-          dispatch(removeErrors());
-          history.push("/");
-        })
-        .catch(async (res) => {
-          let data;
-          try {
-            data = await res.clone().json();
-          } catch {
-            data = await res.text();
-          }
-          if (data?.errors) {
-            dispatch(storeErrors(data.errors));
-          } else {
-            dispatch(removeErrors());
-          }
-        });
-    } else {
-      dispatch(storeErrors({ errors: "Passwords must be matching" })); //////////
+    setFullNameErrors([]);
+    setEmailErrors([]);
+    setPasswordErrors([]);
+    setConfirmPasswordErrors([]);
+
+    let fullNameErrors = [];
+    let emailErrors = [];
+    let passwordErrors = [];
+    let confirmPasswordErrors = [];
+
+    if (!fullName.trim()) {
+      fullNameErrors.push("Name cannot be empty");
     }
+
+    if (!oldEmail.trim()) {
+      emailErrors.push("Email cannot be empty");
+    } else if (!/\S+@\S+\.\S+/.test(oldEmail)) {
+      emailErrors.push("Invalid email address");
+    }
+
+    if (password.length < 6) {
+      passwordErrors.push("Password too short");
+    }
+
+    if (password !== confirmPassword) {
+      confirmPasswordErrors.push("Passwords must match");
+    }
+
+    setFullNameErrors(fullNameErrors);
+    setEmailErrors(emailErrors);
+    setPasswordErrors(passwordErrors);
+    setConfirmPasswordErrors(confirmPasswordErrors);
+
+    if (
+      fullNameErrors.length ||
+      emailErrors.length ||
+      passwordErrors.length ||
+      confirmPasswordErrors.length
+    ) {
+      return;
+    }
+
+    const lowerEmail = oldEmail.toLowerCase();
+
+    dispatch(signup({ email: lowerEmail, full_name: fullName, password }))
+      .then(() => {
+        setHasSignedUp(true); 
+      })
+      .catch(async (res) => {
+        let data;
+        try {
+          data = await res.json();
+        } catch {
+          data = await res.text();
+        }
+        if (data?.errors) {
+          data.errors.forEach((error) => {
+            if (error.toLowerCase().includes("name")) {
+              setFullNameErrors((prev) => [...prev, error]);
+            } else if (error.toLowerCase().includes("email")) {
+              setEmailErrors((prev) => [...prev, error]);
+            } else if (error.toLowerCase().includes("password")) {
+              setPasswordErrors((prev) => [...prev, error]);
+            } else if (error.toLowerCase().includes("confirm")) {
+              setConfirmPasswordErrors((prev) => [...prev, error]);
+            } else {
+              setFullNameErrors((prev) => [...prev, error]);
+              setEmailErrors((prev) => [...prev, error]);
+              setPasswordErrors((prev) => [...prev, error]);
+              setConfirmPasswordErrors((prev) => [...prev, error]);
+            }
+          });
+        } else if (data) {
+          const genericError = typeof data === "string" ? [data] : data;
+          setFullNameErrors(genericError);
+          setEmailErrors(genericError);
+          setPasswordErrors(genericError);
+          setConfirmPasswordErrors(genericError);
+        } else {
+          const statusError = [res.statusText];
+          setFullNameErrors(statusError);
+          setEmailErrors(statusError);
+          setPasswordErrors(statusError);
+          setConfirmPasswordErrors(statusError);
+        }
+      });
+  };
+
+  if (hasSignedUp) {
+    return <Redirect to="/splash" />;
   }
-
-
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (password === confirmPassword) {
-  //     setErrors([]);
-  //     const lowerEmail = oldEmail.toLowerCase();
-  //     return dispatch(
-  //       signup({ email: lowerEmail, fullName, password })
-  //     ).catch(async (res) => {
-  //       let data;
-  //       try {
-  //         // .clone() essentially allows you to read the response body twice
-  //         data = await res.clone().json();
-  //       } catch {
-  //         data = await res.text(); // Will hit this case if, e.g., server is down
-  //       }
-  //       if (data?.errors) setErrors(data.errors);
-  //       else if (data) setErrors([data]);
-  //       else setErrors([res.statusText]);
-  //     });
-  //   }
-  //   return setErrors([
-  //     "Confirm Password field must be the same as the Password field",
-  //   ]);
-  // };
-
-
-
-
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   let newErrors = [];
-
-  //   if (!fullName.trim()) {
-  //     newErrors.push("Full name cannot be empty");
-  //   }
-
-  //   if (!oldEmail.trim()) {
-  //     newErrors.push("Email cannot be empty");
-  //   }
-
-  //   if (password !== confirmPassword) {
-  //     newErrors.push(
-  //       "Confirm Password field must be the same as the Password field"
-  //     );
-  //   }
-
-  //   if (newErrors.length) {
-  //     setErrors(newErrors);
-  //     return;
-  //   }
-
-  //   const lowerEmail = oldEmail.toLowerCase();
-  //   return dispatch(
-  //     signup({ email: lowerEmail, full_name: fullName, password })
-  //   ).catch(async (res) => {
-  //     let data;
-  //     try {
-  //       data = await res.clone().json();
-  //     } catch {
-  //       data = await res.text();
-  //     }
-  //     if (data?.errors) setErrors(data.errors);
-  //     else if (data) setErrors([data]);
-  //     else setErrors([res.statusText]);
-  //   });
-  // };
-
-
 
 
   return (
@@ -133,16 +126,21 @@ function SignupForm() {
           <h3>Please enter your information</h3>
           <ul className="signup-info">
             <input
+              className={fullNameErrors.length ? "errors" : ""}
               placeholder="Full Name"
               type="text"
               value={fullName}
               onChange={(e) => {
                 setFullName(e.target.value);
-                // console.log("Full name changed:", e.target.value); //////
               }}
               required
             />
+            {fullNameErrors.length ? (
+              <p className="signup-errors">{fullNameErrors[0]}</p>
+            ) : null}
+
             <input
+              className={emailErrors.length ? "errors" : ""}
               placeholder="Email Address"
               type="text"
               value={oldEmail}
@@ -151,10 +149,15 @@ function SignupForm() {
               }}
               required
             />
-            {errors.length ? (
-              <p className="signup-errors">{errors[0]}</p>
+            {emailErrors.length ? (
+              <p className="signup-errors">{emailErrors[0]}</p>
             ) : null}
             <input
+              className={
+                passwordErrors.length || confirmPasswordErrors.length
+                  ? "errors"
+                  : ""
+              }
               placeholder="Password (At least 6 characters)"
               type="password"
               value={password}
@@ -163,18 +166,21 @@ function SignupForm() {
               }}
               required
             />
-            {errors.length ? (
-              <p className="signup-errors">{errors[1]}</p>
+            {passwordErrors.length ? (
+              <p className="signup-errors">{passwordErrors[0]}</p>
             ) : null}
 
             <input
+              className={confirmPasswordErrors.length ? "errors" : ""}
               placeholder="Confirm Password"
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
-            {errors ? <p className="signup-errors">{errors.errors}</p> : null}
+            {confirmPasswordErrors.length ? (
+              <p className="signup-errors">{confirmPasswordErrors[0]}</p>
+            ) : null}
           </ul>
 
           <ul className="password-tips" style={{ listStyle: "disc" }}>
@@ -204,6 +210,7 @@ function SignupForm() {
       </div>
     </>
   );
+
 }
 
 export default SignupForm;

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Redirect } from "react-router-dom";
 import "./LoginForm.css";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { login } from "../../store/session";
 
 function LoginForm() {
@@ -14,7 +14,7 @@ function LoginForm() {
   const currentUser = useSelector((state) => state.session.user);
   // const errors = useSelector((state) => state.errors) || []; /////
   const [errors, setErrors] = useState([])
-  const history = useHistory();
+  // const history = useHistory();
 
   if (currentUser) {
     return <Redirect to="/" />;
@@ -54,7 +54,7 @@ function LoginForm() {
         <form className="login-form" onSubmit={handleSubmit}>
           <h3 className="login-form-title">Sign In</h3>
           {errors.length ? (
-            <p className="signup-errors-login">{errors}</p>
+            <p className="signin-errors-login">{errors}</p>
           ) : null}
 
           <ul className="login-info">
