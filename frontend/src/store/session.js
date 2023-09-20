@@ -7,13 +7,6 @@ const SET_ERROR = "session/setError";
 const CLEAR_ERROR = "session/clearError";
 
 
-
-// const clearError = () => ({
-//   type: CLEAR_ERROR,
-// });
-
-
-
 const setCurrentUser = user => {
   return {
     type: SET_CURRENT_USER,
@@ -32,40 +25,6 @@ export const redirectAfterSuccess = () => ({
   type: "REDIRECT_AFTER_SUCCESS",
 });
 
-
-// export const loginUser =
-//   ({  email, password }) =>
-//   async (dispatch) => {
-//     try {
-//       const csrfToken = await fetchCsrfToken();
-//       const res = await csrfFetch("/api/session", {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//           "X-CSRF-Token": csrfToken,
-//         },
-//         body: JSON.stringify({  email, password }),
-//       });
-
-//       const data = await res.json();
-//       console.log("Data user:", data.user); //
-//       debugger
-//       if (res.ok) {
-//         storeCurrentUser(data.user);
-//         dispatch(setCurrentUser(data.user));
-//         dispatch(redirectAfterSuccess());  
-//         return { ok: res.ok, errors: data.errors };
-//       } else {
-//         // Handle error response here
-//         dispatch(setError(data.errors || "Unknown error"));
-//         return { ok: res.ok, errors: data.errors };
-//       }
-//     } catch (error) {
-//       console.error("Error logging in user:", error.message);
-//       dispatch(setError(error.message));
-//       return { ok: false, errors: [error.message] };
-//     }
-//   };
 
 export const login = (user) => async (dispatch) => {
   const { email, password } = user;
@@ -104,48 +63,6 @@ export const restoreSession = () => async (dispatch) => {
   dispatch(setCurrentUser(data.user));
   return response;
 };
-
-
-
-
-
-// export const signupUser = (user) => async (dispatch) => {
-//   try {
-//     const csrfToken = await fetchCsrfToken();
-//     const { full_name, email, password } = user;
-
-//     console.log({ full_name, email, password });
-
-//     const res = await csrfFetch("/api/users", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//         "X-CSRF-Token": csrfToken,
-//       },
-//       body: JSON.stringify({
-//         full_name,
-//         email,
-//         password,
-//       }),
-//     });
-
-//     const data = await res.json();
-//     console.log("Data user:", data.user); /// 
-//     if (res.ok) {
-//       storeCurrentUser(data.user);
-//       dispatch(setCurrentUser(data.user));
-//       dispatch(redirectAfterSuccess());  
-//       return { ok: res.ok, errors: data.errors };
-//     } else {
-//       // Handle error response here
-//       dispatch(setError(data.errors || "Unknown error"));
-//       return { ok: res.ok, errors: data.errors };
-//     }
-//   } catch (error) {
-//     console.error("Error signing up user:", error);
-//     dispatch(setError(error.message));
-//   }
-// };
 
 
 export const signup = (user) => async (dispatch) => {

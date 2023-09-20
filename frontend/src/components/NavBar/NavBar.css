@@ -19,10 +19,11 @@ body, html {
     padding: 0;
 }
 
-.logo {
+.new-logo {
     width: 200px;
-    height: 200px;
+    height: auto;
 }
+
 
 
 .splash-nav-links {
@@ -80,8 +81,7 @@ body, html {
 }
 
 .DropDown:hover .user-dropdown {
-    /* background-color: rgb(33, 69, 168);
-    cursor: pointer; */
+
     display: block;
 }
 

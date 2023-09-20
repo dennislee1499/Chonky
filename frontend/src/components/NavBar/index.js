@@ -7,6 +7,7 @@ import "../../logo.css"
 import Logo from "../../logo";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { logout } from "../../store/session";
+import logoImage from "./logoImage.png";
 
 
 
@@ -80,9 +81,9 @@ function DropDown() {
 function NavBar({ hideSearch }) {
   return (
     <header className="nav-bar">
-        <Link to="/">
-          <Logo />
-        </Link>
+      <Link to="/">
+        <img src={logoImage} alt="Your Logo" className="new-logo" />
+      </Link>
       {!hideSearch && <SearchBox />}
       <DropDown />
     </header>
