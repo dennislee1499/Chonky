@@ -25,16 +25,22 @@ function UserDropDown({ greeting, currentUser }) {
   };
 
 
+console.log(currentUser);
 
   return (
-    <div className="user-dropdown">
+    <div
+      className={`user-dropdown ${currentUser ? "logged-in" : "logged-out"}`}
+    >
+      {/* <div className="user-dropdown"> */}
       <div className="greeting-container">{greeting}</div>
       {currentUser && (
         <div className="logout-container">
           <button id="logout-drop-button" onClick={handleLogout}>
             Sign Out
           </button>
-          <span style={{ marginLeft: "10px" }}>Not {currentUser.fullName}?</span>
+            <span style={{ marginLeft: "10px" }}>
+              Not {currentUser?.fullName}?
+            </span>
         </div>
       )}
       {!currentUser && (
@@ -54,7 +60,6 @@ function UserDropDown({ greeting, currentUser }) {
 function DropDown() {
   const [isVisible, setIsVisible] = useState(false);
   const currentUser = useSelector((state) => state.session.user);
-  // const greeting = currentUser?.user
    const greeting = currentUser
     ? `Hey, ${currentUser.fullName}!` 
     : "Sign in";   /////////////
@@ -69,7 +74,6 @@ function DropDown() {
     >
       {greeting}
       <i className="fa-solid fa-user" style={{ color: "#ffffff" }}></i>
-      {/* {isVisible && <UserDropDown greeting={greeting} />} */}
       {isVisible && (
         <UserDropDown greeting={greeting} currentUser={currentUser} />
       )}

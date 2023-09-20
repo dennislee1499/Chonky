@@ -83,6 +83,18 @@ body, html {
     padding: 5px;
 }
 
+.user-dropdown.logged-in {
+    max-height: 60px;
+    overflow-y: auto;
+}
+
+.user-dropdown.logged-out {
+    max-height: none;
+    overflow-y: hidden;
+    display: flex;
+    align-items: flex-start;
+}
+
 .DropDown:hover .user-dropdown {
 
     display: block;
