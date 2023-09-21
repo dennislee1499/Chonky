@@ -62,7 +62,7 @@ function DropDown() {
   const currentUser = useSelector((state) => state.session.user);
    const greeting = currentUser
     ? `Hey, ${currentUser.fullName}!` 
-    : "Sign in";   /////////////
+    : "Sign in";   
 
 
 

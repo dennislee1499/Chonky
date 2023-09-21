@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::API
-# class ApplicationController < ActionController::Base
     include ActionController::RequestForgeryProtection
     protect_from_forgery with: :exception
 
@@ -78,13 +77,6 @@ class ApplicationController < ActionController::API
             logger.error "\n#{@message}:\n\t#{@stack.join("\n\t")}\n"
         end
     end
-
-
-
-
-
-
-
   end
 
 

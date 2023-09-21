@@ -19,3 +19,19 @@
     margin: 20px;
 }
 
+.product-price {
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.product-image {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.product-image.blue-buffalo {
+    height: 240px;
+}
+

@@ -67,7 +67,7 @@ ApplicationRecord.transaction do
               No corn, wheat, soy or chicken (or poultry) by-product meals.",
     flavor_options: ["Beef & Brown Rice", "Chicken & Brown Rice", "Lamb & Brown Rice"],
     size_options: ["5-lb bag", "15-lb bag", "24-lb bag"]
-  )
+    )
 
 
   puts "Done!"
