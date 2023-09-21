@@ -15,6 +15,10 @@ ApplicationRecord.transaction do
   User.destroy_all
   Product.destroy_all
 
+# ActiveRecord::Base.connection.reset_pk_sequence!('users')
+# ActiveRecord::Base.connection.reset_pk_sequence!('products')
+
+
   puts "Resetting primary keys..."
   # For easy testing, so that after seeding, the first `User` has `id` of 1
   ApplicationRecord.connection.reset_pk_sequence!('users')
@@ -44,12 +48,25 @@ ApplicationRecord.transaction do
     price: 29.98,
     rating: 4.2,
     details: "Complete and balanced nutrition has antioxidants, vitamins and minerals to help maintain a healthy lifestyle.
-Optimal levels of omega-6 fatty acid nourish the skin and help keep his coat shiny and healthy.
-Whole grains and a special fiber blend support healthy digestion with a delicious grilled steak flavor.
-Unique, crunchy texture helps to clean the teeth with every bite to support good oral health between brushings.
-",
+              Optimal levels of omega-6 fatty acid nourish the skin and help keep his coat shiny and healthy.
+              Whole grains and a special fiber blend support healthy digestion with a delicious grilled steak flavor.
+              Unique, crunchy texture helps to clean the teeth with every bite to support good oral health between brushings.",
     flavor_options: ["Grilled Steak", "Roast Chicken"],
     size_options: ["3.5-lb bag", "18-lb bag", "30-lb bag"]
+  )
+
+  product2 = Product.create!(
+    name: "Blue Buffalo Life Protection Formula Adult Chicken & Brown Rice Recipe Dry Dog Food",
+    category: "Dog Food",
+    price: 64.99,
+    rating: 4.1,
+    details: "Essential, high-quality protein for healthy muscle development, and carbs for energy for an active life.
+              Calcium, phosphorus and essential vitamins for strong bones and teeth.
+              Glucosamine is added for joint health and mobility support.
+              Vitamins, chelated minerals and antioxidants contribute to your pup's immune system health.
+              No corn, wheat, soy or chicken (or poultry) by-product meals.",
+    flavor_options: ["Beef & Brown Rice", "Chicken & Brown Rice", "Lamb & Brown Rice"],
+    size_options: ["5-lb bag", "15-lb bag", "24-lb bag"]
   )
 
 
