@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../store/products";
 import { Link } from "react-router-dom";
+import "./ProductsIndex.css";
 
 
 function ProductsIndex() {

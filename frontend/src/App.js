@@ -9,7 +9,6 @@ import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import ProductsIndex from "./components/ProductsIndex";
 
 
-
 function App() {
   let location = useLocation();
   return (
@@ -41,6 +40,7 @@ function App() {
     </div>
   );
 }
+
 
 
 
