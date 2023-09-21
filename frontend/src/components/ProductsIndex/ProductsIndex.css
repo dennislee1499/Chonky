@@ -20,9 +20,9 @@
 }
 
 .product-price {
-    color: red;
+    color: #bc2848;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 18px; 
 }
 
 .product-image {
@@ -35,3 +35,7 @@
     height: 240px;
 }
 
+.product-name {
+    font-size: 14px;
+    font-weight: bold;
+}

@@ -10,25 +10,13 @@ import blueBuffalo from "./blueBuffalo.png"
 function ProductsIndex() {
     const products = useSelector(state => Object.values(state.products));
     const dispatch = useDispatch();
+    const brands = new Set(["Pedigree", "Blue Buffalo"]);  /////////
+
 
     useEffect(() => {
         dispatch(fetchProducts())
     }, [])
 
-    // const ProductList = products.map(product => {
-    //     return (
-    //       <li key={product.id}>
-    //         {/* <img src="./pedigree.png" alt="Description" /> */}
-    //         <img src={pedigree} alt="Product Image" className="" />
-    //         <img src={blueBuffalo} alt="Product Image" className="" />
-    //         <p>{product.name}</p>
-    //         <p>{product.rating}</p>
-    //         <p id="index-price" className="product-price">
-    //           ${product.price}
-    //         </p>
-    //       </li>
-    //     );
-    // })
 
     const ProductList = products.map((product) => {
       let productImage;
@@ -37,7 +25,6 @@ function ProductsIndex() {
       if (product.name.includes("Blue Buffalo")) {
         imgClass = "blue-buffalo";
       }
-
 
       if (product.name.includes("Pedigree")) {
         productImage = pedigree;
@@ -52,7 +39,7 @@ function ProductsIndex() {
             alt={`Image for ${product.name}`}
             className={`product-image ${imgClass}`}
           />
-          <p>{product.name}</p>
+          <p className="product-name">{product.name}</p>
           <p>{product.rating}</p>
           <p id="index-price" className="product-price">
             ${product.price}
