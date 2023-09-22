@@ -1,14 +1,28 @@
-.banner-placeholder {
+/* .banner-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid red;
     width: 100%;
     height: 25rem;
     overflow: hidden;
-}
+} */
 
 .banner-placeholder img {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
+    /* height: auto; */
+    height: 500px;
+    object-fit: cover;
+}
+
+.banner-placeholder .slick-slider {
+    max-height: 500px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slick-arrow {
+    z-index: 1;
 }
 
 .product-section {
@@ -19,4 +33,3 @@
 .product-section h2 {
     margin-left: 30px;
 }
-
