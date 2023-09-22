@@ -11,6 +11,8 @@ function ProductsIndex() {
     const products = useSelector(state => Object.values(state.products));
     const dispatch = useDispatch();
     const brands = new Set(["Pedigree", "Blue Buffalo"]);  
+    const BOLD_BRANDS = new Set(["Pedigree", "Blue Buffalo"]);
+
 
     const getBrandAndProductName = (name) => {
       for (let brand of brands) {
@@ -56,10 +58,14 @@ function ProductsIndex() {
             alt={`Image for ${product.name}`}
             className={`product-image ${imgClass}`}
           />
-          <p className="product-name">
-            {brandName && <span className="brand-name">{brandName}</span>}
-            {productName}
-          </p>
+          <Link id="link-to-show-from-product" to={`/products/${product.id}`}>
+            <span>
+              <span className={BOLD_BRANDS.has(brandName) ? "brand-name" : ""}>
+                {brandName}
+              </span>{" "}
+              {productName}
+            </span>
+          </Link>
           <p>{product.rating}</p>
           <p id="index-price" className="product-price">
             ${product.price}

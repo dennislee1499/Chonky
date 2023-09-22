@@ -7,6 +7,7 @@ import Footer from "./components/Footer/Footer";
 import SplashPage from "./components/SplashPage";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import ProductsIndex from "./components/ProductsIndex";
+import ProductShow from "./components/ProductShow";
 
 
 function App() {
@@ -25,12 +26,19 @@ function App() {
           <Route exact path="/">
             <SplashPage />
           </Route>
+
           <Route path="/register">
             <SignupForm />
           </Route>
+
           <Route path="/login">
             <LoginForm />
           </Route>
+
+          <Route exact path="/products/:productId">
+            <ProductShow />
+          </Route>
+
           <Route exact path="/products">
             <ProductsIndex />
           </Route>

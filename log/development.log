@@ -15527,3 +15527,578 @@ Processing by Api::ProductsController#index as JSON
 Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.6ms | Allocations: 1656)
 
 
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 17:58:42 -0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-21 17:58:42 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+Processing by Api::ProductsController#index as JSON
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.5ms | Allocations: 378)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.0ms | Allocations: 8773)
+
+
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 9.5ms | Allocations: 8798)
+Completed 200 OK in 152ms (Views: 144.2ms | ActiveRecord: 3.8ms | Allocations: 291620)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 19:49:05 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 35.6ms | Allocations: 4315)
+Completed 200 OK in 47ms (Views: 24.7ms | ActiveRecord: 13.6ms | Allocations: 4897)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-21 19:49:06 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.3ms | Allocations: 8)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 318)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 19:49:23 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 1.5ms | Allocations: 1200)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.3ms | Allocations: 1647)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-21 19:49:23 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.2ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 19:59:45 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 30.5ms | Allocations: 4058)
+Completed 200 OK in 38ms (Views: 19.8ms | ActiveRecord: 11.4ms | Allocations: 4532)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 19:59:48 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 1.8ms | Allocations: 1209)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.4ms | Allocations: 1705)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-21 19:59:48 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.3ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 20:44:08 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 35.4ms | Allocations: 4058)
+Completed 200 OK in 43ms (Views: 23.1ms | ActiveRecord: 12.9ms | Allocations: 4523)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 20:47:38 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 6.5ms | Allocations: 1200)
+Completed 200 OK in 12ms (Views: 8.0ms | ActiveRecord: 0.5ms | Allocations: 1671)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 20:51:29 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 3.0ms | Allocations: 1200)
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.4ms | Allocations: 1665)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-21 20:51:29 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.3ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 20:56:22 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (8.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 18.5ms | Allocations: 1200)
+Completed 200 OK in 26ms (Views: 10.9ms | ActiveRecord: 8.2ms | Allocations: 1671)
+
+
+Started DELETE "/api/session" for 127.0.0.1 at 2023-09-21 22:16:54 -0400
+Processing by Api::SessionsController#destroy as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:46:in `block in generate_unique_session_token'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@user.io"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mUser Update (2.1ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "[FILTERED]"], ["updated_at", "2023-09-22 02:16:54.988876"], ["id", 1]]
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+Completed 200 OK in 87ms (Views: 0.5ms | ActiveRecord: 20.8ms | Allocations: 16853)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-21 22:16:55 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.4ms | Allocations: 7)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 332)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-21 22:17:00 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2023-09-21 22:17:03 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"demo@user.io", "password"=>"[FILTERED]", "session"=>{"email"=>"demo@user.io", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@user.io"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25:in `find_by_credentials'
+  [1m[36mUser Exists? (9.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:46:in `block in generate_unique_session_token'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@user.io"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "[FILTERED]"], ["updated_at", "2023-09-22 02:17:03.352298"], ["id", 1]]
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 1.6ms | Allocations: 326)
+Completed 200 OK in 272ms (Views: 3.6ms | ActiveRecord: 10.9ms | Allocations: 6505)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-21 22:17:03 -0400
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 22:17:03 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+Processing by Api::ProductsController#index as JSON
+  Rendered public/index.html (Duration: 0.3ms | Allocations: 291)
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 1060)
+
+
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (2.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 4.7ms | Allocations: 1377)
+Completed 200 OK in 6ms (Views: 3.2ms | ActiveRecord: 2.0ms | Allocations: 2178)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-21 22:49:50 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.5ms | Allocations: 10)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.0ms | Allocations: 686)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:18:42 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-21 23:18:42 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.9ms | Allocations: 64)
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 422)
+
+
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 49.5ms | Allocations: 6756)
+Completed 200 OK in 76ms (Views: 48.3ms | ActiveRecord: 13.8ms | Allocations: 7948)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:20:29 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 3.2ms | Allocations: 1200)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.5ms | Allocations: 1721)
+
+
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-21 23:20:35 -0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-21 23:20:35 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (1.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+Processing by StaticPagesController#frontend_index as */*
+  Rendering api/products/show.json.jbuilder
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.6ms | Allocations: 29)
+Completed 200 OK in 9ms (Views: 8.9ms | ActiveRecord: 0.0ms | Allocations: 1258)
+
+
+  Rendered api/products/show.json.jbuilder (Duration: 27.8ms | Allocations: 5746)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.9ms | Allocations: 220)
+
+ActionView::Template::Error - undefined method `each' for nil:NilClass:
+	app/views/api/products/show.json.jbuilder:2
+	app/views/api/products/show.json.jbuilder:1
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 55ms (Views: 1.6ms | ActiveRecord: 3.7ms | Allocations: 9637)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:20:38 -0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-21 23:20:38 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+Processing by StaticPagesController#frontend_index as */*
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Parameters: {"path"=>"favicon"}
+  Rendered api/products/index.json.jbuilder (Duration: 2.2ms | Allocations: 1660)
+  Rendering public/index.html
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.6ms | Allocations: 2436)
+
+
+  Rendered public/index.html (Duration: 0.7ms | Allocations: 365)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 772)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:20:39 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 1.3ms | Allocations: 1200)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 1653)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-21 23:20:39 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.0ms | Allocations: 6)
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:21:23 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 13.5ms | Allocations: 1200)
+Completed 200 OK in 21ms (Views: 14.6ms | ActiveRecord: 1.0ms | Allocations: 1650)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:23:10 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (6.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 16.3ms | Allocations: 1200)
+Completed 200 OK in 19ms (Views: 11.1ms | ActiveRecord: 6.2ms | Allocations: 1674)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:23:12 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 1.3ms | Allocations: 1200)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.2ms | Allocations: 1653)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-21 23:23:12 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.4ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-21 23:23:13 -0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-21 23:23:13 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 1.8ms | Allocations: 2510)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.2ms | Allocations: 108)
+
+ActionView::Template::Error - undefined method `each' for nil:NilClass:
+	app/views/api/products/show.json.jbuilder:2
+	app/views/api/products/show.json.jbuilder:1
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 6ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 4283)
+
+
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.0ms | Allocations: 6)
+Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-21 23:23:15 -0400
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:23:15 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 14)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 313)
+
+
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 1.3ms | Allocations: 1200)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 1668)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:23:15 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 2.2ms | Allocations: 1200)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.3ms | Allocations: 1662)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-21 23:23:16 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.0ms | Allocations: 6)
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:23:31 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 3.1ms | Allocations: 1200)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.4ms | Allocations: 1671)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:24:22 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 3.1ms | Allocations: 1200)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.4ms | Allocations: 1662)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:24:29 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 1.2ms | Allocations: 1200)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 1662)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:26:10 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 3.2ms | Allocations: 1200)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.6ms | Allocations: 1677)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:26:37 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 2.8ms | Allocations: 1200)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.5ms | Allocations: 1656)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:26:44 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 1.2ms | Allocations: 1200)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 1647)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:26:49 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 1.2ms | Allocations: 1200)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 1674)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:26:55 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 1.2ms | Allocations: 1200)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 1656)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:27:02 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 1.3ms | Allocations: 1200)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 1677)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:27:12 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 1.4ms | Allocations: 1200)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.4ms | Allocations: 1659)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:28:51 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 2.9ms | Allocations: 1200)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.4ms | Allocations: 1674)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:29:12 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 47.0ms | Allocations: 1200)
+Completed 200 OK in 48ms (Views: 46.9ms | ActiveRecord: 0.3ms | Allocations: 1657)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:31:10 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 3.0ms | Allocations: 1200)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.6ms | Allocations: 1677)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:32:07 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 6.2ms | Allocations: 1200)
+Completed 200 OK in 14ms (Views: 7.6ms | ActiveRecord: 1.3ms | Allocations: 1657)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:33:41 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 3.4ms | Allocations: 1200)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.4ms | Allocations: 1674)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:33:50 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 1.1ms | Allocations: 1200)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms | Allocations: 1686)
+
+
+Started GET "/api/products/6" for 127.0.0.1 at 2023-09-21 23:33:54 -0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-21 23:33:54 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"6"}
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 1.5ms | Allocations: 2510)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.2ms | Allocations: 108)
+
+ActionView::Template::Error - undefined method `each' for nil:NilClass:
+	app/views/api/products/show.json.jbuilder:2
+	app/views/api/products/show.json.jbuilder:1
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 5ms (Views: 0.7ms | ActiveRecord: 0.7ms | Allocations: 4215)
+
+
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.3ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-21 23:33:57 -0400
+Started GET "/api/products" for 127.0.0.1 at 2023-09-21 23:33:57 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 26)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 322)
+
+
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 2.6ms | Allocations: 1200)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.4ms | Allocations: 1659)
+
+

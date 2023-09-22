@@ -17,6 +17,9 @@
     background-color: whitesmoke;
     border-radius: 5px;
     margin: 20px;
+    font-family: 'Poppins';
+    font-size: 12px;
+    padding: 5px;
 }
 
 .product-price {
@@ -32,7 +35,7 @@
 }
 
 .product-image.blue-buffalo {
-    height: 240px;
+    height: 250px;
 }
 
 
@@ -40,3 +43,17 @@
     font-weight: bold;
     margin-right: 5px;
 }
+
+#link-to-show-from-product {
+    text-decoration: none;
+    color: black;
+    margin-top: 10px;
+}
+
+#link-to-show-from-product:hover {
+    color: navy;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+

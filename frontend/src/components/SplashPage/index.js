@@ -8,13 +8,15 @@ function SplashPage() {
   return (
     <div className="SplashPage">
       <div className="banner-placeholder">
-        {/* Banner Placeholder */}
         <img src={pets} alt="Pet Banner" />
       </div>
-      <h1>Animal Essentials</h1>
-      <ProductsIndex />
+      <div className="product-section">
+        <h2>Dog Food</h2>
+        <ProductsIndex />
+      </div>
     </div>
   );
 }
+
 
 export default SplashPage;

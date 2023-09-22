@@ -14,10 +14,18 @@ html {
     justify-content: space-evenly;
     bottom: 0;
     padding: 10px;
-    /* border-top: 2px solid #000; */
 }
 
 .footer-container p {
     color: #666666;
     font-size: 12px;
 }
+
+/* .footer-placeholder {
+    background-color: orange;
+    border: 1px solid gray;
+    width: 100%;
+    height: auto;
+    /* overflow: hidden; */
+    /* margin-top: 0; */
+/* } /* */
