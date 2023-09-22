@@ -11,8 +11,11 @@ function ProductShow() {
     const currentUser = useSelector(state => state.session.user);
 
     useEffect(() => {
-        dispatch(fetchProduct(productId));
-    }, []); 
+      if (!product) {
+        dispatch(fetchProduct(productId)); 
+      }
+    }, [dispatch, productId, product]);
+
 }
 
 export default ProductShow;
