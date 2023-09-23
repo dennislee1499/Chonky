@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import "./ProductsIndex.css";
 import pedigree from "./pedigree.png"
 import blueBuffalo from "./blueBuffalo.png"
-
+import StarRatingDisplay from "../StarRating/StarRatingDisplay";
+import "../StarRating/StarRating.css"
 
 function ProductsIndex() {
     const products = useSelector(state => Object.values(state.products));
@@ -66,7 +67,10 @@ function ProductsIndex() {
               {productName}
             </span>
           </Link>
-          <p>{product.rating}</p>
+          <div className="rating-container">
+            <StarRatingDisplay rating={product.rating} />
+            <p>{product.rating}</p>
+          </div>
           <p id="index-price" className="product-price">
             ${product.price}
           </p>

@@ -1,0 +1,17 @@
+.rating-input {
+    display: flex;
+    font-size: 20px;
+}
+
+.rating-input div {
+    cursor: pointer;
+}
+
+.rating-input .filled i.fa-star {
+    color: orange;
+}
+
+.rating-input .empty i.fa-star {
+    color: white;
+}
+

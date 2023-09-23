@@ -56,4 +56,18 @@
     cursor: pointer;
 }
 
+.rating-container {
+    display: flex;
+    align-items: center;
+}
+
+.rating-container>* {
+    margin-right: 0.5rem;
+}
+
+.rating-input {
+    display: flex;
+    flex-direction: row;
+}
+
 
