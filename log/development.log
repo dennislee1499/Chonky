@@ -18748,3 +18748,1871 @@ Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 115
 Completed 200 OK in 258ms (Views: 239.5ms | ActiveRecord: 12.6ms | Allocations: 306226)
 
 
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 18:21:32 -0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 18:21:32 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.2ms | Allocations: 13)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.0ms | Allocations: 11530)
+
+
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 20.0ms | Allocations: 21717)
+Completed 200 OK in 183ms (Views: 168.5ms | ActiveRecord: 7.7ms | Allocations: 305461)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 18:30:07 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.3ms | Allocations: 8)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 342)
+
+
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 18:31:03 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 18:31:03 -0400
+  [1m[36mProduct Load (1.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 14.7ms | Allocations: 5247)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.6ms | Allocations: 251)
+
+ActionView::Template::Error - undefined method `each' for nil:NilClass:
+	app/views/api/products/show.json.jbuilder:2
+	app/views/api/products/show.json.jbuilder:1
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 84ms (Views: 1.1ms | ActiveRecord: 23.1ms | Allocations: 12084)
+
+
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.3ms | Allocations: 7)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 315)
+
+
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 18:31:16 -0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 18:31:16 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.2ms | Allocations: 15)
+Completed 200 OK in 22ms (Views: 19.2ms | ActiveRecord: 0.0ms | Allocations: 9399)
+
+
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 1.9ms | Allocations: 3128)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.3ms | Allocations: 257)
+
+ActionView::Template::Error - undefined method `each' for nil:NilClass:
+	app/views/api/products/show.json.jbuilder:2
+	app/views/api/products/show.json.jbuilder:1
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 179ms (Views: 0.7ms | ActiveRecord: 17.6ms | Allocations: 300912)
+
+
+Started DELETE "/api/session" for 127.0.0.1 at 2023-09-22 18:31:48 -0400
+Processing by Api::SessionsController#destroy as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:46:in `block in generate_unique_session_token'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@user.io"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mUser Update (3.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "[FILTERED]"], ["updated_at", "2023-09-22 22:31:48.919973"], ["id", 1]]
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+Completed 200 OK in 51ms (Views: 0.2ms | ActiveRecord: 14.0ms | Allocations: 12218)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 18:31:48 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 18:31:49 -0400
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 19.3ms | Allocations: 8247)
+Completed 200 OK in 21ms (Views: 16.7ms | ActiveRecord: 3.4ms | Allocations: 8907)
+
+
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.3ms | Allocations: 8)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 343)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-22 18:31:50 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 1027)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 18:31:50 -0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 18:31:50 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 4.4ms | Allocations: 3103)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.9ms | Allocations: 3564)
+
+
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 7)
+Completed 200 OK in 0ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 288)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 18:32:01 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.3ms | Allocations: 6)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 18:32:02 -0400
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 18:32:02 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  Rendered public/index.html (Duration: 1.5ms | Allocations: 384)
+Completed 200 OK in 3ms (Views: 3.1ms | ActiveRecord: 0.0ms | Allocations: 993)
+
+
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 7.2ms | Allocations: 3272)
+Completed 200 OK in 9ms (Views: 6.6ms | ActiveRecord: 1.1ms | Allocations: 3733)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 18:32:03 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.2ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 18:32:04 -0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 18:32:04 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  Rendered public/index.html (Duration: 0.9ms | Allocations: 375)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 998)
+
+
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 4.7ms | Allocations: 3267)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.7ms | Allocations: 3736)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 18:32:30 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.2ms | Allocations: 6)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2023-09-22 18:32:31 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"demo@user.io", "password"=>"[FILTERED]", "session"=>{"email"=>"demo@user.io", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@user.io"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25:in `find_by_credentials'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:46:in `block in generate_unique_session_token'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@user.io"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "[FILTERED]"], ["updated_at", "2023-09-22 22:32:31.798915"], ["id", 1]]
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 0.8ms | Allocations: 325)
+Completed 200 OK in 263ms (Views: 1.9ms | ActiveRecord: 2.8ms | Allocations: 6485)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 18:32:31 -0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 18:32:31 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+Processing by Api::ProductsController#index as JSON
+  Rendering public/index.html
+  Rendering api/products/index.json.jbuilder
+  Rendered public/index.html (Duration: 0.2ms | Allocations: 88)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 856)
+
+
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 3.6ms | Allocations: 3470)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.6ms | Allocations: 3996)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 18:55:19 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.3ms | Allocations: 6)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 18:55:29 -0400
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 18:55:29 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.4ms | Allocations: 215)
+Completed 200 OK in 23ms (Views: 22.7ms | ActiveRecord: 0.0ms | Allocations: 1699)
+
+
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 44.4ms | Allocations: 6362)
+Completed 200 OK in 61ms (Views: 33.3ms | ActiveRecord: 13.8ms | Allocations: 7040)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 18:56:30 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.5ms | Allocations: 6)
+Completed 200 OK in 7ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 18:56:37 -0400
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 18:56:37 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.3ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 9.4ms | Allocations: 3821)
+Completed 200 OK in 12ms (Views: 8.4ms | ActiveRecord: 1.5ms | Allocations: 4305)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 18:56:39 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 18:56:47 -0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 18:56:48 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 6.4ms | Allocations: 3113)
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 1.3ms | Allocations: 3554)
+
+
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.0ms | Allocations: 6)
+Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started DELETE "/api/session" for 127.0.0.1 at 2023-09-22 18:58:09 -0400
+Processing by Api::SessionsController#destroy as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:46:in `block in generate_unique_session_token'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@user.io"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mUser Update (3.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "[FILTERED]"], ["updated_at", "2023-09-22 22:58:09.798847"], ["id", 1]]
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+Completed 200 OK in 24ms (Views: 0.3ms | ActiveRecord: 9.0ms | Allocations: 5022)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 18:58:10 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.2ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 18:58:12 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 18:58:16 -0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 18:58:16 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (2.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 9.2ms | Allocations: 3328)
+Completed 200 OK in 10ms (Views: 6.4ms | ActiveRecord: 3.3ms | Allocations: 3770)
+
+
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 18:58:20 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:00:26 -0400
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 19:00:26 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+Processing by Api::ProductsController#index as JSON
+  Rendering public/index.html
+  Rendering api/products/index.json.jbuilder
+  Rendered public/index.html (Duration: 3.1ms | Allocations: 61)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.0ms | Allocations: 738)
+
+
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (1.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 30.3ms | Allocations: 3289)
+Completed 200 OK in 32ms (Views: 28.4ms | ActiveRecord: 2.4ms | Allocations: 3764)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:00:28 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-22 19:03:54 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+Completed 200 OK in 31ms (Views: 0.3ms | ActiveRecord: 4.7ms | Allocations: 938)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:03:54 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.3ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-22 19:03:59 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 939)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:03:59 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.0ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-22 19:04:12 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 942)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:04:12 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.3ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-22 19:12:48 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+Completed 200 OK in 46ms (Views: 0.3ms | ActiveRecord: 18.7ms | Allocations: 3969)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:12:48 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.4ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 19:13:17 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (2.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 4.0ms | Allocations: 2532)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.2ms | Allocations: 110)
+
+ActionView::Template::Error - undefined method `each' for nil:NilClass:
+	app/views/api/products/show.json.jbuilder:2
+	app/views/api/products/show.json.jbuilder:1
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 11ms (Views: 0.4ms | ActiveRecord: 2.4ms | Allocations: 4287)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-22 19:13:49 -0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:13:49 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::SessionsController#show as JSON
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.3ms | Allocations: 12)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.0ms | Allocations: 4461)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 3.6ms | Allocations: 7936)
+
+
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 19:13:53 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 1.8ms | Allocations: 3128)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.3ms | Allocations: 227)
+
+ActionView::Template::Error - undefined method `each' for nil:NilClass:
+	app/views/api/products/show.json.jbuilder:2
+	app/views/api/products/show.json.jbuilder:1
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 151ms (Views: 0.6ms | ActiveRecord: 9.7ms | Allocations: 295272)
+
+
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 19:13:58 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 0.8ms | Allocations: 2515)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.1ms | Allocations: 108)
+
+ActionView::Template::Error - undefined method `each' for nil:NilClass:
+	app/views/api/products/show.json.jbuilder:2
+	app/views/api/products/show.json.jbuilder:1
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 4319)
+
+
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 19:14:38 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 1.9ms | Allocations: 2511)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.1ms | Allocations: 108)
+
+ActionView::Template::Error - undefined method `each' for nil:NilClass:
+	app/views/api/products/show.json.jbuilder:2
+	app/views/api/products/show.json.jbuilder:1
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 7ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 4193)
+
+
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 19:14:43 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 0.9ms | Allocations: 2509)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.1ms | Allocations: 108)
+
+ActionView::Template::Error - undefined method `each' for nil:NilClass:
+	app/views/api/products/show.json.jbuilder:2
+	app/views/api/products/show.json.jbuilder:1
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 4185)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-22 19:14:55 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1012)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:14:55 -0400
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 19:14:55 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.3ms | Allocations: 17)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 329)
+
+
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 1.7ms | Allocations: 2509)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.2ms | Allocations: 108)
+
+ActionView::Template::Error - undefined method `each' for nil:NilClass:
+	app/views/api/products/show.json.jbuilder:2
+	app/views/api/products/show.json.jbuilder:1
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 11ms (Views: 2.6ms | ActiveRecord: 0.3ms | Allocations: 4175)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-22 19:15:20 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+Completed 200 OK in 15ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 939)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:15:20 -0400
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 19:15:20 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 1.2ms | Allocations: 2509)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.1ms | Allocations: 108)
+
+ActionView::Template::Error - undefined method `each' for nil:NilClass:
+	app/views/api/products/show.json.jbuilder:2
+	app/views/api/products/show.json.jbuilder:1
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 4ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 4228)
+
+
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.4ms | Allocations: 7)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 288)
+
+
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 19:15:47 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 1.1ms | Allocations: 2509)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.1ms | Allocations: 108)
+
+ActionView::Template::Error - undefined method `each' for nil:NilClass:
+	app/views/api/products/show.json.jbuilder:2
+	app/views/api/products/show.json.jbuilder:1
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 7ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 4193)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-22 19:16:49 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+Completed 200 OK in 6ms (Views: 1.1ms | ActiveRecord: 0.6ms | Allocations: 951)
+
+
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 19:16:49 -0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:16:49 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 1.4ms | Allocations: 2509)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.1ms | Allocations: 108)
+
+ActionView::Template::Error - undefined method `each' for nil:NilClass:
+	app/views/api/products/show.json.jbuilder:2
+	app/views/api/products/show.json.jbuilder:1
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 5ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 4193)
+
+
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.4ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-22 19:33:44 -0400
+Processing by Api::SessionsController#show as JSON
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:33:44 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 1.0ms | Allocations: 339)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 776)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+Completed 200 OK in 62ms (Views: 0.3ms | ActiveRecord: 14.2ms | Allocations: 5868)
+
+
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 19:33:44 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 2.8ms | Allocations: 2509)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.1ms | Allocations: 108)
+
+ActionView::Template::Error - undefined method `each' for nil:NilClass:
+	app/views/api/products/show.json.jbuilder:2
+	app/views/api/products/show.json.jbuilder:1
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 9ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 4239)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-22 19:36:17 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 951)
+
+
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 19:36:17 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 1.4ms | Allocations: 1437)
+  Rendering api/errors/internal_server_error.json.jbuilder
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:36:17 -0400
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.6ms | Allocations: 488)
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check json.products do
+    # @products.each do |product|
+        json.set! product.id do 
+            json.extract! product, :id, :name, :category, :price, :rating, :details, :color_options, :flavor_options, :size_options, :created_at, :updated_at
+        end
+    end
+end
+:
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 11ms (Views: 1.1ms | ActiveRecord: 0.5ms | Allocations: 4572)
+
+
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.4ms | Allocations: 10)
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms | Allocations: 680)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-22 19:37:02 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1140)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:37:02 -0400
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 19:37:02 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendered public/index.html (Duration: 0.9ms | Allocations: 790)
+Completed 200 OK in 3ms (Views: 3.1ms | ActiveRecord: 0.0ms | Allocations: 2019)
+
+
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 0.8ms | Allocations: 1457)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.4ms | Allocations: 191)
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check json.product do
+        json.set! product.id do 
+            json.extract! product, :id, :name, :category, :price, :rating, :details, :color_options, :flavor_options, :size_options, :created_at, :updated_at
+        end
+    end
+end
+:
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 6ms (Views: 0.7ms | ActiveRecord: 0.3ms | Allocations: 5086)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-22 19:38:24 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 3.1ms | Allocations: 1112)
+
+
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 19:38:24 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 1.3ms | Allocations: 1610)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.4ms | Allocations: 199)
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check json.product do
+        json.set! product.id do 
+            json.extract! product, :id, :name, :category, :price, :rating, :details, :color_options, :flavor_options, :size_options, :created_at, :updated_at
+            json.image_url @product.image.url
+        end
+    end
+end
+:
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 8ms (Views: 1.1ms | ActiveRecord: 0.4ms | Allocations: 4246)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:38:24 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.4ms | Allocations: 10)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms | Allocations: 681)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-22 19:41:12 -0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:41:12 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+Completed 200 OK in 26ms (Views: 0.1ms | ActiveRecord: 21.6ms | Allocations: 3177)
+
+
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.3ms | Allocations: 45)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 667)
+
+
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 19:41:12 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 0.7ms | Allocations: 1328)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.1ms | Allocations: 133)
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check json.product do
+        json.set! product.id do 
+            json.extract! product, :id, :name, :category, :price, :rating, :details, :color_options, :flavor_options, :size_options, :created_at, :updated_at
+            json.image_url @product.image.url
+        end
+    end
+end
+:
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 22ms (Views: 0.3ms | ActiveRecord: 15.5ms | Allocations: 9381)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-22 19:41:35 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 2.2ms | Allocations: 2833)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:41:35 -0400
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 19:41:35 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.3ms | Allocations: 14)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms | Allocations: 726)
+
+
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 0.5ms | Allocations: 1410)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.4ms | Allocations: 191)
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check json.product do
+        json.set! product.id do 
+            json.extract! product, :id, :name, :category, :price, :rating, :details, :color_options, :flavor_options, :size_options, :created_at, :updated_at
+        end
+    end
+end
+:
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 6ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 4099)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-22 19:43:21 -0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:43:22 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 5.3ms | Allocations: 3074)
+
+
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.3ms | Allocations: 72)
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 872)
+
+
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 19:43:22 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 0.4ms | Allocations: 1339)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.3ms | Allocations: 191)
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check json.product do
+        json.set! product.id do 
+            json.extract! product, :id, :name, :category, :price, :rating, :details, :color_options, :flavor_options, :size_options, :created_at, :updated_at
+        end
+    end
+end
+:
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 11ms (Views: 0.6ms | ActiveRecord: 4.2ms | Allocations: 9335)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-22 19:43:31 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 2823)
+
+
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 19:43:31 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:43:31 -0400
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 0.8ms | Allocations: 1395)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.1ms | Allocations: 110)
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check json.product do
+        json.set! product.id do 
+            json.extract! product, :id, :name, :category, :price, :rating, :details, :color_options, :flavor_options, :size_options, :created_at, :updated_at
+        end
+    end
+end
+:
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 3ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 3474)
+
+
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.2ms | Allocations: 7)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 314)
+
+
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 19:44:19 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 1.0ms | Allocations: 1379)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.2ms | Allocations: 96)
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check json.product do
+        json.set! product.id do 
+            json.extract! product, :id, :name, :category, :price, :rating, :details, :color_options, :flavor_options, :size_options, :created_at, :updated_at
+        end
+    end
+end
+:
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 6ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 3017)
+
+
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 19:45:57 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 8.3ms | Allocations: 1379)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.4ms | Allocations: 96)
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check json.product do
+        json.set! product.id do 
+            json.extract! product, :id, :name, :category, :price, :rating, :details, :color_options, :flavor_options, :size_options, :created_at, :updated_at
+        end
+    end
+end
+:
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 23ms (Views: 1.2ms | ActiveRecord: 0.8ms | Allocations: 3026)
+
+
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 19:49:40 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 1.1ms | Allocations: 1379)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.2ms | Allocations: 96)
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check json.product do
+        json.set! product.id do 
+            json.extract! product, :id, :name, :category, :price, :rating, :details, :color_options, :flavor_options, :size_options, :created_at, :updated_at
+        end
+    end
+end
+:
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 6ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 3032)
+
+
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 19:49:46 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 0.7ms | Allocations: 1379)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.1ms | Allocations: 96)
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check json.product do
+        json.set! product.id do 
+            json.extract! product, :id, :name, :category, :price, :rating, :details, :color_options, :flavor_options, :size_options, :created_at, :updated_at
+        end
+    end
+end
+:
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 3014)
+
+
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 19:49:48 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 0.5ms | Allocations: 1379)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.1ms | Allocations: 96)
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check json.product do
+        json.set! product.id do 
+            json.extract! product, :id, :name, :category, :price, :rating, :details, :color_options, :flavor_options, :size_options, :created_at, :updated_at
+        end
+    end
+end
+:
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 3014)
+
+
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 19:50:01 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 1.0ms | Allocations: 1379)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.2ms | Allocations: 96)
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check json.product do
+        json.set! product.id do 
+            json.extract! product, :id, :name, :category, :price, :rating, :details, :color_options, :flavor_options, :size_options, :created_at, :updated_at
+        end
+    end
+end
+:
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 5ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 3029)
+
+
+Started GET "/api/products/5" for 127.0.0.1 at 2023-09-22 19:50:04 -0400
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:9:in `show'
+  Rendering api/products/show.json.jbuilder
+  Rendered api/products/show.json.jbuilder (Duration: 0.7ms | Allocations: 1379)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.1ms | Allocations: 96)
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check json.product do
+        json.set! product.id do 
+            json.extract! product, :id, :name, :category, :price, :rating, :details, :color_options, :flavor_options, :size_options, :created_at, :updated_at
+        end
+    end
+end
+:
+	app/controllers/api/products_controller.rb:10:in `show'
+
+Completed 500 Internal Server Error in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 3023)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 19:50:08 -0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:50:08 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  [1m[36mProduct Load (2.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered public/index.html (Duration: 1.1ms | Allocations: 441)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 2356)
+
+
+  Rendered api/products/index.json.jbuilder (Duration: 22.4ms | Allocations: 8128)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.2ms | Allocations: 129)
+
+ActionView::Template::Error - undefined method `image' for #<Product id: 5, name: "Pedigree Complete Nutrition Grilled Steak & Vegeta...", category: "Dog Food", price: 29.98, rating: 4.2, details: "Complete and balanced nutrition has antioxidants, ...", color_options: [], flavor_options: ["Grilled Steak", "Roast Chicken"], size_options: ["3.5-lb bag", "18-lb bag", "30-lb bag"], created_at: "2023-09-20 23:41:34.931028000 +0000", updated_at: "2023-09-20 23:41:34.931028000 +0000">:
+	app/views/api/products/index.json.jbuilder:5
+	app/views/api/products/index.json.jbuilder:3
+	app/views/api/products/index.json.jbuilder:2
+	app/views/api/products/index.json.jbuilder:1
+	app/controllers/api/products_controller.rb:5:in `index'
+
+Completed 500 Internal Server Error in 28ms (Views: 0.5ms | ActiveRecord: 2.4ms | Allocations: 9507)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-22 19:50:27 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (9.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+Completed 200 OK in 26ms (Views: 1.8ms | ActiveRecord: 9.8ms | Allocations: 939)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 19:50:27 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 10.3ms | Allocations: 6897)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.4ms | Allocations: 129)
+
+ActionView::Template::Error - undefined method `image' for #<Product id: 5, name: "Pedigree Complete Nutrition Grilled Steak & Vegeta...", category: "Dog Food", price: 29.98, rating: 4.2, details: "Complete and balanced nutrition has antioxidants, ...", color_options: [], flavor_options: ["Grilled Steak", "Roast Chicken"], size_options: ["3.5-lb bag", "18-lb bag", "30-lb bag"], created_at: "2023-09-20 23:41:34.931028000 +0000", updated_at: "2023-09-20 23:41:34.931028000 +0000">:
+	app/views/api/products/index.json.jbuilder:5
+	app/views/api/products/index.json.jbuilder:3
+	app/views/api/products/index.json.jbuilder:2
+	app/views/api/products/index.json.jbuilder:1
+	app/controllers/api/products_controller.rb:5:in `index'
+
+Completed 500 Internal Server Error in 13ms (Views: 0.7ms | ActiveRecord: 0.4ms | Allocations: 8148)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:50:27 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.2ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-22 19:51:32 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+Completed 200 OK in 7ms (Views: 0.9ms | ActiveRecord: 0.8ms | Allocations: 969)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:51:32 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.5ms | Allocations: 64)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 380)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 19:51:32 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 13.6ms | Allocations: 6897)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.1ms | Allocations: 129)
+
+ActionView::Template::Error - undefined method `image' for #<Product id: 5, name: "Pedigree Complete Nutrition Grilled Steak & Vegeta...", category: "Dog Food", price: 29.98, rating: 4.2, details: "Complete and balanced nutrition has antioxidants, ...", color_options: [], flavor_options: ["Grilled Steak", "Roast Chicken"], size_options: ["3.5-lb bag", "18-lb bag", "30-lb bag"], created_at: "2023-09-20 23:41:34.931028000 +0000", updated_at: "2023-09-20 23:41:34.931028000 +0000">:
+	app/views/api/products/index.json.jbuilder:5
+	app/views/api/products/index.json.jbuilder:3
+	app/views/api/products/index.json.jbuilder:2
+	app/views/api/products/index.json.jbuilder:1
+	app/controllers/api/products_controller.rb:5:in `index'
+
+Completed 500 Internal Server Error in 15ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 8169)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-09-22 19:52:12 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 933)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:52:12 -0400
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 19:52:12 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.4ms | Allocations: 6)
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (Duration: 12.9ms | Allocations: 6897)
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.4ms | Allocations: 129)
+
+ActionView::Template::Error - undefined method `image' for #<Product id: 5, name: "Pedigree Complete Nutrition Grilled Steak & Vegeta...", category: "Dog Food", price: 29.98, rating: 4.2, details: "Complete and balanced nutrition has antioxidants, ...", color_options: [], flavor_options: ["Grilled Steak", "Roast Chicken"], size_options: ["3.5-lb bag", "18-lb bag", "30-lb bag"], created_at: "2023-09-20 23:41:34.931028000 +0000", updated_at: "2023-09-20 23:41:34.931028000 +0000">:
+	app/views/api/products/index.json.jbuilder:5
+	app/views/api/products/index.json.jbuilder:3
+	app/views/api/products/index.json.jbuilder:2
+	app/views/api/products/index.json.jbuilder:1
+	app/controllers/api/products_controller.rb:5:in `index'
+
+Completed 500 Internal Server Error in 15ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 8154)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5298814202938795875)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5298814202938795875)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/session" for 127.0.0.1 at 2023-09-22 19:55:37 -0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:55:37 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+Processing by Api::SessionsController#show as JSON
+  Rendered public/index.html (Duration: 5.1ms | Allocations: 5578)
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 0.0ms | Allocations: 8536)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+Completed 200 OK in 19ms (Views: 0.1ms | ActiveRecord: 9.3ms | Allocations: 8679)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 19:55:37 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (3.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (1.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 36.6ms | Allocations: 15615)
+Completed 200 OK in 150ms (Views: 132.1ms | ActiveRecord: 12.2ms | Allocations: 298124)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:55:41 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.0ms | Allocations: 11)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 626)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:55:42 -0400
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 19:55:42 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.2ms | Allocations: 96)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 3284)
+
+
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 14.3ms | Allocations: 9239)
+Completed 200 OK in 19ms (Views: 9.4ms | ActiveRecord: 5.5ms | Allocations: 12060)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:55:43 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 7)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 339)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 19:55:44 -0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:55:44 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 5.3ms | Allocations: 3115)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.9ms | Allocations: 3618)
+
+
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 290)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:55:47 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.2ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2023-09-22 19:55:49 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"feafesf", "password"=>"[FILTERED]", "session"=>{"email"=>"feafesf", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "feafesf"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25:in `find_by_credentials'
+Completed 401 Unauthorized in 9ms (Views: 0.3ms | ActiveRecord: 2.3ms | Allocations: 3556)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:55:51 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 7)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 332)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:56:07 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.2ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2023-09-22 19:56:10 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"demo@user.io", "password"=>"[FILTERED]", "session"=>{"email"=>"demo@user.io", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@user.io"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25:in `find_by_credentials'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:46:in `block in generate_unique_session_token'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@user.io"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mUser Update (3.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "[FILTERED]"], ["updated_at", "2023-09-22 23:56:10.404065"], ["id", 1]]
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 0.7ms | Allocations: 326)
+Completed 200 OK in 272ms (Views: 1.5ms | ActiveRecord: 8.5ms | Allocations: 11403)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 19:56:10 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 7.7ms | Allocations: 3241)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.9ms | Allocations: 3883)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:56:10 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 314)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:56:13 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:56:22 -0400
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 19:56:22 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered public/index.html (Duration: 0.7ms | Allocations: 443)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms | Allocations: 1319)
+
+
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 6.5ms | Allocations: 3807)
+Completed 200 OK in 8ms (Views: 5.8ms | ActiveRecord: 1.1ms | Allocations: 4274)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:56:48 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.3ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:56:52 -0400
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 19:56:52 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 12)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 304)
+
+
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 7.9ms | Allocations: 2990)
+Completed 200 OK in 10ms (Views: 7.6ms | ActiveRecord: 0.8ms | Allocations: 3443)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 19:57:17 -0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:57:18 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 14.5ms | Allocations: 9336)
+Completed 200 OK in 23ms (Views: 8.5ms | ActiveRecord: 7.2ms | Allocations: 12583)
+
+
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.2ms | Allocations: 10)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.0ms | Allocations: 770)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 19:57:19 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 313)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 20:00:45 -0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 20:00:45 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.5ms | Allocations: 111)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 493)
+
+
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 28.1ms | Allocations: 9239)
+Completed 200 OK in 33ms (Views: 13.9ms | ActiveRecord: 14.7ms | Allocations: 11956)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 20:00:46 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 7)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 339)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 20:00:48 -0400
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 20:00:48 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 16)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 310)
+
+
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 4.6ms | Allocations: 3001)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.5ms | Allocations: 3511)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 20:00:49 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 20:00:51 -0400
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 20:00:51 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.2ms | Allocations: 10)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 313)
+
+
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 2.8ms | Allocations: 2990)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.3ms | Allocations: 3449)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 20:00:53 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 287)
+
+
+Started DELETE "/api/session" for 127.0.0.1 at 2023-09-22 20:00:55 -0400
+Processing by Api::SessionsController#destroy as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:46:in `block in generate_unique_session_token'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@user.io"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mUser Update (2.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "[FILTERED]"], ["updated_at", "2023-09-23 00:00:55.942910"], ["id", 1]]
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+Completed 200 OK in 23ms (Views: 0.2ms | ActiveRecord: 8.3ms | Allocations: 8966)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 20:00:55 -0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 20:00:55 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 4.8ms | Allocations: 3133)
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.7ms | Allocations: 3669)
+
+
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 0ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 313)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 20:00:59 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 20:01:03 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2023-09-22 20:01:04 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"demo@user.io", "password"=>"[FILTERED]", "session"=>{"email"=>"demo@user.io", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@user.io"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25:in `find_by_credentials'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:46:in `block in generate_unique_session_token'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@user.io"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "[FILTERED]"], ["updated_at", "2023-09-23 00:01:04.876801"], ["id", 1]]
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:36:in `reset_session_token!'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 0.6ms | Allocations: 319)
+Completed 200 OK in 261ms (Views: 1.4ms | ActiveRecord: 2.5ms | Allocations: 6402)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 20:01:04 -0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 20:01:04 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 3.9ms | Allocations: 3272)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.7ms | Allocations: 3814)
+
+
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 314)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 20:01:45 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.3ms | Allocations: 6)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 20:02:16 -0400
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 20:02:16 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  [1m[36mProduct Load (1.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendering public/index.html
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  Rendered public/index.html (Duration: 0.6ms | Allocations: 48)
+  ↳ app/views/api/products/index.json.jbuilder:5
+Completed 200 OK in 13ms (Views: 10.6ms | ActiveRecord: 0.0ms | Allocations: 1867)
+
+
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 22.1ms | Allocations: 3855)
+Completed 200 OK in 30ms (Views: 20.6ms | ActiveRecord: 3.4ms | Allocations: 4330)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 20:02:19 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 20:07:05 -0400
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 20:07:05 -0400
+Processing by Api::ProductsController#index as JSON
+Processing by StaticPagesController#frontend_index as */*
+  Rendering api/products/index.json.jbuilder
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.6ms | Allocations: 6)
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+  [1m[36mProduct Load (5.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 20.8ms | Allocations: 3516)
+Completed 200 OK in 29ms (Views: 15.6ms | ActiveRecord: 6.1ms | Allocations: 3986)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 20:07:06 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 20:07:45 -0400
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 20:07:45 -0400
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendering public/index.html
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered public/index.html (Duration: 6.9ms | Allocations: 588)
+Completed 200 OK in 9ms (Views: 9.0ms | ActiveRecord: 0.0ms | Allocations: 1319)
+
+
+  [1m[36mActiveStorage::Attachment Load (3.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 19.9ms | Allocations: 3823)
+Completed 200 OK in 23ms (Views: 16.7ms | ActiveRecord: 4.5ms | Allocations: 4291)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 20:07:48 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-09-22 20:07:51 -0400
+Started GET "/api/products" for 127.0.0.1 at 2023-09-22 20:07:51 -0400
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 8)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 300)
+
+
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:5
+  Rendered api/products/index.json.jbuilder (Duration: 3.8ms | Allocations: 2990)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.4ms | Allocations: 3437)
+
+

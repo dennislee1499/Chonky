@@ -8,5 +8,6 @@ class Api::ProductsController < ApplicationController
     def show 
         @product = Product.find(params[:id])
         render 'api/products/show'
+        # render json: @product
     end 
 end

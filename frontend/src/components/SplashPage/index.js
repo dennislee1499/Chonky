@@ -10,17 +10,6 @@ import dogoo from "./dogoo.png"
 
 function SplashPage() {
 
-  // const settings = {
-  //   dots: true,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  //   centerMode: true,
-  //   variableWidth: true,
-  //   adaptiveHeight: true
-  // };
-
    const settings = {
      dots: true,
     //  infinite: true,

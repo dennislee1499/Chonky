@@ -8,7 +8,8 @@
 
 
 # db/seeds.rb
-require "open-uri"
+
+# require "open-uri"
 
 ApplicationRecord.transaction do 
   puts "Destroying tables..."
@@ -56,7 +57,7 @@ ApplicationRecord.transaction do
     size_options: ["3.5-lb bag", "18-lb bag", "30-lb bag"]
   )
 
-  product1.image.attach(io: URI.open("https://chonky-dev.s3.amazonaws.com/pedigree.png"), filename: "pedigree.png")
+  # product1.image.attach(io: URI.open("https://chonky-dev.s3.amazonaws.com/pedigree.png"), filename: "pedigree.png")
 
 
   product2 = Product.create!(

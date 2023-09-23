@@ -55,7 +55,6 @@ function ProductsIndex() {
         <li key={product.id}>
           <img
             src={productImage}
-            // src={product.imageUrl}
             alt={`Image for ${product.name}`}
             className={`product-image ${imgClass}`}
           />
