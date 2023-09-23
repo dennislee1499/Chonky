@@ -7,6 +7,7 @@ import pedigree from "./pedigree.png"
 import blueBuffalo from "./blueBuffalo.png"
 import StarRatingDisplay from "../StarRating/StarRatingDisplay";
 import "../StarRating/StarRating.css"
+import "../Footer/Footer.css"
 
 function ProductsIndex() {
     const products = useSelector(state => Object.values(state.products));

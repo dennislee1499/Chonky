@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import "./LoginForm.css";
 import { Link } from "react-router-dom";
 import { login } from "../../store/session";
+import "../Footer/Footer.css"
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -41,7 +42,7 @@ function LoginForm() {
 
   return (
     <>
-      <div className="login-page">
+      <div className="login-page" id="content">
         <form className="login-form" onSubmit={handleSubmit}>
           <h3 className="login-form-subtitle">Sign In</h3>
           {errors.length ? (
