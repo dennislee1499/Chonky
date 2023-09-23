@@ -6,6 +6,7 @@ import SearchBox from "./SearchBox";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { logout } from "../../store/session";
 import logoImage from "./logoImage.png";
+import CartDropDown from "../Cart";
 
 
 
@@ -82,6 +83,10 @@ function DropDown() {
 
 
 function NavBar({ hideSearch }) {
+
+  const [isCartVisible, setIsCartVisible] = useState(false);
+
+
   return (
     <header className="nav-bar">
       <Link to="/">
@@ -89,6 +94,14 @@ function NavBar({ hideSearch }) {
       </Link>
       {!hideSearch && <SearchBox />}
       <DropDown />
+      <div
+        className="cart-container"
+        onMouseEnter={() => setIsCartVisible(true)}
+        onMouseLeave={() => setIsCartVisible(false)}
+      >
+        Cart
+        {isCartVisible && <CartDropDown />}
+      </div>
     </header>
   );
 }
