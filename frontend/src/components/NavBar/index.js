@@ -31,7 +31,6 @@ console.log(currentUser);
     <div
       className={`user-dropdown ${currentUser ? "logged-in" : "logged-out"}`}
     >
-      {/* <div className="user-dropdown"> */}
       <div className="greeting-container">{greeting}</div>
       {currentUser && (
         <div className="logout-container">

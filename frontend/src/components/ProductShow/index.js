@@ -4,6 +4,11 @@ import { useParams, useHistory } from "react-router-dom";
 import { fetchProduct } from "../../store/products";
 import ped from "./ped.png"
 import buf from "./buf.png"
+import "./ProductShow.css"
+import StarRatingDisplay from "../StarRating/StarRatingDisplay";
+import "../StarRating/StarRating.css";
+import "../Footer/Footer.css";
+
 
 function ProductShow() {
     const dispatch = useDispatch();
@@ -32,30 +37,71 @@ function ProductShow() {
         return ""; 
       }
     }
-     
+
+    // return (
+    //   <>
+    //     <header id="category">{product.category}</header>
+    //     <div className="product-show-page">
+    //       <div className="left-section">
+    //         <img
+    //           id="product-show-img"
+    //           src={productImage}
+    //           alt={`Image of ${product.name}`}
+    //         />
+    //       </div>
+    //       <div className="right-section">
+    //         <div className="product-show-info">
+    //           <h1>{product.name}</h1>
+    //           <p>{product.rating}</p>
+    //         </div>
+    //         <hr className="show-divider" />
+    //         <div className="product-show-details">
+    //           <h2>About This Item</h2>
+    //           <h3>Details</h3>
+    //           <p>{product.details}</p>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </>
+    // );
 
     return (
       <>
         <header id="category">{product.category}</header>
         <div className="product-show-page">
-          <img
-            id="product-show-img"
-            src={productImage}
-            alt={`Image of ${product.name}`}
-          />{" "}
-          <div className="product-show-info">
-            <h1>{product.name}</h1>
-            <p>{product.rating}</p>
+          <div className="left-section">
+            <img
+              id="product-show-img"
+              src={productImage}
+              alt={`Image of ${product.name}`}
+            />
           </div>
-          <hr className="show-divider" />
-          <div className="product-show-details">
-            <h2>About This Item</h2>
-            <h3>Details</h3>
-            <p>{product.details}</p>
+          <div className="right-section">
+            <div className="product-show-info">
+              <h1>{product.name}</h1>
+              <div className="rating-price">
+                <div className="rating-show">
+                  <StarRatingDisplay rating={product.rating} />
+                  <p>{product.rating}</p>
+                </div>
+                <div id="show-price" className="product-price-show">
+                  <span className="price-label">Price: </span>
+                  <span className="price-value">${product.price}</span>
+                </div>
+              </div>
+            </div>
+            <hr className="show-divider" />
+            <div className="product-show-details">
+              <h2>About This Item</h2>
+              <h3>Details</h3>
+              <p>{product.details}</p>
+            </div>
           </div>
         </div>
       </>
     );
+
+
 }
 
 export default ProductShow;

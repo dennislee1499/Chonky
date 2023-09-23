@@ -123,8 +123,7 @@ function SignupForm() {
     <>
       <div className="signup-page">
         <form className="signup-form" onSubmit={handleSubmit}>
-          <h1>Create an Account</h1>
-          <h3>Please enter your information</h3>
+          <h1>Create Account</h1>
           <ul className="signup-info">
             <input
               className={fullNameErrors.length ? "errors" : ""}
