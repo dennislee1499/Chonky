@@ -39,23 +39,18 @@ function LoginForm() {
     );
   };
 
-
-
-
-
   return (
     <>
-      <h1 className="login-form-title">Sign in or register</h1>
       <div className="login-page">
         <form className="login-form" onSubmit={handleSubmit}>
-          <h3 className="login-form-title">Sign In</h3>
+          <h3 className="login-form-subtitle">Sign In</h3>
           {errors.length ? (
             <p className="signin-errors-login">{errors}</p>
           ) : null}
 
           <ul className="login-info">
             <input
-              className={errors.length ? "error" : ""} 
+              className={errors.length ? "error" : ""}
               placeholder="Email Address"
               type="text"
               value={email}
@@ -71,6 +66,7 @@ function LoginForm() {
               required
             />
           </ul>
+
           <input id="signin-button" type="submit" value="Sign In" />
           <button
             onClick={() =>
@@ -80,16 +76,17 @@ function LoginForm() {
           >
             Demo Login
           </button>
-        </form>
-        <div className="login-new-customer">
-          <div className="divider-container">
-            <div className="divider1"></div>
-            <h3>New to Chonky?</h3>
-            <div className="divider2"></div>
+
+          <div className="login-new-customer">
+            <div className="divider-container">
+              <div className="divider1"></div>
+              <h3>New to Chonky?</h3>
+              <div className="divider2"></div>
+            </div>
+            <br />
+            <Link to="/register">Create Account</Link>
           </div>
-          <br />
-          <Link to="/register">Create Account</Link>
-        </div>
+        </form>
       </div>
     </>
   );
