@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { logout } from "../../store/session";
 import logoImage from "./logoImage.png";
 import CartDropDown from "../Cart";
+import { useLocation } from "react-router-dom"
 
 
 
@@ -83,28 +84,34 @@ function DropDown() {
 
 
 function NavBar({ hideSearch }) {
-
   const [isCartVisible, setIsCartVisible] = useState(false);
-
+  const location = useLocation();
+  const onAuthPage =
+    location.pathname === "/login" || location.pathname === "/register";
 
   return (
     <header className="nav-bar">
       <Link to="/">
         <img src={logoImage} alt="Your Logo" className="new-logo" />
       </Link>
-      {!hideSearch && <SearchBox />}
-      <DropDown />
-      <div
-        className="cart-container"
-        onMouseEnter={() => setIsCartVisible(true)}
-        onMouseLeave={() => setIsCartVisible(false)}
-      >
-        Cart
-        {isCartVisible && <CartDropDown />}
-      </div>
+      {!onAuthPage && (
+        <>
+          {!hideSearch && <SearchBox />}
+          <DropDown />
+          <div
+            className="cart-container"
+            onMouseEnter={() => setIsCartVisible(true)}
+            onMouseLeave={() => setIsCartVisible(false)}
+          >
+            Cart
+            {isCartVisible && <CartDropDown />}
+          </div>
+        </>
+      )}
     </header>
   );
 }
+
 
 
 export default NavBar;
