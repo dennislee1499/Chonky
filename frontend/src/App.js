@@ -8,6 +8,7 @@ import SplashPage from "./components/SplashPage";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import ProductsIndex from "./components/ProductsIndex";
 import ProductShow from "./components/ProductShow";
+import SearchPage from "./components/SearchPage";
 
 
 function App() {
@@ -33,6 +34,10 @@ function App() {
 
           <Route path="/login">
             <LoginForm />
+          </Route>
+
+          <Route exact path="/search">
+            <SearchPage />
           </Route>
 
           <Route exact path="/products/:productId">

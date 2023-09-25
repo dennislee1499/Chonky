@@ -73,8 +73,8 @@ function DropDown() {
       onMouseEnter={() => setIsVisible(true)}
       onMouseLeave={() => setIsVisible(false)}
     >
+      <i className="fa fa-user" style={{ color: "#ffffff", marginRight: "10px" }}></i>
       {greeting}
-      <i className="fa-solid fa-user" style={{ color: "#ffffff" }}></i>
       {isVisible && (
         <UserDropDown greeting={greeting} currentUser={currentUser} />
       )}
@@ -103,7 +103,8 @@ function NavBar({ hideSearch }) {
             onMouseEnter={() => setIsCartVisible(true)}
             onMouseLeave={() => setIsCartVisible(false)}
           >
-            Cart
+            {/* Cart */}
+            <i className="fa fa-shopping-cart" aria-hidden="true"></i> Cart
             {isCartVisible && <CartDropDown />}
           </div>
         </>

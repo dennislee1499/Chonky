@@ -4,10 +4,12 @@ import thunk from "redux-thunk";
 import sessionReducer from "./session";
 import productsReducer from "./products";
 import redirectMiddleware from "../redirectMiddleware";
+import searchReducer from "./search";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   products: productsReducer,
+  search: searchReducer,
 });
 
 let enhancer;

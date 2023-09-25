@@ -48,7 +48,7 @@ ApplicationRecord.transaction do
     name: "Pedigree Complete Nutrition Grilled Steak & Vegetable Flavor Dog Kibble Adult Dry Dog Food",
     category: "Dog Food",
     price: 29.98,
-    rating: 4.2,
+    rating: 4,
     details: "Complete and balanced nutrition has antioxidants, vitamins and minerals to help maintain a healthy lifestyle.
               Optimal levels of omega-6 fatty acid nourish the skin and help keep his coat shiny and healthy.
               Whole grains and a special fiber blend support healthy digestion with a delicious grilled steak flavor.
@@ -57,7 +57,7 @@ ApplicationRecord.transaction do
     size_options: ["3.5-lb bag", "18-lb bag", "30-lb bag"]
   )
 
-  # product1.image.attach(io: URI.open("https://chonky-dev.s3.amazonaws.com/pedigree.png"), filename: "pedigree.png")
+  # product1.image.attach(io: URI.open("https://chonky-seeds.s3.amazonaws.com/pedigree.png"), filename: "product1")
 
 
   product2 = Product.create!(

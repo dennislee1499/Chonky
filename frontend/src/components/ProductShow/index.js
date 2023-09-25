@@ -34,13 +34,16 @@ function ProductShow() {
       setSelectedPrice(selectedPrices[sizeOption]); 
     };
 
+    // useEffect(() => {
+    //   dispatch(fetchProduct(productId));
+    // }, []);
+
 
     useEffect(() => {
       if (product && product.price) {
         setSelectedPrice(product.price);
       }
     }, [product]);
-
 
 
 
