@@ -63,8 +63,8 @@ ApplicationRecord.transaction do
   product2 = Product.create!(
     name: "Blue Buffalo Life Protection Formula Adult Chicken & Brown Rice Recipe Dry Dog Food",
     category: "Dog Food",
-    price: 64.99,
-    rating: 4.1,
+    price: 25.66,
+    rating: 4,
     details: "Essential, high-quality protein for healthy muscle development, and carbs for energy for an active life.
               Calcium, phosphorus and essential vitamins for strong bones and teeth.
               Glucosamine is added for joint health and mobility support.

@@ -16,13 +16,33 @@ function ProductShow() {
     const product = useSelector(state => state.products?.[productId]);
     const [flavor, setFlavor] = useState("");
     const [size, setSize] = useState("");
+    // const [selectedPrice, setSelectedPrice] = useState(product.price);
+    const [selectedPrice, setSelectedPrice] = useState(0);
+
+
+    const selectedPrices = {
+      "3.5-lb bag": 7.99,
+      "5-lb bag": 12.99,
+      "15-lb bag": 14.98,
+      "18-lb bag": 16.98,
+      "24-lb bag": 25.66,
+      "30-lb bag": 29.98
+    }
+
+    const handleSizeClick = (sizeOption) => {
+      setSize(sizeOption);
+      setSelectedPrice(selectedPrices[sizeOption]); 
+    };
 
 
     useEffect(() => {
-      if (!product) {
-        dispatch(fetchProduct(productId)); 
+      if (product && product.price) {
+        setSelectedPrice(product.price);
       }
-    }, [dispatch, productId, product]);
+    }, [product]);
+
+
+
 
     if (!product) {
         return null;
@@ -65,12 +85,15 @@ function ProductShow() {
                 </div>
                 <div id="show-price" className="product-price-show">
                   <span className="price-label">Price: </span>
-                  <span className="price-value">${product.price}</span>
+                  <span className="price-value">
+                    {selectedPrice !== undefined
+                      ? `$${selectedPrice.toFixed(2)}`
+                      : "Loading..."}
+                  </span>{" "}
                 </div>
               </div>
             </div>
             <div className="options-section">
-            
               <div className="flavor-section">
                 <h3>Flavor: {flavor}</h3>
                 <div className="flavor-buttons">
@@ -86,7 +109,6 @@ function ProductShow() {
                   ))}
                 </div>
               </div>
-              
 
               <div className="size-section">
                 <h3>Size: {size} </h3>
@@ -95,7 +117,7 @@ function ProductShow() {
                     <button
                       key={index}
                       className={size === sizeOption ? "selected" : ""}
-                      onClick={() => setSize(sizeOption)}
+                      onClick={() => handleSizeClick(sizeOption)}
                     >
                       {sizeOption}
                     </button>

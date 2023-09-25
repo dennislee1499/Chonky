@@ -1,30 +1,3 @@
-/* .banner-placeholder {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid red;
-    width: 100%;
-    height: 25rem;
-    overflow: hidden;
-} */
-
-.banner-placeholder img {
-    width: 100%;
-    /* height: auto; */
-    height: 500px;
-    object-fit: cover;
-}
-
-.banner-placeholder .slick-slider {
-    max-height: 500px;
-    width: 100%;
-    overflow: hidden;
-}
-
-.slick-arrow {
-    z-index: 1;
-}
-
 .product-section {
     width: max-content;
     margin: 0 auto;
@@ -33,3 +6,17 @@
 .product-section h2 {
     margin-left: 30px;
 }
+
+
+.banner-img-1 {
+    width: 100%;
+    height: 200px;
+    display: block;
+    object-fit: contain;
+}
+
+.banner-placeholder {
+    margin-top: 50px;
+}
+
+
