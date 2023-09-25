@@ -14,7 +14,9 @@ function ProductShow() {
     const dispatch = useDispatch();
     const productId = useParams().productId;
     const product = useSelector(state => state.products?.[productId]);
-  
+    const [flavor, setFlavor] = useState("");
+    const [size, setSize] = useState("");
+
 
     useEffect(() => {
       if (!product) {
@@ -38,32 +40,9 @@ function ProductShow() {
       }
     }
 
-    // return (
-    //   <>
-    //     <header id="category">{product.category}</header>
-    //     <div className="product-show-page">
-    //       <div className="left-section">
-    //         <img
-    //           id="product-show-img"
-    //           src={productImage}
-    //           alt={`Image of ${product.name}`}
-    //         />
-    //       </div>
-    //       <div className="right-section">
-    //         <div className="product-show-info">
-    //           <h1>{product.name}</h1>
-    //           <p>{product.rating}</p>
-    //         </div>
-    //         <hr className="show-divider" />
-    //         <div className="product-show-details">
-    //           <h2>About This Item</h2>
-    //           <h3>Details</h3>
-    //           <p>{product.details}</p>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </>
-    // );
+    const flavors = product.flavorOptions || [];
+    const sizes = product.sizeOptions || [];
+
 
     return (
       <>
@@ -90,6 +69,40 @@ function ProductShow() {
                 </div>
               </div>
             </div>
+            <div className="options-section">
+            
+              <div className="flavor-section">
+                <h3>Flavor: {flavor}</h3>
+                <div className="flavor-buttons">
+                  {flavors.map((flavorOption) => (
+                    <button
+                      name="flavor"
+                      className={flavor === flavorOption ? "selected" : ""}
+                      value={flavorOption}
+                      onClick={() => setFlavor(flavorOption)}
+                    >
+                      {flavorOption}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              
+
+              <div className="size-section">
+                <h3>Size: {size} </h3>
+                <div className="size-buttons">
+                  {sizes.map((sizeOption, index) => (
+                    <button
+                      key={index}
+                      className={size === sizeOption ? "selected" : ""}
+                      onClick={() => setSize(sizeOption)}
+                    >
+                      {sizeOption}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
             <hr className="show-divider" />
             <div className="product-show-details">
               <h2>About This Item</h2>
@@ -100,8 +113,6 @@ function ProductShow() {
         </div>
       </>
     );
-
-
 }
 
 export default ProductShow;
