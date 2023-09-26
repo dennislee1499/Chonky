@@ -27,8 +27,6 @@ function UserDropDown({ greeting, currentUser }) {
   };
 
 
-// console.log(currentUser);
-
   return (
     <div
       className={`user-dropdown ${currentUser ? "logged-in" : "logged-out"}`}

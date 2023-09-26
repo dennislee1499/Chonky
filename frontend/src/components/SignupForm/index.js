@@ -123,7 +123,7 @@ function SignupForm() {
     <>
       <div className="signup-page">
         <form className="signup-form" onSubmit={handleSubmit}>
-          <h1>Create Account</h1>
+          <h1 className="signup-form-subtitle">Create Account</h1>
           <ul className="signup-info">
             <input
               className={fullNameErrors.length ? "errors" : ""}
@@ -189,14 +189,15 @@ function SignupForm() {
             <li>Use both uppercase and lowercase letters</li>
             <li>Incorporate special characters and numbers</li>
           </ul>
-
           <input
             className="signup-button"
             type="submit"
             value="Create Account"
           ></input>
-          <p className="sign-in-link-from-signup">
+          <div className="sign-in-link-from-signup">
+            <div className="divider-uno"></div>
             Already have an account?
+            <div className="divider-dos"></div>
             <Link
               onClick={() => {
                 dispatch(removeErrors());
@@ -205,12 +206,11 @@ function SignupForm() {
             >
               Sign In
             </Link>
-          </p>
+          </div>
         </form>
       </div>
     </>
   );
-
 }
 
 export default SignupForm;

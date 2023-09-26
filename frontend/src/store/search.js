@@ -1,18 +1,12 @@
 import csrfFetch from "./csrf";
 
 export const GET_RESULTS = 'search/getResults'
-export const CLEAR_RESULTS = 'search/clearResults'
 
 
 
 export const receiveSearchResults = (products) => ({
   type: GET_RESULTS,
   products,
-});
-
-
-export const clearSearchResults = () => ({
-  type: CLEAR_RESULTS,
 });
 
 
@@ -32,8 +26,6 @@ export default function searchReducer(state = {}, action) {
   switch (action.type) {
     case GET_RESULTS:
       return { ...state, products: action.products };
-    case CLEAR_RESULTS:
-      return {};
     default:
       return state;
   }

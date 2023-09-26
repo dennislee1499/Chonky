@@ -57,8 +57,6 @@ ApplicationRecord.transaction do
     size_options: ["3.5-lb bag", "18-lb bag", "30-lb bag"]
   )
 
-  # product1.image.attach(io: URI.open("https://chonky-seeds.s3.amazonaws.com/pedigree.png"), filename: "product1")
-
 
   product2 = Product.create!(
     name: "Blue Buffalo Life Protection Formula Adult Chicken & Brown Rice Recipe Dry Dog Food",
