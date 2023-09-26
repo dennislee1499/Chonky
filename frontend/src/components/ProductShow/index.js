@@ -2,8 +2,6 @@ import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { fetchProduct } from "../../store/products";
-import ped from "./ped.png"
-import buf from "./buf.png"
 import "./ProductShow.css"
 import StarRatingDisplay from "../StarRating/StarRatingDisplay";
 import "../StarRating/StarRating.css";
@@ -21,12 +19,17 @@ function ProductShow() {
 
 
     const selectedPrices = {
+      "3.3-lb bag": 10.69,
       "3.5-lb bag": 7.99,
       "5-lb bag": 12.99,
+      "6-lb bag": 19.88,
+      "7-lb bag": 17.99,
       "15-lb bag": 14.98,
+      "17-lb bag": 49.58,
       "18-lb bag": 16.98,
       "24-lb bag": 25.66,
-      "30-lb bag": 29.98
+      "30-lb bag": 29.98,
+      "33-lb bag": 69.48
     }
 
     const handleSizeClick = (sizeOption) => {
@@ -51,17 +54,6 @@ function ProductShow() {
         return null;
     }
 
-    const productImage = getProductImage(product.name);
-
-    function getProductImage(productName) {
-      if (productName.includes("Ped")) {
-        return ped;
-      } else if (productName.includes("Buf")) {
-        return buf;
-      } else {
-        return ""; 
-      }
-    }
 
     const flavors = product.flavorOptions || [];
     const sizes = product.sizeOptions || [];
@@ -74,7 +66,7 @@ function ProductShow() {
           <div className="left-section">
             <img
               id="product-show-img"
-              src={productImage}
+              src={product.imageUrl}
               alt={`Image of ${product.name}`}
             />
           </div>

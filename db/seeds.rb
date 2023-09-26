@@ -76,5 +76,42 @@ puts "Creating products..."
     size_options: ["5-lb bag", "15-lb bag", "24-lb bag"]
     )
 
+    product2.image.attach(io: URI.open("https://chonky-seeds.s3.amazonaws.com/blueBuffalo.png"), filename: "blueBuffalo.png")
+
+
+    product3 = Product.create!(
+    name: "Purina Pro Plan Adult Shredded Blend Beef & Rice Formula Dry Dog Food",
+    category: "Dog Food",
+    price: 19.88,
+    rating: 3,
+    details: "High-protein, wholesome recipe features real beef as the very first ingredient.
+              Formulated to be the paw-fect balance between nutritious and delicious.
+              Crafted into a hard kibble with tender shredded bites to create a tasty texture.
+              Contains vitamin A and omega-6 fatty acids to nourish your dog’s skin and coat.
+              Fortified with live probiotics and natural prebiotic fiber to support digestive and immune health.",
+    flavor_options: ["Beef & Rice", "Salmon & Rice", "Turkey & Rice"],
+    size_options: ["6-lb bag", "17-lb bag", "33-lb bag"]
+    )
+
+
+    product3.image.attach(io: URI.open("https://chonky-seeds.s3.amazonaws.com/purina.png"), filename: "purina.png")
+
+
+    product4 = Product.create!(
+    name: "Iams Proactive Health MiniChunks Small Kibble Adult Chicken & Whole Grain Dry Dog Food",
+    category: "Dog Food",
+    price: 14.98,
+    rating: 5,
+    details: "This nutritious dog food features real lamb as the first ingredient.
+              The small kibble size is great for adult dogs of all sizes.
+              Natural fiber and prebiotics promote healthy digestion.
+              Nutrients and antioxidants support overall health.
+              100% complete and balanced nutrition with zero fillers for adult dogs.",
+    flavor_options: ["Chicken & Whole Grains", "Lamb & Rice"],
+    size_options: ["3.3-lb bag", "7-lb bag", "15-lb bag"]
+    )
+
+    product4.image.attach(io: URI.open("https://chonky-seeds.s3.amazonaws.com/iams.png"), filename: "iams.png")
+
 
   puts "Done!"
