@@ -114,4 +114,71 @@ puts "Creating products..."
     product4.image.attach(io: URI.open("https://chonky-seeds.s3.amazonaws.com/iams.png"), filename: "iams.png")
 
 
+    product5 = Product.create!(
+    name: "Fancy Feast Gourmet Filet Mignon Flavor with Real Seafood & Shrimp Dry Cat Food",
+    category: "Cat Food",
+    price: 10.18,
+    rating: 4,
+    details: "Premium dry cat food delivers 100 percent complete and balanced nutrition and is 100 percent made to delight even the pickiest eaters.
+              Crafted with high quality Purina dry cat food ingredients, including real seafood and shrimp with an irresistible filet mignon flavor.
+              Provides essential vitamins for cats, plus minerals to help support feline health.
+              Gourmet recipe including seafood and shrimp for cats and filet mignon flavor baked into wonderfully crisp morsels for a crunchy texture that cats love.
+              Fancy Feast dry food produced using sustainable ingredients in Purina-owned facilities.",
+    flavor_options: ["Ocean Fish & Salmon", "Savory Chicken & Turkey"],
+    size_options: ["3-lb bag", "6.5-lb bag", "12-lb bag"]
+    )
+
+    product5.image.attach(io: URI.open("https://chonky-seeds.s3.amazonaws.com/fancyfeast.png"), filename: "fancyfeast.png")
+
+
+    product6 = Product.create!(
+    name: "Friskies Surfin' & Turfin' Favorites Dry Cat Food",
+    category: "Cat Food",
+    price: 5.29,
+    rating: 2,
+    details: "Packed with protein to support lean muscles and the surf and turf flavor cats crave in every crunchy bite.
+              Made with chicken, ocean whitefish, salmon and filet mignon for a land-and-sea feast in every bowl.
+              Loaded with antioxidants to support a healthy immune system plus essential vitamins and minerals for overall well-being.
+              Appealing shapes keep her occupied and the crunchy texture helps clean her teeth!
+              100% complete and balanced for all stages.",
+    flavor_options: ["Chicken", "Filet Mignon"],
+    size_options: ["3.15-lb bag", "22-lb bag"]
+    )
+
+    product6.image.attach(io: URI.open("https://chonky-seeds.s3.amazonaws.com/friskies.png"), filename: "friskies.png")
+
+
+    product7 = Product.create!(
+    name: "Meow Mix Original Choice Dry Cat Food",
+    category: "Cat Food",
+    price: 9.19,
+    rating: 1,
+    details: "Premium protein for strong muscles
+              Provides all the essential vitamins and minerals your cat needs
+              Chicken, turkey, salmon and ocean fish flavors are sure to be an instant hit
+              100% complete and balanced nutritious diet for adult cats
+              Made right here in the USA",
+    flavor_options: ["Original Choice", "Seafood Medley"],
+    size_options: ["6.3-lb bag", "14.2-lb bag", "16-lb bag"]
+    )
+
+    product7.image.attach(io: URI.open("https://chonky-seeds.s3.amazonaws.com/meowmix.png"), filename: "meowmix.png")
+
+
+    product8 = Product.create!(
+    name: "Rachael Ray Nutrish Indoor Complete Chicken with Lentils & Salmon Recipe Natural Dry Cat Food",
+    category: "Cat Food",
+    price: 10.18,
+    rating: 3,
+    details: "Real chicken is the #1 ingredient.
+              This natural cat food helps support your kitty’s indoor lifestyle.
+              Rich in fiber to support healthy weight.
+              Helps support skin and coat health with omega-6 fatty acids.
+              Helps support immunity with vitamin E and antioxidants.",
+    flavor_options: ["Chicken", "Salmon"],
+    size_options: ["3-lb bag", "6-lb bag", "14-lb bag"]
+    )
+
+    product8.image.attach(io: URI.open("https://chonky-seeds.s3.amazonaws.com/rachaelray.png"), filename: "rachaelray.png")
+
   puts "Done!"

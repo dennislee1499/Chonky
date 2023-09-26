@@ -7,8 +7,12 @@ import StarRatingDisplay from "../StarRating/StarRatingDisplay";
 import "../StarRating/StarRating.css"
 import "../Footer/Footer.css"
 
-function ProductsIndex() {
-    const products = useSelector(state => Object.values(state.products));
+function ProductsIndex({category}) {
+      const products = useSelector((state) =>
+        Object.values(state.products).filter(
+          (product) => product.category === category
+        )
+      );
     const dispatch = useDispatch();
     const brands = new Set(["Pedigree", "Blue Buffalo", "Purina"]);  
     const BOLD_BRANDS = new Set(["Pedigree", "Blue Buffalo", "Purina"]);

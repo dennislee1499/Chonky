@@ -55,7 +55,12 @@ function SplashPage() {
       </div>
       <div className="product-section">
         <h2>Dog Food</h2>
-        <ProductsIndex />
+        <ProductsIndex category="Dog Food" />
+      </div>
+
+      <div className="product-section">
+        <h2>Cat Food</h2>
+        <ProductsIndex category="Cat Food" />
       </div>
     </div>
   );

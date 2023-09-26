@@ -19,14 +19,23 @@ function ProductShow() {
 
 
     const selectedPrices = {
+      "3-lb bag": 10.18,
+      "3.15-lb bag": 5.29,
       "3.3-lb bag": 10.69,
       "3.5-lb bag": 7.99,
       "5-lb bag": 12.99,
       "6-lb bag": 19.88,
+      "6.3-lb bag": 9.19,
+      "6.5-lb bag": 18.98,
       "7-lb bag": 17.99,
+      "12-lb bag": 32.58,
+      "14-lb bag": 26.52,
+      "14.2-lb bag": 16.98,
       "15-lb bag": 14.98,
+      "16-lb bag": 17.98,
       "17-lb bag": 49.58,
       "18-lb bag": 16.98,
+      "22-lb bag": 27.49,
       "24-lb bag": 25.66,
       "30-lb bag": 29.98,
       "33-lb bag": 69.48
