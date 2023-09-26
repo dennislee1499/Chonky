@@ -14,6 +14,7 @@ function ProductShow() {
     const product = useSelector(state => state.products?.[productId]);
     const [flavor, setFlavor] = useState("");
     const [size, setSize] = useState("");
+    const [color, setColor] = useState("");
     // const [selectedPrice, setSelectedPrice] = useState(product.price);
     const [selectedPrice, setSelectedPrice] = useState(0);
 
@@ -38,7 +39,11 @@ function ProductShow() {
       "22-lb bag": 27.49,
       "24-lb bag": 25.66,
       "30-lb bag": 29.98,
-      "33-lb bag": 69.48
+      "33-lb bag": 69.48,
+      "Small/Medium": 9.99,
+      "Medium/Large": 10.99,
+      "Small": 7.51,
+      "Medium": 11.29
     }
 
     const handleSizeClick = (sizeOption) => {
@@ -66,6 +71,7 @@ function ProductShow() {
 
     const flavors = product.flavorOptions || [];
     const sizes = product.sizeOptions || [];
+    const colors = product.colorOptions || [];
 
 
     return (
@@ -98,21 +104,45 @@ function ProductShow() {
               </div>
             </div>
             <div className="options-section">
-              <div className="flavor-section">
-                <h3>Flavor: {flavor}</h3>
-                <div className="flavor-buttons">
-                  {flavors.map((flavorOption) => (
-                    <button
-                      name="flavor"
-                      className={flavor === flavorOption ? "selected" : ""}
-                      value={flavorOption}
-                      onClick={() => setFlavor(flavorOption)}
-                    >
-                      {flavorOption}
-                    </button>
-                  ))}
+              {(product.category === "Dog Toys" ||
+                product.category === "Cat Toys") &&
+              colors.length ? (
+
+                <div className="color-section">
+                  <h3>Color: {color}</h3>
+                  <div className="color-buttons">
+                    {colors.map((colorOption, index) => (
+                      <button
+                        key={index}
+                        name="color"
+                        className={color === colorOption ? "selected" : ""}
+                        value={colorOption}
+                        onClick={() => setColor(colorOption)}
+                      >
+                        {colorOption}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              ) : flavors.length ? (
+
+                <div className="flavor-section">
+                  <h3>Flavor: {flavor}</h3>
+                  <div className="flavor-buttons">
+                    {flavors.map((flavorOption, index) => (
+                      <button
+                        key={index}
+                        name="flavor"
+                        className={flavor === flavorOption ? "selected" : ""}
+                        value={flavorOption}
+                        onClick={() => setFlavor(flavorOption)}
+                      >
+                        {flavorOption}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
 
               <div className="size-section">
                 <h3>Size: {size} </h3>
@@ -139,6 +169,7 @@ function ProductShow() {
         </div>
       </>
     );
+
 }
 
 export default ProductShow;

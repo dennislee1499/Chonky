@@ -181,4 +181,63 @@ puts "Creating products..."
 
     product8.image.attach(io: URI.open("https://chonky-seeds.s3.amazonaws.com/rachaelray.png"), filename: "rachaelray.png")
 
+
+    product9 = Product.create!(
+    name: "Nylabone Puppy Teethe n' Tug Toy Blue, X-Small",
+    category: "Dog Toys",
+    price: 8.31,
+    rating: 4,
+    details: "Non-edible chew toy keeps puppies busy and happy, which helps to reduce destructive chewing.
+              Rounded design allows you to play tug-of-war with your pup, which helps burn energy and promote bonding.
+              Satisfies their natural urge to chew, and is recommended by veterinarians.
+              Ridged texture is perfect for teething puppies, and is easily cleaned with warm, soapy water.
+              Different dogs have different chewing styles and strengths, and this toy is designed for puppies that are gentle chewers.",
+    )
+
+    product9.image.attach(io: URI.open("https://chonky-seeds.s3.amazonaws.com/nylabone.png"), filename: "nylabone.png")
+
+
+    product10 = Product.create!(
+    name: "KONG Floppy Knots Dog Toy, Fox",
+    category: "Dog Toys",
+    price: 9.99,
+    rating: 5,
+    details: "Dog toy made with internal knotted rope and squeaker to satisfy the natural instincts to chew and the need for noise stimulation.
+              Floppy design allows for hours of thrashing fun and entices your pup to play and chase.
+              Internal squeaker makes this the perfect toy for games of fetch and for solo play while you're away.
+              Minimal stuffing means less mess, so you and your furry friend can spend more time playing.",
+    size_options: ["Small/Medium", "Medium/Large"]
+    )
+
+    product10.image.attach(io: URI.open("https://chonky-seeds.s3.amazonaws.com/fox.png"), filename: "fox.png")
+
+
+    product11 = Product.create!(
+    name: "Frisco Monkey Plush with Rope Squeaky Dog Toy, Medium/Large",
+    category: "Dog Toys",
+    price: 12.74,
+    rating: 4,
+    details: "The ultra-soft plush fabric makes it cuddly enough for snuggling up to for naps, too.
+              Minimal stuffing means less worrying about stuffing messes during supervised play.
+              Great way to add in daily play to bond with your dog and help keep him active and healthy.",
+    )
+
+    product11.image.attach(io: URI.open("https://chonky-seeds.s3.amazonaws.com/monkey.png"), filename: "monkey.png")
+
+
+    product12 = Product.create!(
+    name: "Chuckit! Ultra Duo Tug Tough Dog Toy",
+    category: "Dog Toys",
+    price: 7.51,
+    rating: 4,
+    details: "Duo tug fetch toy takes your next outdoor play time to the next level and is launcher compatible.
+              Features two tennis balls connected by a durable, two-ply nylon handle that makes it easy to toss.
+              The interactive design is developed to have high bounce, high buoyancy, and extreme durability. Perfect for countless hours of playtime!
+              Bright colors offer high visibility, making it easy to locate during nighttime play or when you throw it extra far.
+              The flexible rubber edges are gentle to your dog’s mouth, making it safe to go for the most extreme catches.",
+    size_options: ["Small", "Medium"]
+    )
+
+    product12.image.attach(io: URI.open("https://chonky-seeds.s3.amazonaws.com/chuckit.png"), filename: "chuckit.png")
+
   puts "Done!"

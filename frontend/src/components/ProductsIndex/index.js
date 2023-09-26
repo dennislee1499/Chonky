@@ -38,7 +38,6 @@ function ProductsIndex({category}) {
 
 
     const ProductList = products.map((product) => {
-      // let productImage;
       let imgClass = "";
       const { brandName, productName } = getBrandAndProductName(
         product.name
