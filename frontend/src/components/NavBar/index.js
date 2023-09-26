@@ -27,7 +27,7 @@ function UserDropDown({ greeting, currentUser }) {
   };
 
 
-console.log(currentUser);
+// console.log(currentUser);
 
   return (
     <div
@@ -103,7 +103,6 @@ function NavBar({ hideSearch }) {
             onMouseEnter={() => setIsCartVisible(true)}
             onMouseLeave={() => setIsCartVisible(false)}
           >
-            {/* Cart */}
             <i className="fa fa-shopping-cart" aria-hidden="true"></i> Cart
             {isCartVisible && <CartDropDown />}
           </div>
