@@ -8,13 +8,13 @@ class Api::ProductsController < ApplicationController
     def show 
         @product = Product.find(params[:id])
         render 'api/products/show'
-        # render json: @product
     end 
 
 
     def search
-    query = params[:query]
-    @products = Product.where('name ILIKE ?', "%#{query}%")
-    render 'api/products/index'
-  end
+        query = params[:query]
+        @products = Product.where('name ILIKE ?', "%#{query}%")
+        render 'api/products/index'
+        # render 'api/products/search'
+    end
 end
