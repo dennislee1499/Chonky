@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { clearSearchResults, fetchSearchResults } from "../../store/search";
+import { fetchSearchResults } from "../../store/search";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function SearchBox() {
@@ -16,8 +16,10 @@ export default function SearchBox() {
         const products = data.products ? Object.values(data.products) : [];
         if (products && products.length > 0) {
           history.push(`/products/${products[0].id}`);
+          setQuery("");
         } else {
           alert("No products found");
+          setQuery("");
         }
       });
     }
