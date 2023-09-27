@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { fetchSearchResults } from "../../store/search";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 export default function SearchBox() {
   const [query, setQuery] = useState("");
   const history = useHistory();
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.search.products);
+  // const products = useSelector((state) => state.search.products);
 
 
   const handleSearch = () => {

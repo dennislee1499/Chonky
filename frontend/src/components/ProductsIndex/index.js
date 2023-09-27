@@ -46,26 +46,31 @@ function ProductsIndex({category}) {
 
       return (
         <li key={product.id}>
-          <img
-            src={product.imageUrl}
-            alt={`Image for ${product.name}`}
-            className={`product-image ${imgClass}`}
-          />
-          <Link id="link-to-show-from-product" to={`/products/${product.id}`}>
-            <span>
-              <span className={BOLD_BRANDS.has(brandName) ? "brand-name" : ""}>
-                {brandName}
-              </span>{" "}
-              {productName}
-            </span>
-          </Link>
-          <div className="rating-container">
-            <StarRatingDisplay rating={product.rating} />
-            <p>{product.rating}</p>
+          <div className="content-above-button">
+            <img
+              src={product.imageUrl}
+              alt={`Image for ${product.name}`}
+              className={`product-image ${imgClass}`}
+            />
+            <Link id="link-to-show-from-product" to={`/products/${product.id}`}>
+              <span>
+                <span
+                  className={BOLD_BRANDS.has(brandName) ? "brand-name" : ""}
+                >
+                  {brandName}
+                </span>{" "}
+                {productName}
+              </span>
+            </Link>
+            <div className="rating-container">
+              <StarRatingDisplay rating={product.rating} />
+              <p>{product.rating}</p>
+            </div>
+            <p id="index-price" className="product-price">
+              ${product.price}
+            </p>
           </div>
-          <p id="index-price" className="product-price">
-            ${product.price}
-          </p>
+          <button className="add-to-cart-button">Add to Cart</button>
         </li>
       );
     });

@@ -10,7 +10,6 @@
 
 .products-index li {
     width: 200px;
-    height: 450px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,6 +20,16 @@
     font-family: 'Poppins';
     font-size: 12px;
     padding: 5px;
+    justify-content: space-between;
+}
+
+.content-above-button {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow-y: auto;
 }
 
 .product-price {
@@ -66,6 +75,25 @@
 .rating-input {
     display: flex;
     flex-direction: row;
+}
+
+.add-to-cart-button {
+    background-color: #ef6c00;
+    color: #fff;
+    border: 1.6px solid #ef6c00;
+    font-weight: 600;
+    cursor: pointer;
+    height: 45px;
+    width: 85%;
+    border-radius: 15px;
+    font-size: 15px;
+    margin-top: -8px;
+    margin-bottom: 10px;
+}
+
+.add-to-cart-button:hover {
+    background-color: #ffa500;
+    border-color: #ffa500;
 }
 
 
