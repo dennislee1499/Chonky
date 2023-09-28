@@ -26,7 +26,11 @@ export default function SearchPage() {
   const SearchList = searchResults.map((result) => {
     return (
       <li key={result?.id}>
-        <img src={result?.imageUrl} alt={`Image of ${result?.name}`} />
+        <img
+          id="product-search-img"
+          src={result?.imageUrl}
+          alt={`Image of ${result?.name}`}
+        />
         <Link id="link-to-show-from-product" to={`/products/${result?.id}`}>
           <p>
             <span className="brand-name">{result?.brand}</span> {result?.name}
@@ -46,7 +50,7 @@ export default function SearchPage() {
 
   return (
     <div className="search-page">
-      <h1>Search Results for "{query}":</h1>
+      <h1>Results for "{query}"</h1>
       <ul className="products-index">{SearchList}</ul>
     </div>
   );
