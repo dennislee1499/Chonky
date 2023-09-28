@@ -17,7 +17,6 @@ export const clearSearchResults = () => ({
 
 
 
-
 export const fetchSearchResults = (query) => async dispatch => {
   const res = await csrfFetch(`/api/products/search?query=${query}`);
   const data = await res.json();
@@ -30,6 +29,7 @@ export const fetchSearchResults = (query) => async dispatch => {
 
 const initialState = {
   products: [],
+  dropdownVisible: false,
 };
 
 

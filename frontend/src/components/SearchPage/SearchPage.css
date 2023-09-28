@@ -1,0 +1,14 @@
+.search-page h1 {
+    font-family: 'Poppins';
+    font-size: 20px;
+}
+
+.brand-name {
+    font-weight: bold;
+}
+
+.price-value {
+    color: #bc2848;
+    font-weight: bold;
+    font-size: 18px;
+}

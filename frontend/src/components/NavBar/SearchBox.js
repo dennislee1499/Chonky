@@ -5,52 +5,49 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function SearchBox() {
   const [query, setQuery] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false); 
   const history = useHistory();
   const dispatch = useDispatch();
   const results = useSelector((state) => state.search.products);
-
-  
-
-
 
   const handleSearch = () => {
     if (query.trim() !== "") {
       dispatch(fetchSearchResults(query)).then((data) => {
         const products = data.products ? Object.values(data.products) : [];
         if (products && products.length > 0) {
-          history.push(`/products/${products[0].id}`);
-          setQuery("");
+          history.push(`/search?query=${encodeURIComponent(query)}`);
         } else {
           alert("No products found");
-          setQuery("");
         }
-          dispatch(clearSearchResults());  
+        setShowDropdown(false); 
+        setQuery("");
       });
+    } else {
+      setShowDropdown(false); 
+      setQuery("");
     }
   };
 
-
-
-const handleInputChange = (e) => {
-  const query = e.target.value;
-  setQuery(query);
-  if (query) {
-    dispatch(fetchSearchResults(query));
-  }
-};
-
-
-
+  const handleInputChange = (e) => {
+    const query = e.target.value;
+    setQuery(query);
+    if (query) {
+      dispatch(fetchSearchResults(query));
+      setShowDropdown(true); 
+    } else {
+      setShowDropdown(false); 
+    }
+  };
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter" && query) {
       handleSearch();
+      setQuery(""); 
     }
   };
 
   const DropdownMenu = () => {
-    console.log(results); 
-    if (results.length === 0) return null;
+    if (!showDropdown || results.length === 0) return null;
 
     return (
       <ul className="dropdown-menu">
@@ -63,15 +60,12 @@ const handleInputChange = (e) => {
     );
   };
 
-
-   const handleProductClick = (productId) => {
+  const handleProductClick = (productId) => {
+    setShowDropdown(false); 
     dispatch(clearSearchResults());
-     history.push(`/products/${productId}`);
-     setQuery("");
-   };
-
-
-  
+    history.push(`/products/${productId}`);
+    setQuery(""); 
+  };
 
   return (
     <div className="searchbar-container">
@@ -90,4 +84,6 @@ const handleInputChange = (e) => {
     </div>
   );
 }
+
+
 

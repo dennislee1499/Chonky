@@ -9,13 +9,12 @@ import "../Footer/Footer.css";
 
 
 function ProductShow() {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const productId = useParams().productId;
     const product = useSelector(state => state.products?.[productId]);
     const [flavor, setFlavor] = useState("");
     const [size, setSize] = useState("");
     const [color, setColor] = useState("");
-    // const [selectedPrice, setSelectedPrice] = useState(product.price);
     const [selectedPrice, setSelectedPrice] = useState(0);
 
 
