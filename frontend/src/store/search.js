@@ -22,13 +22,13 @@ export const fetchSearchResults = (query) => async dispatch => {
   const data = await res.json();
   const productsObj = data.products ? data.products : {};
   const productsArray = Object.values(productsObj);
-  dispatch(receiveSearchResults(productsArray));
+  await dispatch(receiveSearchResults(productsArray));
   return data;
 };
 
 
 const initialState = {
-  products: [],
+  searchProducts: [],
   dropdownVisible: false,
 };
 

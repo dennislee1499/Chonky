@@ -5,13 +5,21 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function SearchBox() {
   const [query, setQuery] = useState("");
+  const [executedQuery, setExecutedQuery] = useState("");
+  const [initialExecutedQuery, setInitialExecutedQuery] = useState("");
   const [showDropdown, setShowDropdown] = useState(false); 
   const history = useHistory();
   const dispatch = useDispatch();
   const results = useSelector((state) => state.search.products);
 
-  const handleSearch = () => {
+
+
+  const handleSearch = (event) => {
+    event.preventDefault();
     if (query.trim() !== "") {
+      dispatch(clearSearchResults());
+      setInitialExecutedQuery(query);
+      setExecutedQuery(query);
       dispatch(fetchSearchResults(query)).then((data) => {
         const products = data.products ? Object.values(data.products) : [];
         if (products && products.length > 0) {
@@ -19,29 +27,35 @@ export default function SearchBox() {
         } else {
           alert("No products found");
         }
-        setShowDropdown(false); 
-        setQuery("");
+        setShowDropdown(false);
       });
     } else {
-      setShowDropdown(false); 
-      setQuery("");
+      setShowDropdown(false);
     }
+    setQuery("");
+    setExecutedQuery("");
   };
+
+
 
   const handleInputChange = (e) => {
     const query = e.target.value;
     setQuery(query);
     if (query) {
       dispatch(fetchSearchResults(query));
-      setShowDropdown(true); 
+      setShowDropdown(true);
     } else {
-      setShowDropdown(false); 
+      setShowDropdown(false);
+      if (initialExecutedQuery) {
+          dispatch(fetchSearchResults(initialExecutedQuery));
+      }
     }
   };
 
+
   const handleKeyPress = (e) => {
     if (e.key === "Enter" && query) {
-      handleSearch();
+      handleSearch(e);
       setQuery(""); 
     }
   };

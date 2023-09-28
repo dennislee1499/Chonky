@@ -17,6 +17,7 @@ export default function SearchPage() {
   const searchResults = useSelector((state) => Object.values(state.search.products));
 
   useEffect(() => {
+    console.log("useEffect triggered", query);
     dispatch(clearSearchResults());
     if (query) {
       dispatch(fetchSearchResults(query));
