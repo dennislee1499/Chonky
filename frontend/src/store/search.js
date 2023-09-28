@@ -28,7 +28,7 @@ export const fetchSearchResults = (query) => async dispatch => {
 
 
 const initialState = {
-  searchProducts: [],
+  products: [],
   dropdownVisible: false,
 };
 
