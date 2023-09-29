@@ -240,4 +240,18 @@ puts "Creating products..."
 
     product12.image.attach(io: URI.open("https://chonky-seeds.s3.amazonaws.com/chuckit.png"), filename: "chuckit.png")
 
+
+    product13 = Product.create!(
+    name: "Meow Mix Original Choice Dry Cat Food",
+    category: "Dog Food",
+    price: 9.19,
+    rating: 1,
+    details: "Premium protein for strong muscles
+              Provides all the essential vitamins and minerals your cat needs
+              Chicken, turkey, salmon and ocean fish flavors are sure to be an instant hit
+              100% complete and balanced nutritious diet for adult cats
+              Made right here in the USA",
+    flavor_options: ["Original Choice", "Seafood Medley"],
+    size_options: ["6.3-lb bag", "14.2-lb bag", "16-lb bag"]
+    )
   puts "Done!"
