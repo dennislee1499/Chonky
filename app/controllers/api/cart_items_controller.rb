@@ -3,9 +3,26 @@ class Api::CartItemsController < ApplicationController
 
     def create 
         @cart_item = CartItem.find_by(product_id: params[:product_id])
+
+         if @cart_item
+            @cart_item.update!(quantity: params[:quantity])
+            render 'api/cart_items/show'
+        else
+            @cart_item = CartItem.new(cart_params)
+            @user = current_user
+            @cart_item.save
+            render 'api/cart_items/show'
+        end
     end
 
     def destroy
+        @cart_item = CartItem.find(params[:id])
+        @cart_item.delete
+    end
 
+    private 
+
+    def cart_params 
+        params.permit(:user_id, :product_id, :quantity, :size, :flavor, :price)
     end
 end
