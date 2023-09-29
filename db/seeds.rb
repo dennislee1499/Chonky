@@ -242,16 +242,48 @@ puts "Creating products..."
 
 
     product13 = Product.create!(
-    name: "Meow Mix Original Choice Dry Cat Food",
+    name: "Pedigree Tender Bites Complete Nutrition Chicken & Steak Flavor Dry Dog Food, 30-lb bag",
     category: "Dog Food",
-    price: 9.19,
-    rating: 1,
-    details: "Premium protein for strong muscles
-              Provides all the essential vitamins and minerals your cat needs
-              Chicken, turkey, salmon and ocean fish flavors are sure to be an instant hit
-              100% complete and balanced nutritious diet for adult cats
-              Made right here in the USA",
-    flavor_options: ["Original Choice", "Seafood Medley"],
-    size_options: ["6.3-lb bag", "14.2-lb bag", "16-lb bag"]
+    price: 29.98,
+    rating: 5,
+    details: "100% complete and balanced for dogs.
+              Features whole grains, plus omega-6 fatty acids to promote healthy skin and a lustrous coat.
+              Filled with chicken and steak flavors for the lip-smacking taste dogs yearn for.
+              Tender, chewy bites and crunchy kibble are easy for little paw-tners to chew.
+              Made in the USA with some of the finest ingredients from around the world.",
+    flavor_options: ["Chicken", "Steak"],
     )
+
+    product13.image.attach(io: URI.open("https://chonky-seeds.s3.amazonaws.com/pedigree2.png"), filename: "pedigree2.png")
+
+
+    product14 = Product.create!(
+    name: "Purina Pro Plan Chicken & Rice Formula with Probiotics High Protein Cat Food 7-lb",
+    category: "Cat Food",
+    price: 27.08,
+    rating: 4,
+    details: "High protein formula with real chicken as the first ingredient.
+              Natural prebiotic fiber nourishes specific intestinal bacteria for digestive health.
+              Vitamin A and Omega-6 fatty acids to nourish skin and coat.
+              Used to be known as SAVOR Chicken and Rice Formula.
+              Rich in antioxidants to support a healthy immune system.",
+    flavor_options: ["Chicken & Rice", "Salmon & Rice"],
+    )
+
+    product14.image.attach(io: URI.open("https://chonky-seeds.s3.amazonaws.com/purinacat.png"), filename: "purinacat.png")
+
+
+    product15 = Product.create!(
+    name: "Multipet Loofa Dog The Original Squeaky Plush Dog Toy, Color Varies",
+    category: "Dog Toys",
+    price: 7.51,
+    rating: 5,
+    details: "Includes an internal squeaker that makes every far-flung game of fetch even more entertaining
+              Wildly popular dog toy is a big hit with canine pals everywhere!
+              Squeaks when squeezed or compressed.",
+    size_options: ["Small", "Medium"]
+    )
+
+    product15.image.attach(io: URI.open("https://chonky-seeds.s3.amazonaws.com/greentoy.png"), filename: "greentoy.png")
+
   puts "Done!"
