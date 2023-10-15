@@ -42,7 +42,7 @@ export default function SearchPage() {
           <p>{result?.rating}</p>
         </div>
         <p id="index-price" className="product-price">
-          Price: <span className="price-value">${result?.price}</span>
+          Price:  <span className="price-value">${result?.price}</span>
         </p>
       </li>
     );
