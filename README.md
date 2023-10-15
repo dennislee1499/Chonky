@@ -30,7 +30,8 @@ Chonky is a clone of Chewy. Chewy is a well known pet product retail platform th
 - The index page displays all of the products listings with their images, names, ratings, and prices. Clicking on a product will take the user to that specific products show page. The show page displays the products image, rating, price, flavor/size options. These options are conditionally rendered based on presence.
 
 
-![Screenshot 2023-09-28 at 4 47 50 PM](https://github.com/dennislee1499/Chonky/assets/136773894/acc93dc7-6a5e-4cdc-ab92-cb847653a160)
+![Screenshot 2023-10-15 at 11 42 23 AM](https://github.com/dennislee1499/Chonky/assets/136773894/09f32d8e-dc24-4ccd-ad32-25fc59c7504c)
+
 
 
 
