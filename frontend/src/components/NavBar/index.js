@@ -87,6 +87,27 @@ function NavBar({ hideSearch }) {
   const onAuthPage =
     location.pathname === "/login" || location.pathname === "/register";
 
+  // return (
+  //   <header className="nav-bar">
+  //     <Link to="/">
+  //       <img src={logoImage} alt="Your Logo" className="new-logo" />
+  //     </Link>
+  //     {!onAuthPage && (
+  //       <>
+  //         {!hideSearch && <SearchBox />}
+  //         <DropDown />
+  //         <div
+  //           className="cart-container"
+  //           onMouseEnter={() => setIsCartVisible(true)}
+  //           onMouseLeave={() => setIsCartVisible(false)}
+  //         >
+  //           <i className="fa fa-shopping-cart" aria-hidden="true"></i> Cart
+  //           {isCartVisible && <CartDropDown />}
+  //         </div>
+  //       </>
+  //     )}
+  //   </header>
+  // );
   return (
     <header className="nav-bar">
       <Link to="/">
@@ -95,14 +116,17 @@ function NavBar({ hideSearch }) {
       {!onAuthPage && (
         <>
           {!hideSearch && <SearchBox />}
-          <DropDown />
-          <div
-            className="cart-container"
-            onMouseEnter={() => setIsCartVisible(true)}
-            onMouseLeave={() => setIsCartVisible(false)}
-          >
-            <i className="fa fa-shopping-cart" aria-hidden="true"></i> Cart
-            {isCartVisible && <CartDropDown />}
+
+          <div className="user-cart-container">
+            <DropDown />
+            <div
+              className="cart-container"
+              onMouseEnter={() => setIsCartVisible(true)}
+              onMouseLeave={() => setIsCartVisible(false)}
+            >
+              <i className="fa fa-shopping-cart" aria-hidden="true"></i> Cart
+              {isCartVisible && <CartDropDown />}
+            </div>
           </div>
         </>
       )}

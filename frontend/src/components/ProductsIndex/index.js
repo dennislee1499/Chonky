@@ -53,14 +53,14 @@ function ProductsIndex({category}) {
               className={`product-image ${imgClass}`}
             />
             <Link id="link-to-show-from-product" to={`/products/${product.id}`}>
-              <span>
+              <div className="product-name-container">
                 <span
                   className={BOLD_BRANDS.has(brandName) ? "brand-name" : ""}
                 >
                   {brandName}
                 </span>{" "}
                 {productName}
-              </span>
+              </div>
             </Link>
             <div className="rating-container">
               <StarRatingDisplay rating={product.rating} />
