@@ -6,7 +6,7 @@ import SearchBox from "./SearchBox";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { logout } from "../../store/session";
 import logoImage from "./logoImage.png";
-import CartDropDown from "../Cart";
+import Cart from "../Cart";
 import { useLocation } from "react-router-dom"
 
 
@@ -87,27 +87,6 @@ function NavBar({ hideSearch }) {
   const onAuthPage =
     location.pathname === "/login" || location.pathname === "/register";
 
-  // return (
-  //   <header className="nav-bar">
-  //     <Link to="/">
-  //       <img src={logoImage} alt="Your Logo" className="new-logo" />
-  //     </Link>
-  //     {!onAuthPage && (
-  //       <>
-  //         {!hideSearch && <SearchBox />}
-  //         <DropDown />
-  //         <div
-  //           className="cart-container"
-  //           onMouseEnter={() => setIsCartVisible(true)}
-  //           onMouseLeave={() => setIsCartVisible(false)}
-  //         >
-  //           <i className="fa fa-shopping-cart" aria-hidden="true"></i> Cart
-  //           {isCartVisible && <CartDropDown />}
-  //         </div>
-  //       </>
-  //     )}
-  //   </header>
-  // );
   return (
     <header className="nav-bar">
       <Link to="/">
@@ -125,7 +104,7 @@ function NavBar({ hideSearch }) {
               onMouseLeave={() => setIsCartVisible(false)}
             >
               <i className="fa fa-shopping-cart" aria-hidden="true"></i> Cart
-              {isCartVisible && <CartDropDown />}
+              {isCartVisible && <Cart />}
             </div>
           </div>
         </>

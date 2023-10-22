@@ -1,5 +1,6 @@
 import csrfFetch from "./csrf";
 
+const RECEIVE_CART = "cart/RECEIVE_CART";
 const ADD_PRODUCT = "cart/ADD_PRODUCT";
 const REMOVE_PRODUCT = "cart/REMOVE_PRODUCT";
 
@@ -12,6 +13,13 @@ const addProduct = (cartItem) => {
   };
 };
 
+const receiveCart = (cart) => {
+  return {
+    type: RECEIVE_CART,
+    cart,
+  };
+};
+
 export const removeProduct = (cartItemId) => {
   return {
     type: REMOVE_PRODUCT,
@@ -19,15 +27,40 @@ export const removeProduct = (cartItemId) => {
   };
 };
 
+export const fetchCartItems = (userId) => async (dispatch) => {
+  if (userId) {
+    const res = await csrfFetch(`/api/users/${userId}`);
+    const data = await res.json();
 
+    dispatch(receiveCart(data.cart));
+  }
+};
+
+
+
+// export const addCartItem = (cartItem) => async (dispatch) => {
+//   const res = await csrfFetch("/api/cart_items", {
+//     method: "POST",
+//     body: JSON.stringify(cartItem),
+//   });
+//   const data = await res.json();
+//   dispatch(addProduct(data.cart));
+// };
 
 export const addCartItem = (cartItem) => async (dispatch) => {
-  const res = await csrfFetch("/api/cart_items", {
-    method: "POST",
-    body: JSON.stringify(cartItem),
-  });
-  const data = await res.json();
-  dispatch(addProduct(data.cart));
+  try {
+    const res = await csrfFetch("/api/cart_items", {
+      method: "POST",
+      body: JSON.stringify(cartItem),
+    });
+    if (res.ok) {
+      const data = await res.json();
+      dispatch(addProduct(data.cart)); 
+    } else {
+    }
+  } catch (error) {
+    console.error("An error occurred", error);
+  }
 };
 
 export const deleteCartItem = (cartItemId) => async (dispatch) => {
