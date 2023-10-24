@@ -8,30 +8,32 @@ import { fetchCartItems } from "../../store/cart";
 
 export default function Cart() {
   let currentUser = useSelector((state) => state.session.user);
-//   const cart = useSelector((state) => Object.values(state.cart));
-  const cart = useSelector((state) => Object.values(state.cart || {}));
+  const cart = useSelector((state) => Object.values(state.cart));
   const products = useSelector((state) => state.products);
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
 
+
   useEffect(() => {
     dispatch(fetchProducts());
     dispatch(fetchCartItems(currentUser?.id));
-  }, []);
+  }, [dispatch, currentUser?.id]);
+
 
   let quant = 0;
   let price = 0;
-  if (currentUser && cart.length) {
-    cart.forEach((item) => {
-      quant += parseFloat(item?.quantity);
-      price += parseFloat(item?.price * item?.quantity);
-    });
-  }
+    if (currentUser && cart.length) {
+      cart.forEach((item) => {
+        quant += parseFloat(item?.quantity);
+        price += parseFloat(item?.price * item?.quantity);
+      });
+    }
+
 
   if (currentUser && cart.length) {
     return (
       <div
-        className="cart"
+        className="cart-container"
         onMouseEnter={() => setShow(true)}
         onMouseLeave={() => setShow(false)}
       >
@@ -42,9 +44,7 @@ export default function Cart() {
           ></i>
           <span className="cart-badge">{quant}</span>
         </div>
-        <Link to="/cart">
-          <h1>cart</h1>
-        </Link>
+    
 
         {show && (
           <div className="cart-drop">
@@ -73,9 +73,7 @@ export default function Cart() {
           style={{ color: "#ffffff" }}
         ></i>
         <span className="cart-badge">{quant}</span>
-        <Link to="/cart">
-          <h1>cart</h1>
-        </Link>
+    
 
         {show && <ul className="your-cart-empty">Your cart is empty.</ul>}
       </div>

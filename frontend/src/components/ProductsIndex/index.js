@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../store/products";
 import { Link } from "react-router-dom";
@@ -13,6 +13,7 @@ function ProductsIndex({category}) {
           (product) => product.category === category
         )
       );
+      const [product, setProduct] = useState(null)
     const dispatch = useDispatch();
     const brands = new Set(["Pedigree", "Blue Buffalo", "Purina"]);  
     const BOLD_BRANDS = new Set(["Pedigree", "Blue Buffalo", "Purina"]);
@@ -30,10 +31,9 @@ function ProductsIndex({category}) {
       return { brandName: "", productName: name }; 
     };
 
-
-
     useEffect(() => {
-        dispatch(fetchProducts())
+        const res = dispatch(fetchProducts())
+        setProduct(res);
     }, [])
 
 
@@ -70,7 +70,6 @@ function ProductsIndex({category}) {
               ${product.price}
             </p>
           </div>
-          <button className="add-to-cart-button">Add to Cart</button>
         </li>
       );
     });

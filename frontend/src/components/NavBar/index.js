@@ -116,3 +116,5 @@ function NavBar({ hideSearch }) {
 
 
 export default NavBar;
+
+

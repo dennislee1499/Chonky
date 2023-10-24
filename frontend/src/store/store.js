@@ -5,11 +5,13 @@ import sessionReducer from "./session";
 import productsReducer from "./products";
 import redirectMiddleware from "../redirectMiddleware";
 import searchReducer from "./search";
+import cartReducer from "./cart";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   products: productsReducer,
   search: searchReducer,
+  cart: cartReducer
 });
 
 let enhancer;

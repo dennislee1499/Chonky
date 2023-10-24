@@ -9,7 +9,7 @@ import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import ProductsIndex from "./components/ProductsIndex";
 import ProductShow from "./components/ProductShow";
 import SearchPage from "./components/SearchPage";
-
+import CartIndex from "./components/Cart/CartIndex";
 
 function App() {
   let location = useLocation();
@@ -34,6 +34,10 @@ function App() {
 
           <Route path="/login">
             <LoginForm />
+          </Route>
+
+          <Route exact path="/cart">
+            <CartIndex />
           </Route>
 
           <Route exact path="/search">

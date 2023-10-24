@@ -1,18 +1,26 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+
 export default function CartItem({item}) {
+  const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
-  const product = products[item.item.productId];
+  const product = products[item.productId];
+  const productPath = `/products/${product?.id}`;
+
 
   return (
     <li className="cart-drop-item">
-      <img src={`${product?.imageUrl}`} />
-      <Link to={`/products/${product?.id}`}>
-        <p>{product?.name}</p>
+      <Link to={productPath} className="cart-item-link">
+        <img src={`${product?.imageUrl}`} alt="Product" />
+        <div className="cart-item-info">
+          <p className="cart-item-name">{product?.name}</p>{" "}
+          <div className="cart-item-details">
+            <p className="item-price">${parseFloat(product?.price).toFixed(2)}</p>
+            <p className="item-quantity">(Qty: {item.quantity})</p>
+          </div>
+        </div>
       </Link>
-      <p>${parseFloat(item?.item.price).toFixed(2)}</p>
-      <p>(Qty: {item.item.quantity})</p>
     </li>
   );
 }
