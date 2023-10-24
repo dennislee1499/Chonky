@@ -36,9 +36,17 @@ end
 
 
     def destroy
-        @cart_item = CartItem.find_by(product_id: params[:id])
-        @cart_item.delete
-    end
+  @cart_item = CartItem.find_by(id: params[:id])
+
+  if @cart_item.nil?
+    Rails.logger.error "Could not find CartItem with ID: #{params[:id]}"
+    render json: { error: 'CartItem not found' }, status: :not_found
+  else
+    @cart_item.destroy
+    render json: { message: 'Cart item deleted successfully' }
+  end
+end
+
 
     private 
 

@@ -10,20 +10,16 @@ export default function CartIndexItem({item}) {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(item.quantity);
 
-  //   useEffect(() => {
-  //     if (!product) {
-  //         dispatch(fetchProduct(item.productId))
-  //     }
-  //   })
 
   useEffect(() => {
     if (!product) {
-      dispatch(fetchProduct(item.productId)); // Make sure you are using productId to fetch product
+      dispatch(fetchProduct(item.productId)); 
     }
-  }, [item, product, dispatch]); // dependencies to re-run this effect if they change
+  }, [item, product, dispatch]); 
 
   
   function handleRemove() {
+    console.log("Removing item with ID:", item?.id);
     dispatch(deleteCartItem(item?.id));
     dispatch(removeProduct(item?.id));
   }
