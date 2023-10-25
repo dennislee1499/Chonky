@@ -13,18 +13,10 @@
     display: block;
 }
 
-/* .cart-dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: white;
-    box-shadow: 0 1px 3px 1px black;
-    border-radius: 3px;
-    z-index: 1000;
-    width: 200px;
-    padding: 5px;
-} */
+#cart-info li {
+    list-style-type: none;
+}
+
 
 .cart-drop {
     flex-direction: column;

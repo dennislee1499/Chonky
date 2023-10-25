@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-// redeploy
+
 export default function CartItem({item}) {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);

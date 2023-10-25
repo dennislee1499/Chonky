@@ -59,7 +59,7 @@ export default function CartIndex() {
     return (
       <div className="empty-cart-page">
         <h1>Your cart is empty.</h1>
-        <img src="/images/empty-box.webp" alt="box"></img>
+        <img src="/images/empty-box.avif" alt="box" />
         <Link to="/">Continue Shopping</Link>
       </div>
     );
