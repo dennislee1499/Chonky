@@ -10,6 +10,7 @@ import ProductsIndex from "./components/ProductsIndex";
 import ProductShow from "./components/ProductShow";
 import SearchPage from "./components/SearchPage";
 import CartIndex from "./components/Cart/CartIndex";
+import CheckoutPage from "./components/CheckoutPage";
 
 function App() {
   let location = useLocation();
@@ -30,6 +31,10 @@ function App() {
 
           <Route path="/register">
             <SignupForm />
+          </Route>
+
+          <Route exact path="/checkout">
+            <CheckoutPage />
           </Route>
 
           <Route path="/login">

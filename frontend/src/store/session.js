@@ -1,5 +1,4 @@
 import csrfFetch  from "./csrf.js";
-// import { setError } from "./errors.js";
 
 const SET_CURRENT_USER = "session/setCurrentUser";
 const REMOVE_CURRENT_USER = "session/removeCurrentUser";

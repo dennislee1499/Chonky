@@ -46,6 +46,7 @@ export const resetCart = () => {
   };
 };
 
+
 export const fetchCartItems = (userId) => async (dispatch) => {
   if (userId) {
     const res = await csrfFetch(`/api/users/${userId}`);
@@ -56,16 +57,6 @@ export const fetchCartItems = (userId) => async (dispatch) => {
 };
 
 
-// export const updateCartItem = (cartItemId, quantity) => async dispatch => {
-//   const res = await csrfFetch(`/api/cart_items/${cartItemId}`, {
-//     method: 'PATCH',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify({ quantity }) 
-//   })
-//     dispatch(updateProduct(cartItemId, quantity));
-// }
 
 export const updateCartItem = (cartItemId, quantity) => async (dispatch) => {
   const res = await csrfFetch(`/api/cart_items/${cartItemId}`, {
@@ -78,10 +69,9 @@ export const updateCartItem = (cartItemId, quantity) => async (dispatch) => {
 
   if (res.ok) {
     const updatedItem = await res.json();
-    dispatch(updateProduct(cartItemId, updatedItem.quantity)); 
+    dispatch(updateProduct(cartItemId, quantity)); 
   }
 };
-
 
 
 export const addCartItem = (cartItem) => async (dispatch) => {
@@ -107,55 +97,35 @@ export const deleteCartItem = (cartItemId) => async (dispatch) => {
 };
 
 export const checkout = (userId) => async dispatch => {
-  await csrfFetch(`/api/users/${userId}`, {
+  await csrfFetch('/api/cart_items/clear', {
     method: "DELETE"
   })
 }
 
 
-const initialState = JSON.parse(sessionStorage.getItem("cart")) || {};
+function cartReducer(state = {}, action) {
+  const newState = { ...state }
 
-
-function cartReducer(state = initialState, action) {
-    switch (action.type) {
-      case RECEIVE_CART:
-        sessionStorage.setItem("cart", JSON.stringify(action.cart));
-        return { ...state, ...action.cart };
-      case ADD_PRODUCT:
-        sessionStorage.setItem(
-          "cart",
-          JSON.stringify({ ...state, [action.cartItem.id]: action.cartItem })
-        );
-        return {
-          ...state,
-          [action.cartItem.id]: action.cartItem,
-        };
-      case RESET_CART:
-        return action.cart;
-      case REMOVE_PRODUCT: {
-        const { [action.cartItemId]: _, ...remainingItems } = state;
-        sessionStorage.setItem("cart", JSON.stringify(remainingItems));
-        return remainingItems;
-      }
-      case UPDATE_PRODUCT: {
-        if (state[action.cartItemId]) {
-          const updatedItem = {
-            ...state[action.cartItemId],
-            quantity: action.quantity,
-          };
-          const newState = {
-            ...state,
-            [action.cartItemId]: updatedItem,
-          };
-          sessionStorage.setItem("cart", JSON.stringify(newState));
-          
-          return newState;
-        }
-        return state;
-      }
-      default:
-        return state;
-    }
+     switch (action.type) {
+       case RECEIVE_CART:
+        console.log("action.cart contains:", action.cart);
+         sessionStorage.setItem("cart", JSON.stringify(action.cart));
+         return { ...newState, ...action.cart };
+       case ADD_PRODUCT:
+         sessionStorage.setItem("cart", JSON.stringify(action.cartItem));
+         newState[action.cartItem.id] = action.cartItem;
+         return newState;
+       case RESET_CART:
+         return action.cart;
+       case REMOVE_PRODUCT:
+         delete newState[action.cartItemId];
+         return newState;
+       case UPDATE_PRODUCT:
+         newState[action.cartItemId].quantity = action.quantity;
+         return newState;
+       default:
+         return state;
+     }
 }
 
 export default cartReducer;

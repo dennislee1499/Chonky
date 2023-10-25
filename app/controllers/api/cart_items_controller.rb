@@ -36,16 +36,26 @@ end
 
 
     def destroy
-  @cart_item = CartItem.find_by(id: params[:id])
+    @cart_item = CartItem.find_by(id: params[:id])
 
-  if @cart_item.nil?
-    Rails.logger.error "Could not find CartItem with ID: #{params[:id]}"
-    render json: { error: 'CartItem not found' }, status: :not_found
-  else
-    @cart_item.destroy
-    render json: { message: 'Cart item deleted successfully' }
-  end
-end
+    if @cart_item.nil?
+        Rails.logger.error "Could not find CartItem with ID: #{params[:id]}"
+        render json: { error: 'CartItem not found' }, status: :not_found
+    else
+        @cart_item.destroy
+        render json: { message: 'Cart item deleted successfully' }
+    end
+    end
+
+    def clear 
+        @cart_items = CartItem.where(user_id: current_user.id)
+
+        if @cart_items.destroy_all
+            render json: { message: 'Cart cleared successfully' }
+        else
+            render json: { error: 'Failed to clear cart' }, status: :unproccessable_entity
+        end
+    end
 
 
     private 
