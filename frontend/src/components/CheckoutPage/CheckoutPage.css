@@ -8,9 +8,8 @@
 .checkout-page h1 {
     margin: 20px;
     width: 75%;
-    background-color: rgb(36, 76, 187);
+    color: rgb(36, 76, 187);
     height: 100px;
-    color: white;
     font-size: 32px;
     font-family: 'Poppins';
     font-weight: 700;
@@ -43,4 +42,8 @@
 .checkout-page a:hover {
     cursor: pointer;
     background-color: #ef8126;
+}
+
+.checkout-image {
+    height: 18vw;
 }

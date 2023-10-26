@@ -6,12 +6,13 @@ import "./ProductShow.css";
 import StarRatingDisplay from "../StarRating/StarRatingDisplay";
 import "../StarRating/StarRating.css";
 import "../Footer/Footer.css";
-import { addCartItem } from "../../store/cart";
+import { addCartItem, updateCartItem } from "../../store/cart";
 
 function ProductShow() {
   const dispatch = useDispatch();
   const productId = useParams().productId;
   const product = useSelector((state) => state.products?.[productId]);
+  
   const currentUser = useSelector((state) => state.session.user);
   const [flavor, setFlavor] = useState("");
   const [size, setSize] = useState("");
@@ -88,6 +89,11 @@ function ProductShow() {
   const flavors = product.flavorOptions || [];
   const sizes = product.sizeOptions || [];
   const colors = product.colorOptions || [];
+
+  //  function handleChange(e) {
+  //    setQuantity(e.target.value);
+  //    dispatch(updateCartItem(item?.id, e.target.value));
+  //  }
 
   return (
     <>

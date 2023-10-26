@@ -104,7 +104,7 @@ function NavBar({ hideSearch }) {
               onMouseLeave={() => setIsCartVisible(false)}
             >
               <i className="fa fa-shopping-cart" aria-hidden="true"></i> Cart
-              {isCartVisible && <Cart />}
+              <Cart isCartVisible={isCartVisible} />
             </div>
           </div>
         </>

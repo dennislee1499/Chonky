@@ -19,7 +19,6 @@ export default function CartIndexItem({item}) {
 
   
   function handleRemove() {
-    console.log("Removing item with ID:", item?.id);
     dispatch(deleteCartItem(item?.id));
     dispatch(removeProduct(item?.id));
   }
@@ -28,6 +27,7 @@ export default function CartIndexItem({item}) {
     setQuantity(e.target.value);
     dispatch(updateCartItem(item?.id, e.target.value));
   }
+
 
   return (
     <ul id="cart-index-item">

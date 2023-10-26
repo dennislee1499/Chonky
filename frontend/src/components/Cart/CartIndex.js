@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import { fetchProducts } from "../../store/products";
 
 export default function CartIndex() {
-  let currentUser = useSelector((state) => state.session.user); //null
+  let currentUser = useSelector((state) => state.session.user); 
   const cart = useSelector((state) => Object.values(state.cart));
   const products = useSelector((state) => state.products);
   const dispatch = useDispatch();
