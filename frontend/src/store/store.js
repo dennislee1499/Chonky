@@ -6,12 +6,14 @@ import productsReducer from "./products";
 import redirectMiddleware from "../redirectMiddleware";
 import searchReducer from "./search";
 import cartReducer from "./cart";
+import reviewsReducer from "./reviews";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   products: productsReducer,
   search: searchReducer,
-  cart: cartReducer
+  cart: cartReducer,
+  reviews: reviewsReducer
 });
 
 let enhancer;

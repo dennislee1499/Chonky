@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/dennislee1499/Chonky/issues"
   },
-  "homepage": "https://github.com/dennislee1499/Chonky#readme"
+  "homepage": "https://github.com/dennislee1499/Chonky#readme",
+  "dependencies": {
+    "moment-timezone": "^0.5.43"
+  }
 }

@@ -11,6 +11,8 @@ import ProductShow from "./components/ProductShow";
 import SearchPage from "./components/SearchPage";
 import CartIndex from "./components/Cart/CartIndex";
 import CheckoutPage from "./components/CheckoutPage";
+import ReviewForm from "./components/ReviewForm";
+import EditReviewForm from "./components/ReviewForm/EditReviewForm";
 
 function App() {
   let location = useLocation();
@@ -47,6 +49,14 @@ function App() {
 
           <Route exact path="/search">
             <SearchPage />
+          </Route>
+
+          <Route exact path="/review/:productId">
+            <ReviewForm />
+          </Route>
+
+          <Route exact path="/reviews/edit/:reviewId">
+            <EditReviewForm />
           </Route>
 
           <Route exact path="/products/:productId">

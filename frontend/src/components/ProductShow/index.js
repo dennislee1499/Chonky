@@ -6,12 +6,19 @@ import "./ProductShow.css";
 import StarRatingDisplay from "../StarRating/StarRatingDisplay";
 import "../StarRating/StarRating.css";
 import "../Footer/Footer.css";
-import { addCartItem, updateCartItem } from "../../store/cart";
+import { addCartItem } from "../../store/cart";
+import { Link } from "react-router-dom";
+import { deleteReview } from "../../store/reviews";
+import moment from "moment-timezone";
 
 function ProductShow() {
   const dispatch = useDispatch();
   const productId = useParams().productId;
   const product = useSelector((state) => state.products?.[productId]);
+  const reviews = useSelector((state) => state.reviews);
+
+  // const state = useSelector((state) => state);
+  // console.log(state);
   
   const currentUser = useSelector((state) => state.session.user);
   const [flavor, setFlavor] = useState("");
@@ -76,6 +83,10 @@ function ProductShow() {
     }
   }
 
+  function handleDelete(reviewId) {
+    dispatch(deleteReview(reviewId));
+  }
+
   useEffect(() => {
     if (product && product.price) {
       setSelectedPrice(product.price);
@@ -89,6 +100,45 @@ function ProductShow() {
   const flavors = product.flavorOptions || [];
   const sizes = product.sizeOptions || [];
   const colors = product.colorOptions || [];
+
+   const ReviewList = Object.values(reviews).map((review) => {
+     if (
+       review?.productId == productId &&
+       review?.authorId == currentUser?.id
+     ) {
+       return (
+         <li id="review" key={review.id}>
+           <p>
+             By {review.name} on{" "}
+             {moment(review.createdAt).format("MMM Do YYYY")}
+           </p>
+           <h3>{review.title}</h3>
+           <p id="review-body">{review.body}</p>
+           <div className="review-buttons">
+             <button
+               onClick={() => {
+                 handleDelete(review.id);
+               }}
+             >
+               Delete Review
+             </button>
+             <Link to={`/reviews/edit/${review.id}`}>Edit Review</Link>
+           </div>
+         </li>
+       );
+     } else if (review?.productId == productId) {
+       return (
+         <li id="review" key={review.id}>
+           <p>
+             By {review.name} on{" "}
+             {moment(review.createdAt).format("MMM Do YYYY")}
+           </p>
+           <h3>{review.title}</h3>
+           <p id="review-body">{review.body}</p>
+         </li>
+       );
+     }
+   });
 
   //  function handleChange(e) {
   //    setQuantity(e.target.value);
@@ -220,6 +270,13 @@ function ProductShow() {
             <h2>About This Item</h2>
             <h3>Details</h3>
             <p>{product.details}</p>
+          </div>
+          <div className="reviews">
+            <h1>Reviews</h1>
+            <Link id="review-link" to={`/review/${productId}`}>
+              Write a Review
+            </Link>
+            <ul className="review-list">{product.reviews && ReviewList}</ul>
           </div>
         </div>
       </div>
