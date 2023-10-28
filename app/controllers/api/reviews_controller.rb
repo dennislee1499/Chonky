@@ -11,14 +11,17 @@ class Api::ReviewsController < ApplicationController
 
     end
 
+
     def update
-        @review = Review.find(params[:id])
+    @review = Review.find(params[:id])
 
-        if current_user.id == @review.author_id
-            @review.update!(review_params)
-        end
-
+    if @review.update(review_params)
+      render json: @review
+    else
+      render json: @review.errors.full_messages, status: :unprocessable_entity
     end
+  end
+
 
     def destroy
         @review = Review.find(params[:id])
@@ -26,9 +29,9 @@ class Api::ReviewsController < ApplicationController
         if current_user.id == @review.author_id
             @review.delete
         end
-        
     end
 
+    
     private
 
     def review_params

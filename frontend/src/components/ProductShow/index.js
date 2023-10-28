@@ -13,12 +13,9 @@ import moment from "moment-timezone";
 
 function ProductShow() {
   const dispatch = useDispatch();
-  const productId = useParams().productId;
+  const productId = parseInt(useParams().productId, 10); 
   const product = useSelector((state) => state.products?.[productId]);
   const reviews = useSelector((state) => state.reviews);
-
-  // const state = useSelector((state) => state);
-  // console.log(state);
   
   const currentUser = useSelector((state) => state.session.user);
   const [flavor, setFlavor] = useState("");
@@ -101,10 +98,10 @@ function ProductShow() {
   const sizes = product.sizeOptions || [];
   const colors = product.colorOptions || [];
 
+
    const ReviewList = Object.values(reviews).map((review) => {
      if (
-       review?.productId == productId &&
-       review?.authorId == currentUser?.id
+          review.productId === productId
      ) {
        return (
          <li id="review" key={review.id}>
@@ -126,7 +123,7 @@ function ProductShow() {
            </div>
          </li>
        );
-     } else if (review?.productId == productId) {
+     } else if (review?.productId === productId) {
        return (
          <li id="review" key={review.id}>
            <p>
@@ -140,135 +137,131 @@ function ProductShow() {
      }
    });
 
-  //  function handleChange(e) {
-  //    setQuantity(e.target.value);
-  //    dispatch(updateCartItem(item?.id, e.target.value));
-  //  }
 
   return (
     <>
-      <header id="category">{product.category}</header>
-      <div className="product-show-page">
-        <div className="left-section">
-          <img
-            id="product-show-img"
-            src={product.imageUrl}
-            alt={`Image of ${product.name}`}
-          />
-        </div>
-        <div className="right-section">
-          <div className="info-and-cart-container">
-            <div className="product-show-info">
-              <h1>{product.name}</h1>
-              <div className="rating-price">
-                <div className="rating-show">
-                  <StarRatingDisplay rating={product.rating} />
-                  <p>{product.rating}</p>
-                </div>
-                <div id="show-price" className="product-price-show">
-                  <span className="price-label">Price: </span>
-                  <span className="price-value">
-                    {selectedPrice !== undefined
-                      ? `$${selectedPrice.toFixed(2)}`
-                      : "Loading..."}
-                  </span>{" "}
-                </div>
+    <header id="category">{product.category}</header>
+    <div className="product-show-page">
+      <img
+        id="product-show-img"
+        src={product.imageUrl}
+        alt={`${product.name}`}
+      />
+        <div className="info-and-options-container">
+          <div className="product-show-info">
+            <h1>{product.name}</h1>
+            <div className="rating-price">
+              <div className="rating-show">
+                <StarRatingDisplay rating={product.rating} />
+                <p>{product.rating}</p>
+              </div>
+              <div id="show-price" className="product-price-show">
+                <span className="price-label">Price: </span>
+                <span className="price-value">
+                  {selectedPrice !== undefined
+                    ? `$${selectedPrice.toFixed(2)}`
+                    : "Loading..."}
+                </span>
               </div>
             </div>
-            <div className="add-to-cart-quantity-section">
-              <div className="quantity-text-wrapper">
-                <fieldset>
-                  <legend>Quantity</legend>
-                  <select
-                    className="quantity-dropdown"
-                    onChange={(e) => {
-                      setQuantity(e.target.value);
-                    }}
-                    defaultValue={quantity}
-                  >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                  </select>
-                </fieldset>
-                <div className="text-container">
-                  <p className="in-stock-text">In stock</p>
-                  <p className="info-text">
-                    <strong>FREE 1-3 day delivery</strong> over $35
-                  </p>
-                </div>
-              </div>
-              <button className="add-to-cart-from-show" onClick={handleAdd}>
-                Add to Cart
-              </button>
-            </div>
-          </div>
-          <div className="options-section">
-            {(product.category === "Dog Toys" ||
-              product.category === "Cat Toys") &&
-            colors.length ? (
-              <div className="color-section">
-                <h3>Color: {color}</h3>
-                <div className="color-buttons">
-                  {colors.map((colorOption, index) => (
-                    <button
-                      key={index}
-                      name="color"
-                      className={color === colorOption ? "selected" : ""}
-                      value={colorOption}
-                      onClick={() => setColor(colorOption)}
-                    >
-                      {colorOption}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            ) : flavors.length ? (
-              <div className="flavor-section">
-                <h3>Flavor: {flavor}</h3>
-                <div className="flavor-buttons">
-                  {flavors.map((flavorOption, index) => (
-                    <button
-                      key={index}
-                      name="flavor"
-                      className={flavor === flavorOption ? "selected" : ""}
-                      value={flavorOption}
-                      onClick={() => setFlavor(flavorOption)}
-                    >
-                      {flavorOption}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            ) : null}
-            <div className="size-section">
-              <h3>Size: {size} </h3>
-              <div className="size-buttons">
-                {sizes.map((sizeOption, index) => (
+
+        <div className="options-section">
+          {(product.category === "Dog Toys" ||
+            product.category === "Cat Toys") &&
+          colors.length ? (
+            <div className="color-section">
+              <h3>Color: {color}</h3>
+              <div className="color-buttons">
+                {colors.map((colorOption, index) => (
                   <button
                     key={index}
-                    className={size === sizeOption ? "selected" : ""}
-                    onClick={() => handleSizeClick(sizeOption)}
+                    name="color"
+                    className={color === colorOption ? "selected" : ""}
+                    value={colorOption}
+                    onClick={() => setColor(colorOption)}
                   >
-                    {sizeOption}
+                    {colorOption}
                   </button>
                 ))}
               </div>
             </div>
+          ) : flavors.length ? (
+            <div className="flavor-section">
+              <h3>Flavor: {flavor}</h3>
+              <div className="flavor-buttons">
+                {flavors.map((flavorOption, index) => (
+                  <button
+                    key={index}
+                    name="flavor"
+                    className={flavor === flavorOption ? "selected" : ""}
+                    value={flavorOption}
+                    onClick={() => setFlavor(flavorOption)}
+                  >
+                    {flavorOption}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : null}
+          <div className="size-section">
+            <h3>Size: {size} </h3>
+            <div className="size-buttons">
+              {sizes.map((sizeOption, index) => (
+                <button
+                  key={index}
+                  className={size === sizeOption ? "selected" : ""}
+                  onClick={() => handleSizeClick(sizeOption)}
+                >
+                  {sizeOption}
+                </button>
+              ))}
+            </div>
           </div>
+        </div>
+        </div>
+      </div>
+
+      <div className="add-to-cart-quantity-section">
+        <div className="quantity-text-wrapper">
+          <fieldset>
+            <legend>Quantity</legend>
+            <select
+              className="quantity-dropdown"
+              onChange={(e) => {
+                setQuantity(e.target.value);
+              }}
+              defaultValue={quantity}
+            >
+              <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+            </select>
+          </fieldset>
+          <div className="text-container">
+            <p className="in-stock-text">In stock</p>
+            <p className="info-text">
+              <strong>FREE 1-3 day delivery</strong> over $35
+            </p>
+          </div>
+        </div>
+        <button className="add-to-cart-from-show" onClick={handleAdd}>
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  
           <hr className="show-divider" />
           <div className="product-show-details">
             <h2>About This Item</h2>
-            <h3>Details</h3>
             <p>{product.details}</p>
           </div>
           <div className="reviews">
@@ -276,10 +269,8 @@ function ProductShow() {
             <Link id="review-link" to={`/review/${productId}`}>
               Write a Review
             </Link>
-            <ul className="review-list">{product.reviews && ReviewList}</ul>
+            <ul className="review-list">{ReviewList}</ul>
           </div>
-        </div>
-      </div>
     </>
   );
 }

@@ -42,7 +42,8 @@ export const submitReview = (review) => async (dispatch) => {
   });
 
   const data = await res.json();
-  dispatch(addReview(data.review));
+  const reviewData = data.review[Object.keys(data.review)[0]];
+  dispatch(addReview(reviewData));
 };
 
 export const editReview = (reviewId, review) => async (dispatch) => {
@@ -51,23 +52,41 @@ export const editReview = (reviewId, review) => async (dispatch) => {
     body: JSON.stringify(review),
   });
 
-  dispatch(updateReview(reviewId, review));
+  if (res.ok) {
+    const updatedReview = await res.json();
+    dispatch(updateReview(reviewId, updatedReview));
+  }
 };
+
 
 export default function reviewsReducer(state = {}, action) {
   const newState = { ...state };
 
   switch (action.type) {
     case ADD_REVIEW:
-      return { ...newState, ...action.review };
+      const { id } = action.review;
+      return {
+        ...newState,
+        [id]: action.review,
+      };
+      
     case RECEIVE_PRODUCT:
       return { ...newState, ...action.reviews };
+
     case REMOVE_REVIEW:
       delete newState[action.reviewId];
       return newState;
-    case UPDATE_REVIEW:
-      newState[action.reviewId] = action.review;
-      return newState;
+
+    case UPDATE_REVIEW: {
+      return {
+        ...state,
+        [action.reviewId]: {
+          ...state[action.reviewId],
+          ...action.review,
+        }
+      };
+    }
+
     default:
       return state;
   }
