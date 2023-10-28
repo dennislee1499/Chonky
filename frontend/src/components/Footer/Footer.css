@@ -15,7 +15,7 @@ html {
     bottom: 0;
     padding: 10px;
     border-top: 1px solid #ccc;
-    margin-top: -50px;
+    margin-top: 1.5rem;
 }
 
 .footer-container p {
@@ -28,6 +28,16 @@ html {
     width: 100%;
 }
 
-.github-icon {
-    height: 35px;
+
+.github-icon,
+.linkedin-icon {
+    margin: 0 2em;
+    height: 2.2rem;
 }
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+}
+
+
