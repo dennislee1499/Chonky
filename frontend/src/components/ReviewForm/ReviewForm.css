@@ -76,3 +76,9 @@
     cursor: pointer;
 }
 
+.form-error-message {
+    color: red;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+

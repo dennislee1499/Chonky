@@ -68,6 +68,7 @@ export default function EditReviewForm() {
           </div>
           <input
             type="text"
+            placeholder="Your Name"
             value={name}
             onChange={(e) => {
               setName(e.target.value);
@@ -75,6 +76,7 @@ export default function EditReviewForm() {
           />
           <input
             type="text"
+            placeholder="Title your review"
             value={title}
             onChange={(e) => {
               setTitle(e.target.value);
@@ -83,6 +85,7 @@ export default function EditReviewForm() {
           <input
             id="review-body-create"
             type="textarea"
+            placeholder="Tell us more"
             value={body}
             onChange={(e) => {
               setBody(e.target.value);

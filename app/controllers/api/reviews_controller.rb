@@ -7,8 +7,9 @@ class Api::ReviewsController < ApplicationController
 
         if @review.save
             render 'api/reviews/show'
+        else
+          render json: { errors: @review.errors.full_messages }, status: 422
         end
-
     end
 
 

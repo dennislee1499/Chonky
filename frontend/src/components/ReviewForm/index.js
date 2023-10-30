@@ -18,9 +18,15 @@ export default function ReviewForm() {
   const [body, setBody] = useState("");
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
+  const [formError, setFormError] = useState(null);
 
   function handleReviewSubmit(e) {
     e.preventDefault();
+    if (!rating) {
+      setFormError('Please select a rating');
+      return;
+    }
+
     if (!currentUser) {
       history.push("/login");
     } else {
@@ -74,6 +80,7 @@ export default function ReviewForm() {
               );
             })}
           </div>
+          {formError && <p className="form-error-message">{formError}</p>}
           <input
             type="text"
             placeholder="Your Name"
