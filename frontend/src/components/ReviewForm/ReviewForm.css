@@ -6,7 +6,7 @@
 
 .review-headers {
     font-family: 'Poppins';
-    font-size: 28px;
+    font-size: 1.25rem;
     font-weight: 700;
     padding: 20px;
 }
@@ -70,3 +70,9 @@
     color: gray;
     padding: 0 10px 10px 0;
 }
+
+.star {
+    margin-right: 5px;
+    cursor: pointer;
+}
+

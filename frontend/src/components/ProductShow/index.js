@@ -8,8 +8,9 @@ import "../StarRating/StarRating.css";
 import "../Footer/Footer.css";
 import { addCartItem } from "../../store/cart";
 import { Link } from "react-router-dom";
-import { deleteReview } from "../../store/reviews";
+import { deleteReview, fetchReviews } from "../../store/reviews";
 import moment from "moment-timezone";
+import { FaStar } from "react-icons/fa";
 
 function ProductShow() {
   const dispatch = useDispatch();
@@ -29,7 +30,8 @@ function ProductShow() {
     if (!product) {
       dispatch(fetchProduct(productId))
     }
-  })
+    dispatch(fetchReviews(productId));
+  }, [dispatch, productId, product]);
 
   const selectedPrices = {
     "3-lb bag": 10.18,
@@ -100,9 +102,8 @@ function ProductShow() {
 
 
    const ReviewList = Object.values(reviews).map((review) => {
-     if (
-          review.productId === productId
-     ) {
+
+     if (review.productId === productId || review?.productId === productId) {
        return (
          <li id="review" key={review.id}>
            <p>
@@ -111,6 +112,19 @@ function ProductShow() {
            </p>
            <h3>{review.title}</h3>
            <p id="review-body">{review.body}</p>
+           <div className="star-rating">
+             {[...Array(5)].map((star, i) => {
+               const ratingValue = i + 1;
+               return (
+                 <FaStar
+                   key={i}
+                   className="star"
+                   color={ratingValue <= review.rating ? "#ffc107" : "#e4e5e9"}
+                   size={20}
+                 />
+               );
+             })}
+           </div>
            <div className="review-buttons">
              <button
                onClick={() => {

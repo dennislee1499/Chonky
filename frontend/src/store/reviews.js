@@ -4,6 +4,14 @@ import  csrfFetch  from "./csrf";
 const ADD_REVIEW = "reviews/ADD_REVIEW";
 const REMOVE_REVIEW = "reviews/REMOVE_REVIEW";
 const UPDATE_REVIEW = "reviews/EDIT_REVIEW";
+const RECEIVE_REVIEWS = "reviews/RECEIVE_REVIEWS";
+
+export const receiveReviews = (reviews) => {
+  return {
+    type: RECEIVE_REVIEWS,
+    reviews,
+  }
+}
 
 export const addReview = (review) => {
   return {
@@ -58,11 +66,27 @@ export const editReview = (reviewId, review) => async (dispatch) => {
   }
 };
 
+export const fetchReviews = (productId) => async dispatch => {
+  const res = await csrfFetch(`/api/reviews/${productId}`);
+  if (res.ok) {
+    const reviews = await res.json();
+    dispatch(receiveReviews(reviews));
+  }
+};
+
 
 export default function reviewsReducer(state = {}, action) {
   const newState = { ...state };
 
   switch (action.type) {
+    case RECEIVE_REVIEWS:
+    return {
+      ...state, 
+      ...action.reviews.reduce((acc, review) => {
+        acc[review.id] = review;
+        return acc;
+      }, {}),
+    }
     case ADD_REVIEW:
       const { id } = action.review;
       return {

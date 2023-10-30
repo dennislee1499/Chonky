@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/dennislee1499/Chonky#readme",
   "dependencies": {
-    "moment-timezone": "^0.5.43"
+    "moment-timezone": "^0.5.43",
+    "react-icons": "^4.11.0"
   }
 }

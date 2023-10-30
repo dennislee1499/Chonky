@@ -1,39 +1,79 @@
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { fetchProduct } from "../../store/products";
 import { submitReview } from "../../store/reviews";
 import { useParams } from "react-router-dom";
+import { FaStar } from 'react-icons/fa';
 import "./ReviewForm.css";
 
 export default function ReviewForm() {
   const dispatch = useDispatch();
   const history = useHistory();
   const productId = useParams().productId;
+  const product = useSelector((state) => state.products[productId]);
   const currentUser = useSelector((state) => state.session.user);
   const [name, setName] = useState("");
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const [rating, setRating] = useState(null);
+  const [hover, setHover] = useState(null);
 
   function handleReviewSubmit(e) {
     e.preventDefault();
     if (!currentUser) {
       history.push("/login");
     } else {
-      let review = { name, title, body, productId };
+      let review = { name, title, body, productId, rating };
       dispatch(submitReview(review)).then(() => {
         history.push(`/products/${productId}`);
       });
     }
   }
 
+  useEffect(() => {
+    dispatch(fetchProduct(productId)); 
+  }, [dispatch, productId]);
+
   return (
     <div className="review-page">
       <div className="review-headers">
         <h1>Write a Review</h1>
-        {/* product image and title should go here as well */}
+        <img
+          id="product-review-img"
+          src={product.imageUrl}
+          alt={`${product.name}`}
+        />
       </div>
       <div>
         <form className="review-form" onSubmit={handleReviewSubmit}>
+          <h2>Choose your rating</h2>
+          <div>
+            {[...Array(5)].map((star, i) => {
+              const ratingValue = i + 1;
+
+              return (
+                <label key={i}>
+                  <input
+                    type="radio"
+                    name="rating"
+                    value={ratingValue}
+                    onClick={() => setRating(ratingValue)}
+                    style={{ display: "none" }}
+                  />
+                  <FaStar
+                    className="star"
+                    color={
+                      ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"
+                    }
+                    size={30}
+                    onMouseEnter={() => setHover(ratingValue)}
+                    onMouseLeave={() => setHover(null)}
+                  />
+                </label>
+              );
+            })}
+          </div>
           <input
             type="text"
             placeholder="Your Name"
@@ -57,7 +97,7 @@ export default function ReviewForm() {
             }}
           />
           <div className="review-radios">
-            <h1>Would you recommend this product to a friend?</h1>
+            <h1>Would you recommend this item?</h1>
             <label>
               Yes
               <input type="radio" name="rec" />
