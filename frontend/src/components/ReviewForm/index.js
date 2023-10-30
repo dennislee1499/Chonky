@@ -41,6 +41,7 @@ export default function ReviewForm() {
     dispatch(fetchProduct(productId)); 
   }, [dispatch, productId]);
 
+
   return (
     <div className="review-page">
       <div className="review-headers">
@@ -64,7 +65,10 @@ export default function ReviewForm() {
                     type="radio"
                     name="rating"
                     value={ratingValue}
-                    onClick={() => setRating(ratingValue)}
+                    onClick={() => {
+                      setRating(ratingValue);
+                      setFormError(null);
+                    }}
                     style={{ display: "none" }}
                   />
                   <FaStar
