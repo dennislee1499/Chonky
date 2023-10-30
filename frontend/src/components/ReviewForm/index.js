@@ -83,7 +83,7 @@ export default function ReviewForm() {
           />
           <input
             type="text"
-            placeholder="Review Subject"
+            placeholder="Title your review"
             onChange={(e) => {
               setTitle(e.target.value);
             }}
@@ -91,7 +91,7 @@ export default function ReviewForm() {
           <input
             id="review-body-create"
             type="textarea"
-            placeholder="Your Review"
+            placeholder="Tell us more"
             onChange={(e) => {
               setBody(e.target.value);
             }}
