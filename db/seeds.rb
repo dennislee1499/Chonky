@@ -15,8 +15,10 @@ ApplicationRecord.transaction do
   puts "Destroying tables..."
   # Unnecessary if using `rails db:seed:replant`
   CartItem.destroy_all
+  Review.destroy_all
   User.destroy_all
   Product.destroy_all
+  
   
 
 # ActiveRecord::Base.connection.reset_pk_sequence!('users')

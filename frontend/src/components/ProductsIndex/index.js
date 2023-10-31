@@ -47,11 +47,13 @@ function ProductsIndex({category}) {
       return (
         <li key={product.id}>
           <div className="content-above-button">
-            <img
-              src={product.imageUrl}
-              alt={`Image for ${product.name}`}
-              className={`product-image ${imgClass}`}
-            />
+            <Link id="link-to-show-from-product" to={`/products/${product.id}`}>
+              <img
+                src={product.imageUrl}
+                alt={`Image for ${product.name}`}
+                className={`product-image ${imgClass}`}
+              />
+            </Link>
             <Link id="link-to-show-from-product" to={`/products/${product.id}`}>
               <div className="product-name-container">
                 <span
