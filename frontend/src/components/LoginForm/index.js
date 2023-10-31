@@ -28,10 +28,9 @@ function LoginForm() {
       async (res) => {
         let data;
         try {
-          // .clone() essentially allows you to read the response body twice
           data = await res.clone().json();
         } catch {
-          data = await res.text(); // Will hit this case if, e.g., server is down
+          data = await res.text(); 
         }
         if (data?.errors) setErrors(data.errors);
         else if (data) setErrors([data]);
@@ -73,7 +72,7 @@ function LoginForm() {
             onClick={() =>
               dispatch(login({ email: "demo@user.io", password: "password" }))
             }
-            id="signin-button"
+            id="demo-button"
           >
             Demo Login
           </button>

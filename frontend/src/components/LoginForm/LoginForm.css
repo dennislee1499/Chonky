@@ -98,7 +98,26 @@ html {
     margin-bottom: 10px;
 }
 
+#demo-button {
+    background-color: #ef6c00;
+    color: #fff;
+    border: 1.6px solid #ef6c00;
+    font-weight: 600;
+    cursor: pointer;
+    height: 45px;
+    width: 85%;
+    border-radius: 15px;
+    font-size: 15px;
+    margin-top: -8px;
+    margin-bottom: 10px;
+}
+
 #signin-button:hover {
+    background-color: rgb(155, 89, 9);
+    border-color: rgb(155, 89, 9);
+}
+
+#demo-button:hover {
     background-color: rgb(155, 89, 9);
     border-color: rgb(155, 89, 9);
 }
