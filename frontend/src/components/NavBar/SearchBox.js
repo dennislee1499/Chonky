@@ -25,7 +25,7 @@ export default function SearchBox() {
         if (products && products.length > 0) {
           history.push(`/search?query=${encodeURIComponent(query)}`);
         } else {
-          alert("No products found");
+          history.push(`/no-products-found?query=${encodeURIComponent(query)}`);
         }
         setShowDropdown(false);
       });

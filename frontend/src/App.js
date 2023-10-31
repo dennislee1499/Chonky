@@ -13,6 +13,7 @@ import CartIndex from "./components/Cart/CartIndex";
 import CheckoutPage from "./components/CheckoutPage";
 import ReviewForm from "./components/ReviewForm";
 import EditReviewForm from "./components/ReviewForm/EditReviewForm";
+import NoProductsFound from "./components/NoProductsFound";
 
 function App() {
   let location = useLocation();
@@ -53,6 +54,10 @@ function App() {
 
           <Route exact path="/review/:productId">
             <ReviewForm />
+          </Route>
+
+          <Route exact path="/no-products-found" component={NoProductsFound}>
+            <NoProductsFound  />
           </Route>
 
           <Route exact path="/reviews/edit/:reviewId">

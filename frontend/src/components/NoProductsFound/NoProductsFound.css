@@ -1,0 +1,12 @@
+.no-products-found {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.not-found-image {
+    max-width: 100%;
+    height: auto;
+}
