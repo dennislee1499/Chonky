@@ -8,12 +8,12 @@ import "../StarRating/StarRating.css"
 import "../Footer/Footer.css"
 
 function ProductsIndex({category}) {
-      const products = useSelector((state) =>
-        Object.values(state.products).filter(
-          (product) => product.category === category
-        )
-      );
-      const [product, setProduct] = useState(null)
+    const products = useSelector((state) =>
+      Object.values(state.products).filter(
+        (product) => product.category === category
+      )
+    );
+    const [product, setProduct] = useState(null)
     const dispatch = useDispatch();
     const brands = new Set(["Pedigree", "Blue Buffalo", "Purina"]);  
     const BOLD_BRANDS = new Set(["Pedigree", "Blue Buffalo", "Purina"]);

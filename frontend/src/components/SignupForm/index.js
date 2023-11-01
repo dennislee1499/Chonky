@@ -115,7 +115,7 @@ function SignupForm() {
   };
 
   if (hasSignedUp) {
-    return <Redirect to="/splash" />;
+    return <Redirect to="/" />;
   }
 
 
