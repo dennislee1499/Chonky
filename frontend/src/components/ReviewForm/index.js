@@ -19,6 +19,7 @@ export default function ReviewForm() {
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
   const [formError, setFormError] = useState(null);
+  const [recommend, setRecommend] = useState(null);
 
   function handleReviewSubmit(e) {
     e.preventDefault();
@@ -30,7 +31,7 @@ export default function ReviewForm() {
     if (!currentUser) {
       history.push("/login");
     } else {
-      let review = { name, title, body, productId, rating };
+      let review = { name, title, body, productId, rating, recommend };
       dispatch(submitReview(review)).then(() => {
         history.push(`/products/${productId}`);
       });
@@ -111,11 +112,11 @@ export default function ReviewForm() {
             <h1>Would you recommend this item?</h1>
             <label>
               Yes
-              <input type="radio" name="rec" />
+              <input type="radio" name="rec" value="Yes" checked={recommend === true} onChange={() => setRecommend(true)} />
             </label>
             <label>
               No
-              <input type="radio" name="rec" />
+              <input type="radio" name="rec" value="No" checked={recommend === false} onChange={() => setRecommend(false)} />
             </label>
           </div>
           <input id="review-submit" type="submit" value="Submit Review" />

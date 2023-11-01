@@ -125,6 +125,13 @@ function ProductShow() {
                );
              })}
            </div>
+           <div className="recommendation-text">
+             {review.recommend !== null && (
+               <p>
+                 Would you recommend this item: {review.recommend ? "Yes" : "No"}
+               </p>
+             )}
+           </div>
            <div className="review-buttons">
              <button
                onClick={() => {

@@ -282,6 +282,10 @@ button.selected {
     padding: 5px;
 }
 
+.recommendation-text p {
+    font-size: 14px;
+}
+
 
 
 
