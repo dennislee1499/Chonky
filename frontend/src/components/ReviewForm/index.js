@@ -18,25 +18,39 @@ export default function ReviewForm() {
   const [body, setBody] = useState("");
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
-  const [formError, setFormError] = useState(null);
+  const [formError, setFormError] = useState({});
   const [recommend, setRecommend] = useState(null);
 
   function handleReviewSubmit(e) {
     e.preventDefault();
+
+    let errors = {};
+
     if (!rating) {
-      setFormError('Please select a rating');
-      return;
+      errors.rating = 'Please select a rating';
+    }
+    if (!name.trim()) {
+      errors.name = 'Name field required'
+    }
+    if (!title.trim()) {
+      errors.title = 'Title field required'
+    }
+    if (!body.trim()) {
+      errors.body = 'Body field required'
     }
 
-    if (!currentUser) {
-      history.push("/login");
-    } else {
-      let review = { name, title, body, productId, rating, recommend };
-      dispatch(submitReview(review)).then(() => {
-        history.push(`/products/${productId}`);
-      });
-    }
+    setFormError(errors);
+
+    if (Object.keys(errors).length === 0 && currentUser) { 
+    let review = { name, title, body, productId, rating, recommend };
+    dispatch(submitReview(review)).then(() => {
+      history.push(`/products/${productId}`);
+    });
+  } else if (!currentUser) {
+    history.push("/login");
   }
+}
+
 
   useEffect(() => {
     dispatch(fetchProduct(productId)); 
@@ -68,7 +82,10 @@ export default function ReviewForm() {
                     value={ratingValue}
                     onClick={() => {
                       setRating(ratingValue);
-                      setFormError(null);
+                      setFormError((prevErrors) => ({
+                        ...prevErrors,
+                        rating: null,
+                      }));
                     }}
                     style={{ display: "none" }}
                   />
@@ -85,38 +102,73 @@ export default function ReviewForm() {
               );
             })}
           </div>
-          {formError && <p className="form-error-message">{formError}</p>}
+          {formError.rating && (
+            <p className="form-error-message">{formError.rating}</p>
+          )}
           <input
             type="text"
             placeholder="Your Name"
             onChange={(e) => {
               setName(e.target.value);
+              setFormError((prevErrors) => ({
+                ...prevErrors,
+                name: null,
+              }));
             }}
           />
+          {formError.name && (
+            <p className="form-error-message">{formError.name}</p>
+          )}
           <input
             type="text"
             placeholder="Title your review"
             onChange={(e) => {
               setTitle(e.target.value);
+              setFormError((prevErrors) => ({
+                ...prevErrors,
+                title: null,
+              }));
             }}
           />
+          {formError.title && (
+            <p className="form-error-message">{formError.title}</p>
+          )}
           <input
             id="review-body-create"
             type="textarea"
             placeholder="Tell us more"
             onChange={(e) => {
               setBody(e.target.value);
+              setFormError((prevErrors) => ({
+                ...prevErrors,
+                body: null,
+              }));
             }}
           />
+          {formError.body && (
+            <p className="form-error-message">{formError.body}</p>
+          )}
           <div className="review-radios">
             <h1>Would you recommend this item?</h1>
             <label>
               Yes
-              <input type="radio" name="rec" value="Yes" checked={recommend === true} onChange={() => setRecommend(true)} />
+              <input
+                type="radio"
+                name="rec"
+                value="Yes"
+                checked={recommend === true}
+                onChange={() => setRecommend(true)}
+              />
             </label>
             <label>
               No
-              <input type="radio" name="rec" value="No" checked={recommend === false} onChange={() => setRecommend(false)} />
+              <input
+                type="radio"
+                name="rec"
+                value="No"
+                checked={recommend === false}
+                onChange={() => setRecommend(false)}
+              />
             </label>
           </div>
           <input id="review-submit" type="submit" value="Submit Review" />
