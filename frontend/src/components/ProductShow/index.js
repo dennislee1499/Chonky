@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { deleteReview, fetchReviews } from "../../store/reviews";
 import moment from "moment-timezone";
 import { FaStar } from "react-icons/fa";
+import { setError } from "../../store/errors";
 
 function ProductShow() {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ function ProductShow() {
   const [color, setColor] = useState("");
   const [selectedPrice, setSelectedPrice] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const [errorMessage, setErrorMessage] = useState("");
   const history = useHistory();
 
   useEffect(() => {
@@ -66,6 +68,21 @@ function ProductShow() {
   };
 
   function handleAdd() {
+    if (flavors.length > 0 && !flavor) {
+      setErrorMessage("Please select a flavor.");
+      return;
+    }
+
+    if (sizes.length > 0 && !size) {
+      setErrorMessage("Please select a size.");
+      return;
+    }
+
+    if (colors.length > 0 && !color) {
+      setErrorMessage("Please select a color.");
+      return;
+    }
+
     if (!currentUser) {
       history.push("/login");
     } else {
@@ -80,6 +97,8 @@ function ProductShow() {
       };
       dispatch(addCartItem(cartItem));
     }
+
+    setErrorMessage("");
   }
 
   function handleDelete(reviewId) {
@@ -161,13 +180,13 @@ function ProductShow() {
 
   return (
     <>
-    <header id="category">{product.category}</header>
-    <div className="product-show-page">
-      <img
-        id="product-show-img"
-        src={product.imageUrl}
-        alt={`${product.name}`}
-      />
+      <header id="category">{product.category}</header>
+      <div className="product-show-page">
+        <img
+          id="product-show-img"
+          src={product.imageUrl}
+          alt={`${product.name}`}
+        />
         <div className="info-and-options-container">
           <div className="product-show-info">
             <h1>{product.name}</h1>
@@ -186,112 +205,113 @@ function ProductShow() {
               </div>
             </div>
 
-        <div className="options-section">
-          {(product.category === "Dog Toys" ||
-            product.category === "Cat Toys") &&
-          colors.length ? (
-            <div className="color-section">
-              <h3>Color: {color}</h3>
-              <div className="color-buttons">
-                {colors.map((colorOption, index) => (
-                  <button
-                    key={index}
-                    name="color"
-                    className={color === colorOption ? "selected" : ""}
-                    value={colorOption}
-                    onClick={() => setColor(colorOption)}
-                  >
-                    {colorOption}
-                  </button>
-                ))}
+            <div className="options-section">
+              {(product.category === "Dog Toys" ||
+                product.category === "Cat Toys") &&
+              colors.length ? (
+                <div className="color-section">
+                  <h3>Color: {color}</h3>
+                  <div className="color-buttons">
+                    {colors.map((colorOption, index) => (
+                      <button
+                        key={index}
+                        name="color"
+                        className={color === colorOption ? "selected" : ""}
+                        value={colorOption}
+                        onClick={() => setColor(colorOption)}
+                      >
+                        {colorOption}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : flavors.length ? (
+                <div className="flavor-section">
+                  <h3>Flavor: {flavor}</h3>
+                  <div className="flavor-buttons">
+                    {flavors.map((flavorOption, index) => (
+                      <button
+                        key={index}
+                        name="flavor"
+                        className={flavor === flavorOption ? "selected" : ""}
+                        value={flavorOption}
+                        onClick={() => setFlavor(flavorOption)}
+                      >
+                        {flavorOption}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+              <div className="size-section">
+                <h3>Size: {size} </h3>
+                <div className="size-buttons">
+                  {sizes.map((sizeOption, index) => (
+                    <button
+                      key={index}
+                      className={size === sizeOption ? "selected" : ""}
+                      onClick={() => handleSizeClick(sizeOption)}
+                    >
+                      {sizeOption}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
-          ) : flavors.length ? (
-            <div className="flavor-section">
-              <h3>Flavor: {flavor}</h3>
-              <div className="flavor-buttons">
-                {flavors.map((flavorOption, index) => (
-                  <button
-                    key={index}
-                    name="flavor"
-                    className={flavor === flavorOption ? "selected" : ""}
-                    value={flavorOption}
-                    onClick={() => setFlavor(flavorOption)}
-                  >
-                    {flavorOption}
-                  </button>
-                ))}
-              </div>
-            </div>
-          ) : null}
-          <div className="size-section">
-            <h3>Size: {size} </h3>
-            <div className="size-buttons">
-              {sizes.map((sizeOption, index) => (
-                <button
-                  key={index}
-                  className={size === sizeOption ? "selected" : ""}
-                  onClick={() => handleSizeClick(sizeOption)}
-                >
-                  {sizeOption}
-                </button>
-              ))}
             </div>
           </div>
         </div>
+
+        <div className="add-to-cart-quantity-section">
+          <div className="quantity-text-wrapper">
+            <fieldset>
+              <legend>Quantity</legend>
+              <select
+                className="quantity-dropdown"
+                onChange={(e) => {
+                  setQuantity(e.target.value);
+                }}
+                defaultValue={quantity}
+              >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+            </fieldset>
+            <div className="text-container">
+              <p className="in-stock-text">In stock</p>
+              <p className="info-text">
+                <strong>FREE 1-3 day delivery</strong> over $35
+              </p>
+            </div>
+          </div>
+          {errorMessage && <div className="error-message">{errorMessage}</div>}
+          <button className="add-to-cart-from-show" onClick={handleAdd}>
+            Add to Cart
+          </button>
         </div>
       </div>
 
-      <div className="add-to-cart-quantity-section">
-        <div className="quantity-text-wrapper">
-          <fieldset>
-            <legend>Quantity</legend>
-            <select
-              className="quantity-dropdown"
-              onChange={(e) => {
-                setQuantity(e.target.value);
-              }}
-              defaultValue={quantity}
-            >
-              <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                      <option value="7">7</option>
-                      <option value="8">8</option>
-                      <option value="9">9</option>
-                      <option value="10">10</option>
-                      <option value="11">11</option>
-                      <option value="12">12</option>
-            </select>
-          </fieldset>
-          <div className="text-container">
-            <p className="in-stock-text">In stock</p>
-            <p className="info-text">
-              <strong>FREE 1-3 day delivery</strong> over $35
-            </p>
-          </div>
-        </div>
-        <button className="add-to-cart-from-show" onClick={handleAdd}>
-          Add to Cart
-        </button>
+      <hr className="show-divider" />
+      <div className="product-show-details">
+        <h2>About This Item</h2>
+        <p>{product.details}</p>
       </div>
-    </div>
-  
-          <hr className="show-divider" />
-          <div className="product-show-details">
-            <h2>About This Item</h2>
-            <p>{product.details}</p>
-          </div>
-          <div className="reviews">
-            <h1>Reviews</h1>
-            <Link id="review-link" to={`/review/${productId}`}>
-              Write a Review
-            </Link>
-            <ul className="review-list">{ReviewList}</ul>
-          </div>
+      <div className="reviews">
+        <h1>Reviews</h1>
+        <Link id="review-link" to={`/review/${productId}`}>
+          Write a Review
+        </Link>
+        <ul className="review-list">{ReviewList}</ul>
+      </div>
     </>
   );
 }

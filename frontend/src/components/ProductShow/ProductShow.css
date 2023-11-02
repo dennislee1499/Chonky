@@ -60,6 +60,7 @@
     font-size: 12px;
     padding: 10px;
     margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .add-to-cart-from-show:hover {
@@ -73,7 +74,7 @@
     border: 2px solid #EEEEEE;
     border-radius: 7px;
     padding: 15px;
-    height: 150px;
+    height: 180px;
     width: 260px;
     margin-left: 40px;
 }
@@ -283,7 +284,12 @@ button.selected {
 }
 
 .recommendation-text p {
-    font-size: 14px;
+    font-size: 1rem;
+}
+
+.error-message {
+    color: red;
+    font-size: 1rem;
 }
 
 
