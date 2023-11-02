@@ -25,7 +25,9 @@ export default function CartIndexItem({item}) {
 
   function handleChange(e) {
     setQuantity(e.target.value);
-    dispatch(updateCartItem(item?.id, e.target.value));
+    const updatedQuantity = parseInt(e.target.value, 10);
+    setQuantity(updatedQuantity);
+    dispatch(updateCartItem(item?.id, updatedQuantity));
   }
 
 

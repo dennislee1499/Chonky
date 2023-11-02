@@ -3,10 +3,11 @@ class Api::CartItemsController < ApplicationController
 
 
     def create 
-    @cart_item = CartItem.find_by(product_id: params[:product_id])
+    @cart_item = CartItem.find_by(product_id: params[:product_id], user_id: current_user.id)
 
         if @cart_item
-            @cart_item.update!(quantity: params[:quantity])
+            combined_quantity = @cart_item.quantity + params[:quantity].to_i
+            @cart_item.update!(quantity: combined_quantity)
             render 'api/cart_items/show'
         else
             @cart_item = CartItem.new(cart_params)
@@ -19,6 +20,7 @@ class Api::CartItemsController < ApplicationController
             end
         end
     end
+
 
 
     def update

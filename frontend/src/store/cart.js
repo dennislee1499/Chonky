@@ -105,23 +105,38 @@ export const checkout = (userId) => async dispatch => {
 
 function cartReducer(state = {}, action) {
   const newState = { ...state }
+  console.log("Received action:", action);
+
 
      switch (action.type) {
        case RECEIVE_CART:
          sessionStorage.setItem("cart", JSON.stringify(action.cart));
          return { ...newState, ...action.cart };
+
        case ADD_PRODUCT:
-         sessionStorage.setItem("cart", JSON.stringify(action.cartItem));
-         newState[action.cartItem.id] = action.cartItem;
-         return newState;
+        if (newState[action.cartItemId]) {
+          newState[action.cartItemId].quantity = action.cartItem.quantity;
+        } else {
+          newState[action.cartItemId] = action.cartItem;
+        }
+        sessionStorage.setItem("cart", JSON.stringify(newState));
+        return newState;
+
        case RESET_CART:
          return action.cart;
+
        case REMOVE_PRODUCT:
          delete newState[action.cartItemId];
          return newState;
+
        case UPDATE_PRODUCT:
-         newState[action.cartItemId].quantity = action.quantity;
+        if (newState[action.cartItemId]) {
+          newState[action.cartItemId].quantity = action.quantity;
+        } else {
+          console.error("Cart item not found:", action.cartItemId);
+        }
          return newState;
+
        default:
          return state;
      }

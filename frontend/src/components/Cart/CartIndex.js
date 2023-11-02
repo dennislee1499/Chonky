@@ -28,6 +28,7 @@ export default function CartIndex() {
     });
   }
 
+
   function handleCheckout() {
     dispatch(checkout(currentUser.id));
     history.push("/checkout");

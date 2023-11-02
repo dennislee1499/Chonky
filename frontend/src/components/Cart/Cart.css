@@ -39,6 +39,10 @@
     list-style-type: none;
 }
 
+.cart-page ul {
+    list-style-type: none;
+}
+
 .your-cart-empty {
     display: flex;
     flex-direction: column;
@@ -116,7 +120,7 @@
     border: 1px solid #eee;
     border-radius: 10px;
     width: 25%;
-    height: 150px;
+    height: 12.5rem;
     padding: 16px;
     margin: 10px;
     top: 100px;
