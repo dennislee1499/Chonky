@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 import { fetchProducts } from "../../store/products";
 import { fetchCartItems } from "../../store/cart";
 
-export default function Cart({ isCartVisible }) {
+export default function Cart() {
   let currentUser = useSelector((state) => state.session.user);
-  const cart = useSelector((state) => Object.values(state.cart));
-  const products = useSelector((state) => state.products);
+  const cartItems = useSelector((state) => state.cart);
+  const cart = Object.values(cartItems);
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
 
@@ -31,46 +31,44 @@ export default function Cart({ isCartVisible }) {
 
 
   if (currentUser && cart.length) {
-    return (
-      <div
-        className={`cart-container ${isCartVisible ? "" : "hidden"}`}
-      >
-        <div className="icon-and-badge">
-          <i
-            className="fa-solid fa-cart-shopping fa-xl"
-            style={{ color: "#ffffff" }}
-          ></i>
-          <span className="cart-badge">{quant}</span>
-        </div>
+        return (
+            <div className="cart"
+                onMouseEnter={() => setShow(true)}
+                onMouseLeave={() => setShow(false)}>
+                <div className="icon-and-badge">
+                    <i className="fa fa-shopping-cart fa-xl" style={{color: "#ffffff"}}></i>
+                    <span className="cart-badge">{quant}</span>
+                </div>
+                <Link to="/cart"><h1>cart</h1></Link>
 
-        {isCartVisible && (
-          <div className="cart-drop">
-            <div className="cart-drop-headers">
-              <h2>Cart Subtotal: ${price?.toFixed(2)}</h2>
-              <Link to="/cart">Proceed to Checkout</Link>
+                {show && 
+                    <div className="cart-drop">
+                        <div className="cart-drop-headers">
+                            <h2>Cart Subtotal: ${price?.toFixed(2)}</h2>
+                            <Link to="/cart">Proceed to Checkout</Link>
+                       </div>
+                        <ul>
+                            {cart.map( item => <CartItem item={item}/>)}
+                        </ul>  
+                    </div>
+                }     
             </div>
-            <ul>
-              {cart.map((item) => (
-                <CartItem item={item} />
-              ))}
-            </ul>
-          </div>
-        )}
-      </div>
-    );
-  } else {
-    return (
-      <div
-        className={`cart-container ${isCartVisible ? "" : "hidden"}`}
-      >
-        <i
-          className="fa-solid fa-cart-shopping fa-xl"
-          style={{ color: "#ffffff" }}
-        ></i>
-        <span className="cart-badge">{quant}</span>
+        )
+        } else {
+            return (
+                <div className="cart"
+                onMouseEnter={() => setShow(true)}
+                onMouseLeave={() => setShow(false)}>
+                    <i className="fa fa-shopping-cart fa-lg" style={{color: "#ffffff"}}></i>
+                    <span className="cart-badge">{quant}</span>
+                    <Link to="/cart"><h1>cart</h1></Link>
 
-        {show && <ul className="your-cart-empty">Your cart is empty.</ul>}
-      </div>
-    );
-  }
-}
+                    {show &&
+                        <ul className="your-cart-empty">
+                            Your cart is empty.
+                        </ul>
+                    }
+                </div>
+        )
+      }
+   }

@@ -20,12 +20,10 @@ body, html {
     overflow: visible;
 }
 
-
 .new-logo {
     width: 200px;
     height: auto;
 }
-
 
 
 .splash-nav-links {
@@ -58,6 +56,10 @@ body, html {
     margin-top: 0;
 }
 
+.splash-nav-links #login:hover {
+    background-color: rgba(37, 97, 206, 255);
+}
+
 .splash-nav-links #create {
     color: rgb(36, 76, 187);
     background-color: white;
@@ -71,54 +73,33 @@ body, html {
     margin: 10px;
 }
 
-
-.user-dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: white;
-    box-shadow: 0 1px 3px 1px black;
-    border-radius: 3px;
-    z-index: 1000;
-    width: 200px;
-    padding: 5px;
+.splash-nav-links #create:hover {
+    background-color: rgba(219, 235, 250, 255);
 }
 
-.user-dropdown.logged-in {
-    max-height: 60px;
-    overflow-y: auto;
-}
-
-.user-dropdown.logged-out {
-    max-height: none;
-    overflow-y: hidden;
-    display: flex;
-    align-items: flex-start;
-}
-
-.DropDown:hover .user-dropdown {
-
-    display: block;
-}
-
-.user-dropdown .greeting-container,
-.user-dropdown .auth-links {
-    margin-top: 0;
-    padding-top: 0;
-    font-family: 'Poppins';
-}
-
-.user-dropdown .auth-links a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
+.splash-nav-links #logout {
     color: rgb(36, 76, 187);
+    background-color: white;
+    border: 1px solid rgb(36, 76, 187);
+    text-decoration: none;
+    padding: 10px;
+    width: 70%;
+    font-family: 'Poppins';
+    font-size: 12px;
+    border-radius: 20px;
+    margin: 10px;
 }
 
-.user-dropdown .auth-links a:hover {
-    background-color: rgb(238, 238, 238);
+.splash-nav-links #logout:hover {
+    background-color: rgba(219, 235, 250, 255);
 }
+
+
+.DropDown:hover  {
+    background-color: rgb(33, 69, 168);
+    cursor: pointer;
+}
+
 
 .DropDown {
     position: relative;
@@ -135,32 +116,24 @@ body, html {
     margin-left: 10px;
 }
 
-.logout-from-dropdown {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    right: 0px;
-    background-color: white;
-    text-align: center;
-    width: 10vw;
-    height: 5vw;
-    box-shadow: 0 1px 3px 1px black;
-    border-radius: 3px;
-
+.DropDown .fa-user {
+    padding-right: 10px;
 }
 
 
 #logout-drop-button {
     background: none;
     border: none;
-    color: blue;
-    text-decoration: none;
-    padding: 10px;
     cursor: pointer;
-    font-family: 'Poppins';
-    font-size: 12px;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: rgb(36, 76, 187);
+}
+
+
+#logout-drop-button:hover {
+    background-color: rgb(238, 238, 238);
 }
 
 
@@ -184,29 +157,16 @@ body, html {
     height: 100%;
 }
 
-.dropdown-menu {
-    list-style-type: none;
-    position: absolute;
-    top: 100%;
-    margin-top: -3px;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    width: 570px;
-    left: 0;
-    background-color: white;
-    z-index: 1000;
-    font-family: poppins;
+#cart-index-buttons button {
+    font-family: 'Poppins';
     font-size: 14px;
-}
-
-
-.dropdown-menu li {
-    margin: 10px 0;
-    margin-left: -25px;
-}
-
-
-.dropdown-menu li:hover {
-    background-color: lightgrey;
+    font-weight: 700;
+    color: #1C49C2;
+    background-color: white;
+    outline: none;
+    border: 2px solid #dbebf9;
+    border-radius: 20px;
+    padding: 5px 10px 5px 10px;
 }
 
 
@@ -225,20 +185,4 @@ body, html {
 #search-button:hover {
     cursor: pointer;
 }
-
-.cart-container .fa-shopping-cart {
-    margin-right: 10px;
-}
-
-.user-cart-container {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-}
-
-
-
-
-
-
 

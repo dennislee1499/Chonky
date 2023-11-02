@@ -108,7 +108,6 @@ function cartReducer(state = {}, action) {
 
      switch (action.type) {
        case RECEIVE_CART:
-        console.log("action.cart contains:", action.cart);
          sessionStorage.setItem("cart", JSON.stringify(action.cart));
          return { ...newState, ...action.cart };
        case ADD_PRODUCT:
