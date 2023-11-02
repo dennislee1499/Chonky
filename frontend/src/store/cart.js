@@ -91,9 +91,14 @@ export const addCartItem = (cartItem) => async (dispatch) => {
 };
 
 export const deleteCartItem = (cartItemId) => async (dispatch) => {
-  await csrfFetch(`/api/cart_items/${cartItemId}`, {
+  const res = await csrfFetch(`/api/cart_items/${cartItemId}`, {
     method: "DELETE",
   });
+  if (res.ok) {
+    dispatch(removeProduct(cartItemId));
+  } else {
+    console.error("Failed to delete cart item:", cartItemId);
+  }
 };
 
 export const checkout = (userId) => async dispatch => {
@@ -115,9 +120,9 @@ function cartReducer(state = {}, action) {
 
        case ADD_PRODUCT:
         if (newState[action.cartItemId]) {
-          newState[action.cartItemId].quantity = action.cartItem.quantity;
+          newState[action.cartItem.id].quantity = action.cartItem.quantity;
         } else {
-          newState[action.cartItemId] = action.cartItem;
+          newState[action.cartItem.id] = action.cartItem;
         }
         sessionStorage.setItem("cart", JSON.stringify(newState));
         return newState;

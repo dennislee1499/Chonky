@@ -18,9 +18,9 @@ export default function CartIndexItem({item}) {
   }, [item, product, dispatch]); 
 
   
-  function handleRemove() {
-    dispatch(deleteCartItem(item?.id));
-    dispatch(removeProduct(item?.id));
+  function handleRemove(cartItemId) {
+    dispatch(deleteCartItem(cartItemId));
+    dispatch(removeProduct(cartItemId));
   }
 
   function handleChange(e) {

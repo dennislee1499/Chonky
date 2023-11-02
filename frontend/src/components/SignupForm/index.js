@@ -195,9 +195,9 @@ function SignupForm() {
             value="Create Account"
           ></input>
           <div className="sign-in-link-from-signup">
-            <div className="divider-uno"></div>
+            {/* <div className="divider-uno"></div> */}
             Already have an account?
-            <div className="divider-dos"></div>
+            {/* <div className="divider-dos"></div> */}
             <Link
               onClick={() => {
                 dispatch(removeErrors());
