@@ -55,20 +55,16 @@ function App() {
             <ReviewForm />
           </Route>
 
-          <Route exact path="/no-products-found" component={NoProductsFound}>
+          <Route exact path="/no-products-found">
             <NoProductsFound  />
           </Route>
 
-          <Route exact path="/reviews/edit/:reviewId">
+          <Route exact path="/products/:productId/reviews/edit/:reviewId">
             <EditReviewForm />
           </Route>
 
           <Route exact path="/products/:productId">
             <ProductShow />
-          </Route>
-
-          <Route exact path="/">
-            <SplashPage />
           </Route>
 
         </Switch>

@@ -42,7 +42,7 @@ export default function CartIndex() {
           <h1>Shopping Cart</h1>
           <ul className="cart-items-list">
             {cart.map((item, idx) => (
-              <CartIndexItem item={item} key={idx} />
+              <CartIndexItem item={item} key={item.id} />
             ))}
           </ul>
         </div>

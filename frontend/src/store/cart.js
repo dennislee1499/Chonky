@@ -110,8 +110,6 @@ export const checkout = (userId) => async dispatch => {
 
 function cartReducer(state = {}, action) {
   const newState = { ...state }
-  console.log("Received action:", action);
-
 
      switch (action.type) {
        case RECEIVE_CART:

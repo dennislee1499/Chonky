@@ -11,13 +11,17 @@ import { Link } from "react-router-dom";
 import { deleteReview, fetchReviews } from "../../store/reviews";
 import moment from "moment-timezone";
 import { FaStar } from "react-icons/fa";
-import { setError } from "../../store/errors";
 
 function ProductShow() {
   const dispatch = useDispatch();
   const productId = parseInt(useParams().productId, 10); 
-  const product = useSelector((state) => state.products?.[productId]);
-  const reviews = useSelector((state) => state.reviews);
+  const product = useSelector((state) => state.products[productId]);
+  const reviews = useSelector((state) =>
+    Object.values(state.reviews).filter(
+      (review) => review.productId === productId
+    )
+  );
+
   
   const currentUser = useSelector((state) => state.session.user);
   const [flavor, setFlavor] = useState("");
@@ -31,9 +35,9 @@ function ProductShow() {
   useEffect(() => {
     if (!product) {
       dispatch(fetchProduct(productId))
+      dispatch(fetchReviews(productId))
     }
-    dispatch(fetchReviews(productId));
-  }, [dispatch, productId, product]);
+  }, [dispatch, productId, product, reviews]);
 
   const selectedPrices = {
     "3-lb bag": 10.18,
@@ -122,7 +126,7 @@ function ProductShow() {
 
    const ReviewList = Object.values(reviews).map((review) => {
 
-     if (review.productId === productId || review?.productId === productId) {
+     if (review.productId === productId) {
        return (
          <li id="review" key={review.id}>
            <p>
@@ -147,7 +151,8 @@ function ProductShow() {
            <div className="recommendation-text">
              {review.recommend !== null && (
                <p>
-                 Would you recommend this item: {review.recommend ? "Yes" : "No"}
+                 Would you recommend this item:{" "}
+                 {review.recommend ? "Yes" : "No"}
                </p>
              )}
            </div>
@@ -159,7 +164,11 @@ function ProductShow() {
              >
                Delete Review
              </button>
-             <Link to={`/reviews/edit/${review.id}`}>Edit Review</Link>
+             <Link
+               to={`/products/${review.productId}/reviews/edit/${review.id}`}
+             >
+               Edit Review
+             </Link>
            </div>
          </li>
        );

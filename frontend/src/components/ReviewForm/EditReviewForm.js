@@ -7,14 +7,24 @@ import { editReview } from "../../store/reviews";
 import { fetchProduct } from "../../store/products";
 import { FaStar } from "react-icons/fa";
 
+
 export default function EditReviewForm() {
-  const reviews = useSelector((state) => state.reviews);
   const dispatch = useDispatch();
   const history = useHistory();
-  const reviewId = useParams().reviewId;
-  const review = reviews[reviewId];
-  const productId = review.productId;
+  const { productId, reviewId } = useParams();
+
+  useEffect(() => {
+    if (productId) {
+      dispatch(fetchProduct(productId));
+    }
+  }, [dispatch, productId]);
+
   const product = useSelector((state) => state.products[productId]);
+  const reviews = useSelector((state) => state.reviews);
+  const review = reviews[reviewId];
+
+
+
   const [name, setName] = useState(review?.name);
   const [title, setTitle] = useState(review?.title);
   const [body, setBody] = useState(review?.body);
@@ -22,26 +32,24 @@ export default function EditReviewForm() {
 
   function handleEditReview(e) {
     e.preventDefault();
-    let review = { name, title, body, rating };
-    dispatch(editReview(reviewId, review)).then(() => {
+    const updatedReview = { name, title, body, rating };
+    dispatch(editReview(reviewId, productId, updatedReview)).then(() => {
       history.push(`/products/${productId}`);
     });
   }
-
-  useEffect(() => {
-    dispatch(fetchProduct(productId));
-  }, [dispatch, productId]);
 
 
   return (
     <div className="review-page">
       <div className="review-headers">
         <h1>Edit Review</h1>
-        <img
-          id="product-edit-review-img"
-          src={product.imageUrl}
-          alt={`${product.name}`}
-        />
+        {product && (
+          <img
+            id="product-edit-review-img"
+            src={product.imageUrl}
+            alt={`${product.name}`}
+          />
+        )}
       </div>
       <div>
         <form className="review-form" onSubmit={handleEditReview}>

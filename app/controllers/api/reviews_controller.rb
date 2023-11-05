@@ -1,6 +1,21 @@
 class Api::ReviewsController < ApplicationController
     before_action :require_logged_in
 
+    # def index
+    #   if params[:product_id]
+    #     @reviews = Review.where(product_id: params[:product_id])
+    #   else
+    #     @reviews = Review.all
+    #   end
+    #   render :index
+    # end 
+    def index
+      @reviews = Review.all
+
+      render 'api/reviews/index'
+    end
+
+
     def create
         @review = Review.new(review_params)
         @review.author_id = current_user.id
@@ -28,7 +43,7 @@ class Api::ReviewsController < ApplicationController
         @review = Review.find(params[:id])
 
         if current_user.id == @review.author_id
-            @review.delete
+            @review.destroy
         end
     end
 

@@ -2,7 +2,7 @@ import { RECEIVE_PRODUCT } from "./products";
 import  csrfFetch  from "./csrf";
 
 const ADD_REVIEW = "reviews/ADD_REVIEW";
-const REMOVE_REVIEW = "reviews/REMOVE_REVIEW";
+export const REMOVE_REVIEW = "reviews/REMOVE_REVIEW";
 const UPDATE_REVIEW = "reviews/EDIT_REVIEW";
 const RECEIVE_REVIEWS = "reviews/RECEIVE_REVIEWS";
 
@@ -43,16 +43,18 @@ export const deleteReview = (reviewId) => async (dispatch) => {
   dispatch(removeReview(reviewId));
 };
 
+
 export const submitReview = (review) => async (dispatch) => {
   const res = await csrfFetch("/api/reviews", {
     method: "POST",
     body: JSON.stringify({ product_id: review.productId, ...review }),
   });
-
   const data = await res.json();
   const reviewData = data.review[Object.keys(data.review)[0]];
   dispatch(addReview(reviewData));
+  dispatch(fetchReviews(review.productId)); 
 };
+
 
 export const editReview = (reviewId, review) => async (dispatch) => {
   const res = await csrfFetch(`/api/reviews/${reviewId}`, {
@@ -63,39 +65,61 @@ export const editReview = (reviewId, review) => async (dispatch) => {
   if (res.ok) {
     const updatedReview = await res.json();
     dispatch(updateReview(reviewId, updatedReview));
+    return dispatch(fetchReviews(review.productId));
   }
 };
 
-export const fetchReviews = (productId) => async dispatch => {
-  const res = await csrfFetch(`/api/reviews/${productId}`);
+
+
+export const fetchReviews = (productId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/reviews?product_id=${productId}`);
   if (res.ok) {
-    const reviews = await res.json();
-    dispatch(receiveReviews(reviews));
+    const data = await res.json();
+    const reviews = data.reviews;
+    dispatch(receiveReviews(reviews)); 
   }
 };
+
+
 
 
 export default function reviewsReducer(state = {}, action) {
   const newState = { ...state };
 
   switch (action.type) {
-    case RECEIVE_REVIEWS:
-    return {
-      ...state, 
-      ...action.reviews.reduce((acc, review) => {
-        acc[review.id] = review;
+  
+    case RECEIVE_REVIEWS: {
+      const reviewsObject = action.reviews.reduce((acc, review) => {
+        const reviewId = Object.keys(review)[0];
+        acc[reviewId] = review[reviewId];
         return acc;
-      }, {}),
+      }, {});
+      return {
+        ...state,
+        ...reviewsObject,
+      };
     }
+
     case ADD_REVIEW:
       const { id } = action.review;
       return {
         ...newState,
         [id]: action.review,
       };
-      
+
     case RECEIVE_PRODUCT:
-      return { ...newState, ...action.reviews };
+      if (action.product.reviews && Array.isArray(action.product.reviews)) {
+        const normalizedReviews = action.product.reviews.reduce(
+          (acc, review) => {
+            acc[review.id] = review;
+            return acc;
+          },
+          {}
+        );
+        return { ...newState, ...normalizedReviews };
+      } else {
+        return newState;
+      }
 
     case REMOVE_REVIEW:
       delete newState[action.reviewId];
@@ -107,7 +131,7 @@ export default function reviewsReducer(state = {}, action) {
         [action.reviewId]: {
           ...state[action.reviewId],
           ...action.review,
-        }
+        },
       };
     }
 
