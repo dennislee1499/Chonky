@@ -31,10 +31,11 @@ export default function EditReviewForm() {
   const [title, setTitle] = useState(review?.title);
   const [body, setBody] = useState(review?.body);
   const [rating, setRating] = useState(review?.rating);
+  const [recommend, setRecommend] = useState(review?.recommend);
 
   function handleEditReview(e) {
     e.preventDefault();
-    const updatedReview = { name, title, body, rating };
+    const updatedReview = { name, title, body, rating, recommend };
     dispatch(editReview(reviewId, productId, updatedReview)).then(() => {
       history.push(`/products/${productId}`);
     });
@@ -102,6 +103,30 @@ export default function EditReviewForm() {
               setBody(e.target.value);
             }}
           />
+          <div className="review-radios">
+            <h1>Would you recommend this item?</h1>
+            <label>
+              Yes
+              <input
+                type="radio"
+                name="rec"
+                value="Yes"
+                checked={recommend === true}
+                onChange={() => setRecommend(true)}
+              />
+            </label>
+            <label>
+              No
+              <input
+                type="radio"
+                name="rec"
+                value="No"
+                checked={recommend === false}
+                onChange={() => setRecommend(false)}
+              />
+            </label>
+          </div>
+          
           <input id="review-submit" type="submit" value="Edit Review" />
         </form>
       </div>

@@ -32,14 +32,7 @@ function ProductShow() {
   const [errorMessage, setErrorMessage] = useState("");
   const history = useHistory();
 
-  // useEffect(() => {
-  //   // if (!product) {
-  //     dispatch(fetchProduct(productId))
-  //     console.log("Product fetched");
-  //     dispatch(fetchReviews(productId))
-  //     console.log("Reviews fetched");
-  //   // }
-  // }, [dispatch, productId]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {

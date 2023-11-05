@@ -9,11 +9,6 @@ class Api::ReviewsController < ApplicationController
       end
       render :index
     end 
-    # def index
-    #   @reviews = Review.all
-
-    #   render 'api/reviews/index'
-    # end
 
 
     def create

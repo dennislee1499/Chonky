@@ -43,9 +43,7 @@ export default function ReviewForm() {
 
     if (Object.keys(errors).length === 0 && currentUser) { 
     let review = { name, title, body, productId, rating, recommend };
-    // dispatch(submitReview(review)).then(() => {
-    //   history.push(`/products/${productId}`);
-    // });
+    
     dispatch(submitReview(review)).then(() => {
       dispatch(fetchProduct(productId)).then(() => {
         history.push(`/products/${productId}`);

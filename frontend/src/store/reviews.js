@@ -56,7 +56,7 @@ export const submitReview = (review) => async (dispatch) => {
 };
 
 
-export const editReview = (reviewId, review) => async (dispatch) => {
+export const editReview = (reviewId, productId, review) => async (dispatch) => {
   const res = await csrfFetch(`/api/reviews/${reviewId}`, {
     method: "PATCH",
     body: JSON.stringify(review),
@@ -65,7 +65,7 @@ export const editReview = (reviewId, review) => async (dispatch) => {
   if (res.ok) {
     const updatedReview = await res.json();
     dispatch(updateReview(reviewId, updatedReview));
-    return dispatch(fetchReviews(review.productId));
+    return dispatch(fetchReviews(productId));
   }
 };
 
