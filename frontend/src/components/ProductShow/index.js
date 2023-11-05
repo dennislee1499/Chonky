@@ -32,12 +32,26 @@ function ProductShow() {
   const [errorMessage, setErrorMessage] = useState("");
   const history = useHistory();
 
+  // useEffect(() => {
+  //   // if (!product) {
+  //     dispatch(fetchProduct(productId))
+  //     console.log("Product fetched");
+  //     dispatch(fetchReviews(productId))
+  //     console.log("Reviews fetched");
+  //   // }
+  // }, [dispatch, productId]);
   useEffect(() => {
-    if (!product) {
-      dispatch(fetchProduct(productId))
-      dispatch(fetchReviews(productId))
-    }
-  }, [dispatch, productId, product, reviews]);
+    const fetchData = async () => {
+      try {
+        await dispatch(fetchProduct(productId));
+        await dispatch(fetchReviews(productId));
+      } catch (error) {
+      }
+    };
+
+    fetchData();
+  }, [dispatch, productId]);
+
 
   const selectedPrices = {
     "3-lb bag": 10.18,

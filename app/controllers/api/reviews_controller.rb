@@ -1,19 +1,19 @@
 class Api::ReviewsController < ApplicationController
     before_action :require_logged_in
 
-    # def index
-    #   if params[:product_id]
-    #     @reviews = Review.where(product_id: params[:product_id])
-    #   else
-    #     @reviews = Review.all
-    #   end
-    #   render :index
-    # end 
     def index
-      @reviews = Review.all
+      if params[:product_id]
+        @reviews = Review.where(product_id: params[:product_id])
+      else
+        @reviews = Review.all
+      end
+      render :index
+    end 
+    # def index
+    #   @reviews = Review.all
 
-      render 'api/reviews/index'
-    end
+    #   render 'api/reviews/index'
+    # end
 
 
     def create
