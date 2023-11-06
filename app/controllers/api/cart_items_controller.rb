@@ -1,6 +1,12 @@
 class Api::CartItemsController < ApplicationController
     before_action :require_logged_in
 
+    def index
+    @cart_items = CartItem.where(user_id: current_user.id)
+    render 'api/cart_items/index'
+    end
+
+
 
     def create 
     @cart_item = CartItem.find_by(product_id: params[:product_id], user_id: current_user.id)

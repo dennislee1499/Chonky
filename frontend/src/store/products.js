@@ -22,11 +22,15 @@ export const receiveProduct = (product) => {
     }
 }
 
-export const fetchProducts = () => async dispatch => {
-    const res = await csrfFetch('/api/products');
-    const data = await res.json();
-    dispatch(receiveProducts(data.products));
-}
+
+export const fetchProducts = () => async (dispatch) => {
+  const res = await csrfFetch("/api/products");
+  const data = await res.json();
+  dispatch(receiveProducts(data.products));
+
+  return Promise.resolve(data.products);
+};
+
 
 export const fetchProduct = (productId) => async dispatch => {
     const res = await csrfFetch(`/api/products/${productId}`);

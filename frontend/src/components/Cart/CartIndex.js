@@ -14,10 +14,13 @@ export default function CartIndex() {
   const dispatch = useDispatch();
   const history = useHistory();
 
+
   useEffect(() => {
-    dispatch(fetchProducts());
-    dispatch(fetchCartItems(currentUser?.id));
-  }, []);
+    dispatch(fetchProducts()).then(() => {
+      dispatch(fetchCartItems());
+    });
+  }, [dispatch]);
+
 
   let quant = 0;
   let price = 0;
