@@ -65,10 +65,13 @@ function LoginForm() {
           </ul>
 
           <input id="signin-button" type="submit" value="Sign In" />
+
           <button
-            onClick={() =>
-              dispatch(login({ email: "demo@user.io", password: "password" }))
-            }
+            type="button" 
+            onClick={(e) => {
+              e.preventDefault(); 
+              dispatch(login({ email: "demo@user.io", password: "password" }));
+            }}
             id="demo-button"
           >
             Demo Login

@@ -12,7 +12,6 @@ export default function EditReviewForm() {
   const dispatch = useDispatch();
   const history = useHistory();
   const { productId, reviewId } = useParams();
-  console.log("productId:", productId, "reviewId:", reviewId);
 
 
   useEffect(() => {
