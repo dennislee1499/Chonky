@@ -14,7 +14,9 @@ export default function Cart() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    if (currentUser) {
     dispatch(fetchProducts()).then(() => dispatch(fetchCartItems()));
+    }
   }, [dispatch]);
 
   let quant = 0;

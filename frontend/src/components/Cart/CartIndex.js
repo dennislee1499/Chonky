@@ -16,10 +16,12 @@ export default function CartIndex() {
 
 
   useEffect(() => {
+    if (currentUser) {
     dispatch(fetchProducts()).then(() => {
       dispatch(fetchCartItems());
     });
-  }, [dispatch]);
+    }
+  }, [dispatch, currentUser]);
 
 
   let quant = 0;
