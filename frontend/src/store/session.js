@@ -1,4 +1,5 @@
 import csrfFetch  from "./csrf.js";
+import { fetchCartItems, resetCart } from "./cart.js";
 
 const SET_CURRENT_USER = "session/setCurrentUser";
 const REMOVE_CURRENT_USER = "session/removeCurrentUser";
@@ -24,18 +25,18 @@ export const redirectAfterSuccess = () => ({
 });
 
 
+
 export const login = (user) => async (dispatch) => {
-  const { email, password } = user;
   const response = await csrfFetch("/api/session", {
     method: "POST",
-    body: JSON.stringify({
-      email,
-      password,
-    }),
+    body: JSON.stringify(user),
   });
   const data = await response.json();
-  storeCurrentUser(data.user)
-  dispatch(setCurrentUser(data.user));
+  if (data.user) {
+    storeCurrentUser(data.user);
+    dispatch(setCurrentUser(data.user));
+    dispatch(fetchCartItems()); 
+  }
   return response;
 };
 
@@ -57,8 +58,11 @@ export const restoreSession = () => async (dispatch) => {
   const response = await csrfFetch("/api/session");
   storeCSRFToken(response);
   const data = await response.json();
-  storeCurrentUser(data.user);
-  dispatch(setCurrentUser(data.user));
+  if (data.user) {
+    storeCurrentUser(data.user);
+    dispatch(setCurrentUser(data.user));
+    dispatch(fetchCartItems());
+  }
   return response;
 };
 
@@ -89,6 +93,7 @@ export const logout = () => async (dispatch) => {
   if (response.ok) {
       storeCurrentUser(null);
       dispatch(removeCurrentUser());
+      dispatch(resetCart());
       return response;
   }
 };
