@@ -37,13 +37,15 @@ function ProductShow() {
     const fetchData = async () => {
       try {
         await dispatch(fetchProduct(productId));
-        await dispatch(fetchReviews(productId));
-      } catch (error) {
-      }
+
+        if (currentUser) {
+          await dispatch(fetchReviews(productId));
+        }
+      } catch (error) {}
     };
 
     fetchData();
-  }, [dispatch, productId]);
+  }, [dispatch, productId, currentUser]);
 
 
   const selectedPrices = {
