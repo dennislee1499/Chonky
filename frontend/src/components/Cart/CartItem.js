@@ -16,6 +16,7 @@ export default function CartItem({item}) {
         <div className="cart-item-info">
           <p className="cart-item-name">{product?.name}</p>{" "}
           <div className="cart-item-details">
+            <p className="item-flavor">Flavor: {item.flavor}</p>
             <p className="item-price">${parseFloat(item.price).toFixed(2)}</p>
             <p className="item-quantity">(Qty: {item.quantity})</p>
           </div>
