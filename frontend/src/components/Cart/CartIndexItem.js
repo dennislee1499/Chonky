@@ -12,7 +12,6 @@ export default function CartIndexItem({item}) {
 
 
   useEffect(() => {
-    console.log("item:",item);
     if (!product) {
       dispatch(fetchProduct(item.productId)); 
     }

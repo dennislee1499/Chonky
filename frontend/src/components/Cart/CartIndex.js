@@ -4,7 +4,7 @@ import CartIndexItem from "./CartIndexItem";
 import "./Cart.css";
 import { checkout, fetchCartItems, resetCart } from "../../store/cart";
 import { useHistory } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchProducts } from "../../store/products";
 
 export default function CartIndex() {
@@ -13,12 +13,16 @@ export default function CartIndex() {
   const products = useSelector((state) => state.products);
   const dispatch = useDispatch();
   const history = useHistory();
+  const [loading, setLoading] = useState(true);
 
 
   useEffect(() => {
     if (currentUser) {
-    dispatch(fetchProducts()).then(() => {
-      dispatch(fetchCartItems());
+      setLoading(true);
+      dispatch(fetchProducts()).then(() => {
+      dispatch(fetchCartItems()).then(() => {
+        setLoading(false);
+      });
     });
     }
   }, [dispatch, currentUser]);
@@ -40,7 +44,10 @@ export default function CartIndex() {
     dispatch(resetCart());
   }
 
-  if (cart && cart.length) {
+  
+    if (loading) {
+      return <div className="loading-container">Loading...</div>;
+    } else if (cart.length) {
     return (
       <div className="cart-page">
         <div className="cart-index">

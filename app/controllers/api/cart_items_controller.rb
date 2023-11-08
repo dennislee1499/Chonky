@@ -7,25 +7,30 @@ class Api::CartItemsController < ApplicationController
     end
 
 
-
     def create 
-    @cart_item = CartItem.find_by(product_id: params[:product_id], user_id: current_user.id)
+    @cart_item = CartItem.find_by(
+        product_id: params[:product_id], 
+        user_id: current_user.id,
+        size: params[:size],
+        flavor: params[:flavor]
+    )
 
-        if @cart_item
-            combined_quantity = @cart_item.quantity + params[:quantity].to_i
-            @cart_item.update!(quantity: combined_quantity)
+    if @cart_item
+        combined_quantity = @cart_item.quantity + params[:quantity].to_i
+        @cart_item.update!(quantity: combined_quantity)
+        render 'api/cart_items/show'
+    else
+        @cart_item = CartItem.new(cart_params)
+        @user = current_user
+
+        if @cart_item.save
             render 'api/cart_items/show'
         else
-            @cart_item = CartItem.new(cart_params)
-            @user = current_user
-
-            if @cart_item.save
-                render 'api/cart_items/show'
-            else
-                render json: @cart_item.errors.full_messages, status: 422
-            end
+            render json: @cart_item.errors.full_messages, status: 422
         end
     end
+end
+
 
 
 
