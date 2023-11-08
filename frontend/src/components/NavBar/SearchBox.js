@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { fetchSearchResults, clearSearchResults } from "../../store/search";
 import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "../../store/products";
 
 export default function SearchBox() {
   const [query, setQuery] = useState("");
@@ -51,6 +52,7 @@ export default function SearchBox() {
       }
     }
   };
+
 
 
   const handleKeyPress = (e) => {

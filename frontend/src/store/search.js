@@ -1,4 +1,5 @@
 import csrfFetch from "./csrf";
+import { fetchProducts } from "./products";
 
 export const GET_RESULTS = 'search/getResults'
 export const CLEAR_RESULTS = "search/clearResults";
@@ -16,15 +17,20 @@ export const clearSearchResults = () => ({
 
 
 
-
-export const fetchSearchResults = (query) => async dispatch => {
+export const fetchSearchResults = (query) => async (dispatch) => {
   const res = await csrfFetch(`/api/products/search?query=${query}`);
   const data = await res.json();
-  const productsObj = data.products ? data.products : {};
-  const productsArray = Object.values(productsObj);
-  await dispatch(receiveSearchResults(productsArray));
+
+  if (res.ok && data.products && Object.keys(data.products).length > 0) {
+    const productsArray = Object.values(data.products);
+    dispatch(receiveSearchResults(productsArray));
+  } else {
+    dispatch(fetchProducts()); 
+  }
+
   return data;
 };
+
 
 
 const initialState = {

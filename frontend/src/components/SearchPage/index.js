@@ -5,6 +5,7 @@ import { fetchSearchResults, clearSearchResults } from "../../store/search";
 import { Link } from "react-router-dom";
 import "./SearchPage.css";
 import StarRatingDisplay from "../StarRating/StarRatingDisplay";
+import { fetchProducts } from "../../store/products";
 
 
 
@@ -20,6 +21,8 @@ export default function SearchPage() {
     dispatch(clearSearchResults());
     if (query) {
       dispatch(fetchSearchResults(query));
+    } else {
+      dispatch(fetchProducts());
     }
   }, [dispatch, query]);
 
