@@ -21,3 +21,11 @@
     object-fit: contain;
 }
 
+.rating-show {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+

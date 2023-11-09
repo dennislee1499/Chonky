@@ -17,23 +17,29 @@ export default function SearchPage() {
   const dispatch = useDispatch();
   const searchResults = useSelector((state) => Object.values(state.search.products));
 
+
   useEffect(() => {
     dispatch(clearSearchResults());
-    if (query) {
+    if (query !== null && query !== undefined && query !== "") {
       dispatch(fetchSearchResults(query));
     } else {
       dispatch(fetchProducts());
     }
   }, [dispatch, query]);
 
+ 
+ 
+
   const SearchList = searchResults.map((result) => {
     return (
       <li key={result?.id}>
-        <img
-          id="product-search-img"
-          src={result?.imageUrl}
-          alt={`Image of ${result?.name}`}
-        />
+        <Link to={`/products/${result?.id}`}>
+          <img
+            id="product-search-img"
+            src={result?.imageUrl}
+            alt={`Image of ${result?.name}`}
+          />
+        </Link>
         <Link id="link-to-show-from-product" to={`/products/${result?.id}`}>
           <p>
             <span className="brand-name">{result?.brand}</span> {result?.name}
@@ -44,7 +50,7 @@ export default function SearchPage() {
           <p>{result?.rating}</p>
         </div>
         <p id="index-price" className="product-price">
-          Price:  <span className="price-value">${result?.price}</span>
+          Price: <span className="price-value">${result?.price}</span>
         </p>
       </li>
     );

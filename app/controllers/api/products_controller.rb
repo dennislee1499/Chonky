@@ -13,7 +13,13 @@ class Api::ProductsController < ApplicationController
 
     def search
         query = params[:query]
-        @products = Product.where('name ILIKE ?', "%#{query}%")
-        render 'api/products/search'
+        if query.present?
+            @products = Product.where('name ILIKE ?', "%#{query}%")
+        else
+            @products = Product.all
+        end
+
+            render 'api/products/search'
     end
+
 end
