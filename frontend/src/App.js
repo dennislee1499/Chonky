@@ -13,6 +13,7 @@ import CheckoutPage from "./components/CheckoutPage";
 import ReviewForm from "./components/ReviewForm";
 import EditReviewForm from "./components/ReviewForm/EditReviewForm";
 import NoProductsFound from "./components/NoProductsFound";
+import LookingForProducts from "./components/LookingForProducts";
 
 function App() {
   let location = useLocation();
@@ -57,6 +58,10 @@ function App() {
 
           <Route exact path="/no-products-found">
             <NoProductsFound  />
+          </Route>
+
+          <Route exact path="/looking-for-products">
+            <LookingForProducts />
           </Route>
 
           <Route exact path="/products/:productId/reviews/edit/:reviewId">

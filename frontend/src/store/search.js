@@ -25,7 +25,7 @@ export const fetchSearchResults = (query) => async (dispatch) => {
     const productsArray = Object.values(data.products);
     dispatch(receiveSearchResults(productsArray));
   } else {
-    dispatch(fetchProducts()); 
+    dispatch(receiveSearchResults([]));
   }
 
   return data;

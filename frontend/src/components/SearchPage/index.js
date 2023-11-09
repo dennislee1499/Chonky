@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { fetchSearchResults, clearSearchResults } from "../../store/search";
 import { Link } from "react-router-dom";
 import "./SearchPage.css";
 import StarRatingDisplay from "../StarRating/StarRatingDisplay";
 import { fetchProducts } from "../../store/products";
-
+import LookingForProducts from "../LookingForProducts";
 
 
 
@@ -16,19 +16,17 @@ export default function SearchPage() {
   const query = searchParams.get("query");
   const dispatch = useDispatch();
   const searchResults = useSelector((state) => Object.values(state.search.products));
+  const hasResults = searchResults.length > 0;
+  const [isLoading, setIsLoading] = useState(false);
 
 
   useEffect(() => {
+    setIsLoading(true); 
     dispatch(clearSearchResults());
-    if (query !== null && query !== undefined && query !== "") {
-      dispatch(fetchSearchResults(query));
-    } else {
-      dispatch(fetchProducts());
-    }
+    const action = query ? fetchSearchResults(query) : fetchProducts();
+    dispatch(action).then(() => setIsLoading(false)); 
   }, [dispatch, query]);
 
- 
- 
 
   const SearchList = searchResults.map((result) => {
     return (
@@ -60,7 +58,13 @@ export default function SearchPage() {
   return (
     <div className="search-page">
       <h1>Results for "{query}"</h1>
-      <ul className="products-index">{SearchList}</ul>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : hasResults ? (
+        <ul className="products-index">{SearchList}</ul>
+      ) : (
+        <LookingForProducts query={query} />
+      )}
     </div>
   );
 }
