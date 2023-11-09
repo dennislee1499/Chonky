@@ -57,11 +57,13 @@ export default function SearchPage() {
 
   return (
     <div className="search-page">
-      <h1>Results for "{query}"</h1>
       {isLoading ? (
         <p>Loading...</p>
       ) : hasResults ? (
-        <ul className="products-index">{SearchList}</ul>
+        <>
+          <h1>Results for "{query}"</h1>
+          <ul className="products-index">{SearchList}</ul>
+        </>
       ) : (
         <LookingForProducts query={query} />
       )}
