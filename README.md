@@ -30,7 +30,7 @@ Chonky is a clone of Chewy. Chewy is a well known pet product retail platform th
 - The index page displays all of the products listings with their images, names, ratings, and prices. Clicking on a product will take the user to that specific products show page. The show page displays the products image, rating, price, flavor/size options. These options are conditionally rendered based on presence.
 
 
-![Screenshot 2023-10-15 at 11 42 23 AM](https://github.com/dennislee1499/Chonky/assets/136773894/09f32d8e-dc24-4ccd-ad32-25fc59c7504c)
+<img width="1424" alt="product-show-page" src="https://github.com/dennislee1499/Chonky/assets/136773894/fa2db373-943c-4e61-a131-ee384bb7a0dd">
 
 
 
@@ -60,10 +60,31 @@ Chonky is a clone of Chewy. Chewy is a well known pet product retail platform th
 
 
 
-## Coming Soon 
+## Cart
+- Users are able to add and remove items from their cart. The cart icon on the navbar renders an on-hover dropdown which shows the items in cart, subtotal, and quantity of each item.
 
-1. Cart: Users will be able to add and remove items from their cart. The cart icon on the navbar will have a on-hover dropdown which will show the items in cart, subtotal, and quantity of each item.
-2. Reviews: Users will be able to rate products from 1-5 stars and leave reviews which will be displayed under the product details.
+
+<img width="1415" alt="Screenshot 2023-11-12 at 6 43 28 PM" src="https://github.com/dennislee1499/Chonky/assets/136773894/b1bbfc8c-f519-4446-9eab-e6dd5a9fecce">
+
+
+
+<img width="1425" alt="Screenshot 2023-11-12 at 6 43 41 PM" src="https://github.com/dennislee1499/Chonky/assets/136773894/3eb4bfd2-0c5f-4e3a-a5c0-28c3cebe0ffa">
+
+
+
+
+## Reviews
+
+- Users are able to rate products from 1-5 stars and leave reviews which are displayed under the product details.
+
+
+
+<img width="1402" alt="Screenshot 2023-11-12 at 6 48 17 PM" src="https://github.com/dennislee1499/Chonky/assets/136773894/04a27b4d-f110-41b9-9f2e-03bed5e8b649">
+
+
+
+
+<img width="1396" alt="Screenshot 2023-11-12 at 6 49 09 PM" src="https://github.com/dennislee1499/Chonky/assets/136773894/bebc7c7b-b9f0-42e3-800b-97593d8667fa">
 
 
 
